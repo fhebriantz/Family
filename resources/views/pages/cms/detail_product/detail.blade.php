@@ -54,7 +54,7 @@
                                         <form method="POST" action="/family/public/cms/product/subproduct/detail/{{ $detail->id }}/delete" class="text-center" style="float: right; padding-left: 10px;">
                                             <!-- csrf perlu ditambahakan di setiap post -->
                                             {{ csrf_field() }}
-                                            <input class="btn btn-danger" type="submit" name="delete" value="Delete"> 
+                                            <input class="btn btn-danger" type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure want to delete {{$detail->name_product}}?');"> 
                                             <input type="hidden" name="_method" value="DELETE">
                                         </form>
                                     </td>

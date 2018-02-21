@@ -141,54 +141,55 @@
 
 								<tr>
 									<td>Image1</td>
-									<td><input type="text" name="image1" placeholder="Image1" value="{{ $product_detail->image1 }}" style="width: 100%"><input type="file" name="image1" placeholder="Image1" value="{{ $product_detail->image1 }}" style="width: 100%">
+									<td><input type="text" name="image1" placeholder="Image1" value="{{ $product_detail->image1 }}" style="width: 100%" readonly>
+									<input type="file" name="image1" placeholder="Image1" value="{{ $product_detail->image1 }}" style="width: 100%">
 									<img src="/family/public/asset/img/{{ $product_detail->image1 }}" style="max-height:200px;max-width:200px;margin-top:10px;">
 									
-                                    <input class="btn btn-danger" type="submit" name="delete1" value="Delete"><p>{{ session('status1')}}</p> 
+                                    <input class="btn btn-danger" type="submit" name="delete1" value="Delete" onclick="return confirm('Are you sure want to delete image1?');"> <p style="color: red">{{ session('status1')}}</p> 
 
                                 	</td>
 								</tr>
 
 								<tr>
 									<td>Image2</td>
-									<td><input type="text" name="image2" placeholder="Image2" value="{{ $product_detail->image2 }}" style="width: 100%">
+									<td><input type="text" name="image2" placeholder="Image2" value="{{ $product_detail->image2 }}" style="width: 100%" readonly>
 									<input type="file" name="image2" placeholder="Image2" value="{{ $product_detail->image2 }}" style="width: 100%">
 									<img src="/family/public/asset/img/{{ $product_detail->image2 }}" style="max-height:200px;max-width:200px;margin-top:10px;">
 
-									  <input class="btn btn-danger" type="submit" name="delete2" value="Delete"> <p>{{ session('status2')}}</p> 
+									  <input class="btn btn-danger" type="submit" name="delete2" value="Delete" onclick="return confirm('Are you sure want to delete image2?');"> <p style="color: red">{{ session('status2')}}</p> 
 
 									</td>
 								</tr>
 
 								<tr>
 									<td>Image3</td>
-									<td><input type="text" name="image3" placeholder="Image3" value="{{ $product_detail->image3 }}" style="width: 100%">
+									<td><input type="text" name="image3" placeholder="Image3" value="{{ $product_detail->image3 }}" style="width: 100%" readonly>
 									<input type="file" name="image3" placeholder="Image3" value="{{ $product_detail->image3 }}" style="width: 100%">
 									<img src="/family/public/asset/img/{{ $product_detail->image3 }}" style="max-height:200px;max-width:200px;margin-top:10px;">
 
-									  <input class="btn btn-danger" type="submit" name="delete3" value="Delete"> <p>{{ session('status3')}}</p> 
+									  <input class="btn btn-danger" type="submit" name="delete3" value="Delete" onclick="return confirm('Are you sure want to delete image3?');"> <p style="color: red">{{ session('status3')}}</p> 
 
 									</td>
 								</tr>
 
 								<tr>
 									<td>Image4</td>
-									<td><input type="text" name="image4" placeholder="Image4" value="{{ $product_detail->image4 }}" style="width: 100%">
+									<td><input type="text" name="image4" placeholder="Image4" value="{{ $product_detail->image4 }}" style="width: 100%" readonly>
 									<input type="file" name="image4" placeholder="Image4" value="{{ $product_detail->image4 }}" style="width: 100%">
 									<img src="/family/public/asset/img/{{ $product_detail->image4 }}" style="max-height:200px;max-width:200px;margin-top:10px;">
 
-									  <input class="btn btn-danger" type="submit" name="delete4" value="Delete"> <p>{{ session('status4')}}</p> 
+									  <input class="btn btn-danger" type="submit" name="delete4" value="Delete" onclick="return confirm('Are you sure want to delete image4?');"> <p style="color: red">{{ session('status4')}}</p> 
 
 									</td>
 								</tr>
 
 								<tr>
 									<td>Image5</td>
-									<td><input type="text" name="image5" placeholder="Image5" value="{{ $product_detail->image5 }}" style="width: 100%">
+									<td><input type="text" name="image5" placeholder="Image5" value="{{ $product_detail->image5 }}" style="width: 100%" readonly>
 									<input type="file" name="image5" placeholder="Image5" value="{{ $product_detail->image5 }}" style="width: 100%">
 									<img src="/family/public/asset/img/{{ $product_detail->image5 }}" style="max-height:200px;max-width:200px;margin-top:10px;">
 
-									  <input class="btn btn-danger" type="submit" name="delete5" value="Delete"> <p>{{ session('status5')}}</p> 
+									  <input  class="btn btn-danger" type="submit" name="delete5" value="Delete" onclick="return confirm('Are you sure want to delete image5?');"> <p style="color: red">{{ session('status5')}}</p> 
 
 									</td>
 								</tr>

@@ -21,7 +21,8 @@
 	                        <table class="table">
 							<tr>
 								<td>Nama Product</td>
-								<td><input type="text" name="category_product_name" placeholder="Nama Product" style="width: 100%"></td>
+								<td><input type="text" name="category_product_name" placeholder="Nama Product" style="width: 100%"><p style="color: red">{{ session('status')}}</p></td>
+                                
 							</tr>
 						
 							<tr>

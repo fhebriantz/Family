@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Redirect;
 
 class Product_detailController extends Controller
 {
+   
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function show(){ 
     	$product_detail = Product_detail::all();
 
@@ -261,25 +268,25 @@ class Product_detailController extends Controller
             $product_detail = Product_detail::find($id);
 
             // nama = nama field di database, var_nama = var_nama di dalam form input_blade
-            $product_detail->id = $request->id;
-            $product_detail->id_category = $request->id_category;
-            $product_detail->id_category_sub = $request->id_category_sub;
-            $product_detail->name_product = $request->name_product;
-            $product_detail->price = $request->price; 
-            $product_detail->frame = $request->frame;
-            $product_detail->fork = $request->fork;
-            $product_detail->brakes_rear = $request->brakes_rear;
-            $product_detail->brakes_levers = $request->brakes_levers;
-            $product_detail->pedals = $request->pedals;
-            $product_detail->crankset = $request->crankset;
-            $product_detail->bottom_bracket = $request->bottom_bracket;
-            $product_detail->chain = $request->chain;
-            $product_detail->cassete = $request->cassete;
-            $product_detail->rim = $request->rim;
-            $product_detail->saddle = $request->saddle;
-            $product_detail->seatpot = $request->seatpot;
-            $product_detail->stem = $request->stem;
-            $product_detail->handlebar = $request->handlebar;
+            $product_detail->id = $product_detail->id;
+            $product_detail->id_category = $product_detail->id_category;
+            $product_detail->id_category_sub = $product_detail->id_category_sub;
+            $product_detail->name_product = $product_detail->name_product;
+            $product_detail->price = $product_detail->price; 
+            $product_detail->frame = $product_detail->frame;
+            $product_detail->fork = $product_detail->fork;
+            $product_detail->brakes_rear = $product_detail->brakes_rear;
+            $product_detail->brakes_levers = $product_detail->brakes_levers;
+            $product_detail->pedals = $product_detail->pedals;
+            $product_detail->crankset = $product_detail->crankset;
+            $product_detail->bottom_bracket = $product_detail->bottom_bracket;
+            $product_detail->chain = $product_detail->chain;
+            $product_detail->cassete = $product_detail->cassete;
+            $product_detail->rim = $product_detail->rim;
+            $product_detail->saddle = $product_detail->saddle;
+            $product_detail->seatpot = $product_detail->seatpot;
+            $product_detail->stem = $product_detail->stem;
+            $product_detail->handlebar = $product_detail->handlebar;
 
             $nol="";
             $product_detail->image1 = $nol;
@@ -299,7 +306,7 @@ class Product_detailController extends Controller
             // mau pindah ke link mana setelah tombol submit di klik
             //$message = 'Succses';
             // status yang di panggil di blade, success adalah pesannya
-            $request->session()->flash('status1', 'success');
+            $request->session()->flash('status1', 'Picture "Image1" has been deleted');
             return  Redirect::back();
         }
 
@@ -308,25 +315,25 @@ class Product_detailController extends Controller
             $product_detail = Product_detail::find($id);
 
             // nama = nama field di database, var_nama = var_nama di dalam form input_blade
-            $product_detail->id = $request->id;
-            $product_detail->id_category = $request->id_category;
-            $product_detail->id_category_sub = $request->id_category_sub;
-            $product_detail->name_product = $request->name_product;
-            $product_detail->price = $request->price; 
-            $product_detail->frame = $request->frame;
-            $product_detail->fork = $request->fork;
-            $product_detail->brakes_rear = $request->brakes_rear;
-            $product_detail->brakes_levers = $request->brakes_levers;
-            $product_detail->pedals = $request->pedals;
-            $product_detail->crankset = $request->crankset;
-            $product_detail->bottom_bracket = $request->bottom_bracket;
-            $product_detail->chain = $request->chain;
-            $product_detail->cassete = $request->cassete;
-            $product_detail->rim = $request->rim;
-            $product_detail->saddle = $request->saddle;
-            $product_detail->seatpot = $request->seatpot;
-            $product_detail->stem = $request->stem;
-            $product_detail->handlebar = $request->handlebar;
+            $product_detail->id = $product_detail->id;
+            $product_detail->id_category = $product_detail->id_category;
+            $product_detail->id_category_sub = $product_detail->id_category_sub;
+            $product_detail->name_product = $product_detail->name_product;
+            $product_detail->price = $product_detail->price; 
+            $product_detail->frame = $product_detail->frame;
+            $product_detail->fork = $product_detail->fork;
+            $product_detail->brakes_rear = $product_detail->brakes_rear;
+            $product_detail->brakes_levers = $product_detail->brakes_levers;
+            $product_detail->pedals = $product_detail->pedals;
+            $product_detail->crankset = $product_detail->crankset;
+            $product_detail->bottom_bracket = $product_detail->bottom_bracket;
+            $product_detail->chain = $product_detail->chain;
+            $product_detail->cassete = $product_detail->cassete;
+            $product_detail->rim = $product_detail->rim;
+            $product_detail->saddle = $product_detail->saddle;
+            $product_detail->seatpot = $product_detail->seatpot;
+            $product_detail->stem = $product_detail->stem;
+            $product_detail->handlebar = $product_detail->handlebar;
 
             $nol="";
             $product_detail->image1 = $product_detail->image1;
@@ -344,7 +351,7 @@ class Product_detailController extends Controller
             $product_detail->save();
             // sama aja kaya href setelak klik submit
             // mau pindah ke link mana setelah tombol submit di klik
-            $request->session()->flash('status2', 'success');
+            $request->session()->flash('status2', 'Picture "Image2" has been deleted');
             return  Redirect::back();
         }
 
@@ -353,25 +360,25 @@ class Product_detailController extends Controller
             $product_detail = Product_detail::find($id);
 
             // nama = nama field di database, var_nama = var_nama di dalam form input_blade
-            $product_detail->id = $request->id;
-            $product_detail->id_category = $request->id_category;
-            $product_detail->id_category_sub = $request->id_category_sub;
-            $product_detail->name_product = $request->name_product;
-            $product_detail->price = $request->price; 
-            $product_detail->frame = $request->frame;
-            $product_detail->fork = $request->fork;
-            $product_detail->brakes_rear = $request->brakes_rear;
-            $product_detail->brakes_levers = $request->brakes_levers;
-            $product_detail->pedals = $request->pedals;
-            $product_detail->crankset = $request->crankset;
-            $product_detail->bottom_bracket = $request->bottom_bracket;
-            $product_detail->chain = $request->chain;
-            $product_detail->cassete = $request->cassete;
-            $product_detail->rim = $request->rim;
-            $product_detail->saddle = $request->saddle;
-            $product_detail->seatpot = $request->seatpot;
-            $product_detail->stem = $request->stem;
-            $product_detail->handlebar = $request->handlebar;
+            $product_detail->id = $product_detail->id;
+            $product_detail->id_category = $product_detail->id_category;
+            $product_detail->id_category_sub = $product_detail->id_category_sub;
+            $product_detail->name_product = $product_detail->name_product;
+            $product_detail->price = $product_detail->price; 
+            $product_detail->frame = $product_detail->frame;
+            $product_detail->fork = $product_detail->fork;
+            $product_detail->brakes_rear = $product_detail->brakes_rear;
+            $product_detail->brakes_levers = $product_detail->brakes_levers;
+            $product_detail->pedals = $product_detail->pedals;
+            $product_detail->crankset = $product_detail->crankset;
+            $product_detail->bottom_bracket = $product_detail->bottom_bracket;
+            $product_detail->chain = $product_detail->chain;
+            $product_detail->cassete = $product_detail->cassete;
+            $product_detail->rim = $product_detail->rim;
+            $product_detail->saddle = $product_detail->saddle;
+            $product_detail->seatpot = $product_detail->seatpot;
+            $product_detail->stem = $product_detail->stem;
+            $product_detail->handlebar = $product_detail->handlebar;
 
             $nol="";
             $product_detail->image1 = $product_detail->image1;
@@ -389,7 +396,7 @@ class Product_detailController extends Controller
             $product_detail->save();
             // sama aja kaya href setelak klik submit
             // mau pindah ke link mana setelah tombol submit di klik
-            $request->session()->flash('status3', 'success');
+            $request->session()->flash('status3', 'Picture "Image3" has been deleted');
             return  Redirect::back();
         }
 
@@ -398,25 +405,25 @@ class Product_detailController extends Controller
             $product_detail = Product_detail::find($id);
 
             // nama = nama field di database, var_nama = var_nama di dalam form input_blade
-            $product_detail->id = $request->id;
-            $product_detail->id_category = $request->id_category;
-            $product_detail->id_category_sub = $request->id_category_sub;
-            $product_detail->name_product = $request->name_product;
-            $product_detail->price = $request->price; 
-            $product_detail->frame = $request->frame;
-            $product_detail->fork = $request->fork;
-            $product_detail->brakes_rear = $request->brakes_rear;
-            $product_detail->brakes_levers = $request->brakes_levers;
-            $product_detail->pedals = $request->pedals;
-            $product_detail->crankset = $request->crankset;
-            $product_detail->bottom_bracket = $request->bottom_bracket;
-            $product_detail->chain = $request->chain;
-            $product_detail->cassete = $request->cassete;
-            $product_detail->rim = $request->rim;
-            $product_detail->saddle = $request->saddle;
-            $product_detail->seatpot = $request->seatpot;
-            $product_detail->stem = $request->stem;
-            $product_detail->handlebar = $request->handlebar;
+            $product_detail->id = $product_detail->id;
+            $product_detail->id_category = $product_detail->id_category;
+            $product_detail->id_category_sub = $product_detail->id_category_sub;
+            $product_detail->name_product = $product_detail->name_product;
+            $product_detail->price = $product_detail->price; 
+            $product_detail->frame = $product_detail->frame;
+            $product_detail->fork = $product_detail->fork;
+            $product_detail->brakes_rear = $product_detail->brakes_rear;
+            $product_detail->brakes_levers = $product_detail->brakes_levers;
+            $product_detail->pedals = $product_detail->pedals;
+            $product_detail->crankset = $product_detail->crankset;
+            $product_detail->bottom_bracket = $product_detail->bottom_bracket;
+            $product_detail->chain = $product_detail->chain;
+            $product_detail->cassete = $product_detail->cassete;
+            $product_detail->rim = $product_detail->rim;
+            $product_detail->saddle = $product_detail->saddle;
+            $product_detail->seatpot = $product_detail->seatpot;
+            $product_detail->stem = $product_detail->stem;
+            $product_detail->handlebar = $product_detail->handlebar;
 
             $nol="";
             $product_detail->image1 = $product_detail->image1;
@@ -434,7 +441,7 @@ class Product_detailController extends Controller
             $product_detail->save();
             // sama aja kaya href setelak klik submit
             // mau pindah ke link mana setelah tombol submit di klik
-            $request->session()->flash('status4', 'success');
+            $request->session()->flash('status4', 'Picture "Image4" has been deleted');
             return  Redirect::back();
         }
 
@@ -443,27 +450,27 @@ class Product_detailController extends Controller
             $product_detail = Product_detail::find($id);
 
             // nama = nama field di database, var_nama = var_nama di dalam form input_blade
-            $product_detail->id = $request->id;
-            $product_detail->id_category = $request->id_category;
-            $product_detail->id_category_sub = $request->id_category_sub;
-            $product_detail->name_product = $request->name_product;
-            $product_detail->price = $request->price; 
-            $product_detail->frame = $request->frame;
-            $product_detail->fork = $request->fork;
-            $product_detail->brakes_rear = $request->brakes_rear;
-            $product_detail->brakes_levers = $request->brakes_levers;
-            $product_detail->pedals = $request->pedals;
-            $product_detail->crankset = $request->crankset;
-            $product_detail->bottom_bracket = $request->bottom_bracket;
-            $product_detail->chain = $request->chain;
-            $product_detail->cassete = $request->cassete;
-            $product_detail->rim = $request->rim;
-            $product_detail->saddle = $request->saddle;
-            $product_detail->seatpot = $request->seatpot;
-            $product_detail->stem = $request->stem;
-            $product_detail->handlebar = $request->handlebar;
+            $product_detail->id = $product_detail->id;
+            $product_detail->id_category = $product_detail->id_category;
+            $product_detail->id_category_sub = $product_detail->id_category_sub;
+            $product_detail->name_product = $product_detail->name_product;
+            $product_detail->price = $product_detail->price; 
+            $product_detail->frame = $product_detail->frame;
+            $product_detail->fork = $product_detail->fork;
+            $product_detail->brakes_rear = $product_detail->brakes_rear;
+            $product_detail->brakes_levers = $product_detail->brakes_levers;
+            $product_detail->pedals = $product_detail->pedals;
+            $product_detail->crankset = $product_detail->crankset;
+            $product_detail->bottom_bracket = $product_detail->bottom_bracket;
+            $product_detail->chain = $product_detail->chain;
+            $product_detail->cassete = $product_detail->cassete;
+            $product_detail->rim = $product_detail->rim;
+            $product_detail->saddle = $product_detail->saddle;
+            $product_detail->seatpot = $product_detail->seatpot;
+            $product_detail->stem = $product_detail->stem;
+            $product_detail->handlebar = $product_detail->handlebar;
 
-            $nol="";
+            $nol=NULL;
             $product_detail->image1 = $product_detail->image1;
 
             $product_detail->image2 = $product_detail->image2;
@@ -480,7 +487,7 @@ class Product_detailController extends Controller
             $product_detail->save();
             // sama aja kaya href setelak klik submit
             // mau pindah ke link mana setelah tombol submit di klik
-            $request->session()->flash('status5', 'success');
+            $request->session()->flash('status5', 'Picture "Image5" has been deleted');
             return  Redirect::back();
         }
     }

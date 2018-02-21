@@ -10,6 +10,12 @@ use Auth;
 
 class Category_subproductController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function show(){ 
     	$category_subproduct = Category_subproduct::all();
 

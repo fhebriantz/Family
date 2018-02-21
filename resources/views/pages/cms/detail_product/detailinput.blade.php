@@ -23,7 +23,7 @@
 									<td>Category Product</td>
 									<td> <!-- select class form control untuk membuat combo box -->
 									    <select name="id_category" style="width: 100%">
-									    	<option>-- Pilih Kategori --</option>
+									    	<option value="">-- Pilih Kategori --</option>
 									        @foreach($category_product as $product)
 									        <option value="{{$product->id}}">{{$nos++}}.  {{$product->category_product_name}}</option>
 									        @endforeach
@@ -35,7 +35,7 @@
 									<td>Category Sub Product</td>
 									<td> <!-- select class form control untuk membuat combo box -->
 									    <select name="id_category_sub" style="width: 100%">
-									    	<option>-- Pilih Kategori --</option>
+									    	<option value="">-- Pilih Kategori --</option>
 									        @foreach($category_subproduct as $subproduct)
 									        <option value="{{$subproduct->id}}">{{$no++}}.  {{$subproduct->category_product_name}} - {{$subproduct->category_subproduct_name}}</option>
 									        @endforeach

@@ -5,10 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // untuk menyingkat materi gak usah pake APP
 use App\Http\Model\Category_product;
+use Illuminate\Support\Facades\Redirect;
 use Auth;
 
 class Category_productController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function show(){ 
     	$category_product = Category_product::all();
 
@@ -46,35 +52,46 @@ class Category_productController extends Controller
     // menampilkan fungsi input
     function insert (Request $request)  
     {
-    	$category_product = new Category_product;
+    	
 
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
-    		$category_product->id = $request->id; 
-    		$category_product->category_product_name = $request->category_product_name;
-            $category_product->created_by = Auth::user()->name; 
-    	// untuk mengsave
-    	$category_product->save();
-
-    	// sama aja kaya href setelak klik submit
-    	// mau pindah ke link mana setelah tombol submit di klik
-    	return  redirect('cms/product');
+        
+            if ($request->category_product_name=="") {
+                $request->session()->flash('status', '*Nama Produk harus diisi');
+                return  Redirect::back();
+            }
+            else{
+                $category_product = new Category_product;
+                $category_product->id = $request->id; 
+                $category_product->category_product_name = $request->category_product_name;
+                $category_product->created_by = Auth::user()->name; 
+                // untuk mengsave
+                $category_product->save();
+                // sama aja kaya href setelak klik submit
+                // mau pindah ke link mana setelah tombol submit di klik
+            return  redirect('cms/product');
+            }
+    		
     }
 
     // menampilkan fungsi edit
     function update (Request $request, $id)  
     {
-    	$category_product = Category_product::find($id);
-
-    		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
-    		$category_product->id = $request->id; 
-    		$category_product->category_product_name = $request->category_product_name;
-            $category_product->updated_by = Auth::user()->name; 
-    	// untuk mengsave
-    	$category_product->save();
-
-    	// sama aja kaya href setelak klik submit
-    	// mau pindah ke link mana setelah tombol submit di klik
-    	return  redirect('cms/product');
+        if ($request->category_product_name=="") {
+                $request->session()->flash('status', '*Nama Produk harus diisi');
+                return  Redirect::back();
+            }
+            else{
+                $category_product = Category_product::find($id);
+                $category_product->id = $request->id; 
+                $category_product->category_product_name = $request->category_product_name;
+                $category_product->updated_by = Auth::user()->name; 
+                // untuk mengsave
+                $category_product->save();
+                // sama aja kaya href setelak klik submit
+                // mau pindah ke link mana setelah tombol submit di klik
+            return  redirect('cms/product');
+            }
     }
 
     public function delete($id){
