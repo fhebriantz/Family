@@ -1,0 +1,101 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+// untuk menyingkat materi gak usah pake APP
+use App\Http\Model\Category_subproduct;
+use App\Http\Model\Category_product;
+use Auth;
+
+class Category_subproductController extends Controller
+{
+    public function show(){ 
+    	$category_subproduct = Category_subproduct::all();
+
+    	return view('pages/frontend/cat_subproduct/subproduct', compact('category_subproduct'));
+    }
+
+    //  public function show(){ 
+    // 	$category_subproduct = Category_subproduct::all();
+    // 	$category_product = Category_product::all();
+
+    // 	return view('frontend/subproduct', compact('category_subproduct','category_product'));
+    // }
+
+    public function showcms(){ 
+    	$category_subproduct = Category_subproduct::getTableSub();
+        $no = 1;
+
+    	return view('pages/cms/cat_subproduct/subproduct', compact('category_subproduct','no'));
+    }
+
+    function input()
+    {
+    	$category_product = Category_product::all();
+        $no = 1;
+    	return  view('pages/cms/cat_subproduct/subproductinput', compact('category_product','no'));
+    }
+
+    function edit($id)
+    {
+    	$category_subproduct=Category_subproduct::getTableSub()->where('id','=',$id)->first();
+    	$category_product=Category_product::all();
+        $no = 1;
+
+    	return view('pages/cms/cat_subproduct/subproductedit', compact('category_subproduct','category_product','no'));
+    }
+
+    function view($id)
+    {
+        $category_subproduct=Category_subproduct::getTableSub()->where('id','=',$id)->first();
+        $category_product=Category_product::all();
+
+        return view('pages/cms/cat_subproduct/subproductview', compact('category_subproduct'), compact('category_product'));
+    }
+
+    // menampilkan fungsi input
+    function insert (Request $request)  
+    {
+    	$category_subproduct = new Category_subproduct;
+
+    		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
+    		$category_subproduct->id = $request->id;
+    		$category_subproduct->id_category = $request->id_category;
+    		$category_subproduct->category_subproduct_name = $request->category_subproduct_name;
+            $category_subproduct->created_by = Auth::user()->name; 
+    	// untuk mengsave
+    	$category_subproduct->save();
+    	// sama aja kaya href setelak klik submit
+    	// mau pindah ke link mana setelah tombol submit di klik
+    	return  redirect('cms/product/subproduct');
+    }
+
+    // menampilkan fungsi edit
+    function update (Request $request, $id)  
+    {
+    	$category_subproduct = Category_subproduct::find($id);
+
+    		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
+    		$category_subproduct->id = $request->id;
+    		$category_subproduct->id_category = $request->id_category; 
+    		$category_subproduct->category_subproduct_name = $request->category_subproduct_name;
+            $category_subproduct->updated_by = Auth::user()->name;
+
+    	// untuk mengsave
+    	$category_subproduct->save();
+    	// sama aja kaya href setelak klik submit
+    	// mau pindah ke link mana setelah tombol submit di klik
+    	return  redirect('cms/product/subproduct');
+    }
+
+    public function delete($id){
+    	// find khusus untuk primary key di database
+    	$category_subproduct = Category_subproduct::find($id);
+    	$category_subproduct->delete();
+
+    	// sama aja kaya href setelak klik delete
+    	// mau pindah ke link mana setelah tombol submit di klik
+    	return  redirect('cms/product/subproduct');
+    } 
+}
