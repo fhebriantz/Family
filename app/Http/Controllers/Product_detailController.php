@@ -473,6 +473,7 @@ class Product_detailController extends Controller
             $product_detail->image4 = $product_detail->image4;
             
             $product_detail->image5 = $nol;
+            // test 1
            
             $product_detail->updated_by = Auth::user()->name; 
             // untuk mengsave
