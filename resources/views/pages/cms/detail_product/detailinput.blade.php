@@ -16,6 +16,15 @@
                 <div class="panel-heading"><h3>Data Product Detail</h3></div>
                 <div class="panel-body">
                     <div class="responsive-table">
+                    	@if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     	<form method="POST" action="/family/public/cms/product/subproduct/detail/input" enctype="multipart/form-data">
 						{{ csrf_field() }}
 	                        <table class="table">
@@ -45,82 +54,82 @@
 
 								<tr>
 									<td>Name Product</td>
-									<td><input type="text" name="name_product" placeholder="Nama Product"  style="width: 100%"></td>
+									<td><input type="text" name="name_product" placeholder="Nama Product"  style="width: 100%" value="{{ old('name_product') }}"></td>
 								</tr>
 
 								<tr>
 									<td>Price</td>
-									<td><input type="text" name="price" placeholder="Harga Produk"  style="width: 100%"></td>
+									<td><input type="text" name="price" placeholder="Harga Produk"  style="width: 100%" value="{{ old('price') }}"></td>
 								</tr>
 
 								<tr>
 									<td>Frame</td>
-									<td><input type="text" name="frame" placeholder="Frame"  style="width: 100%"></td>
+									<td><input type="text" name="frame" placeholder="Frame"  style="width: 100%" value="{{ old('frame') }}"></td>
 								</tr>
 
 								<tr>
 									<td>Fork</td>
-									<td><input type="text" name="fork"  style="width: 100%" placeholder="Fork"></td>
+									<td><input type="text" name="fork"  style="width: 100%" placeholder="Fork" value="{{ old('fork') }}"></td>
 								</tr>
 
 								<tr>
 									<td>Brakes Rear</td>
-									<td><input type="text" name="brakes_rear"  style="width: 100%" placeholder="Brakes Rear"></td>
+									<td><input type="text" name="brakes_rear"  style="width: 100%" placeholder="Brakes Rear" value="{{ old('brakes_rear') }}"></td>
 								</tr>
 
 								<tr>
 									<td>Brakes Levers</td>
-									<td><input type="text" name="brakes_levers"  style="width: 100%" placeholder="Brakes Levers"></td>
+									<td><input type="text" name="brakes_levers"  style="width: 100%" placeholder="Brakes Levers" value="{{ old('brakes_levers') }}"></td>
 								</tr>
 
 								<tr>
 									<td>Pedals</td>
-									<td><input type="text" name="pedals"  style="width: 100%" placeholder="Pedals"></td>
+									<td><input type="text" name="pedals"  style="width: 100%" placeholder="Pedals" value="{{ old('pedals') }}"></td>
 								</tr>
 
 								<tr>
 									<td>Crankset</td>
-									<td><input type="text" name="crankset"  style="width: 100%" placeholder="Crankset"></td>
+									<td><input type="text" name="crankset"  style="width: 100%" placeholder="Crankset" value="{{ old('crankset') }}"></td>
 								</tr>
 
 								<tr>
 									<td>Bottom Bracket</td>
-									<td><input type="text" name="bottom_bracket"  style="width: 100%" placeholder="Bottom Bracket"></td>
+									<td><input type="text" name="bottom_bracket"  style="width: 100%" placeholder="Bottom Bracket" value="{{ old('bottom_bracket') }}"></td>
 								</tr>
 
 								<tr>
 									<td>Chain</td>
-									<td><input type="text" name="chain"  style="width: 100%" placeholder="Chain"></td>
+									<td><input type="text" name="chain"  style="width: 100%" placeholder="Chain" value="{{ old('chain') }}"></td>
 								</tr>
 
 								<tr>
 									<td>Cassete</td>
-									<td><input type="text" name="cassete"  style="width: 100%" placeholder="Cassete"></td>
+									<td><input type="text" name="cassete"  style="width: 100%" placeholder="Cassete" value="{{ old('cassete') }}"></td>
 								</tr>
 
 								<tr>
 									<td>Rim</td>
-									<td><input type="text" name="rim"  style="width: 100%" placeholder="Rim"></td>
+									<td><input type="text" name="rim"  style="width: 100%" placeholder="Rim" value="{{ old('rim') }}"></td>
 								</tr>
 
 								<tr>
 									<td>Saddle</td>
-									<td><input type="text" name="saddle"  style="width: 100%" placeholder="Saddle"></td>
+									<td><input type="text" name="saddle"  style="width: 100%" placeholder="Saddle" value="{{ old('saddle') }}"></td>
 								</tr>
 
 								<tr>
 									<td>Seatpot</td>
-									<td><input type="text" name="seatpot"  style="width: 100%" placeholder="Seatpot"></td>
+									<td><input type="text" name="seatpot"  style="width: 100%" placeholder="Seatpot" value="{{ old('seatpot') }}"></td>
 								</tr>
 
 								<tr>
 									<td>Stem</td>
-									<td><input type="text" name="stem"  style="width: 100%" placeholder="Stem"></td>
+									<td><input type="text" name="stem"  style="width: 100%" placeholder="Stem" value="{{ old('stem') }}"></td>
 								</tr>
 
 								<tr>
 									<td>Handlebar</td>
-									<td><input type="text" name="handlebar"  style="width: 100%" placeholder="Handlebar"></td>
+									<td><input type="text" name="handlebar"  style="width: 100%" placeholder="Handlebar" value="{{ old('handlebar') }}"></td>
 								</tr>
 
 								<tr>

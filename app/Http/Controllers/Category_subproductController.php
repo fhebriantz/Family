@@ -40,6 +40,7 @@ class Category_subproductController extends Controller
     {
     	$category_product = Category_product::all();
         $no = 1;
+        
     	return  view('pages/cms/cat_subproduct/subproductinput', compact('category_product','no'));
     }
 
@@ -63,6 +64,11 @@ class Category_subproductController extends Controller
     // menampilkan fungsi input
     function insert (Request $request)  
     {
+        $validatedData = $request->validate([
+            'id_category' => 'required',
+            'category_subproduct_name' => 'required',
+        ]);
+
     	$category_subproduct = new Category_subproduct;
 
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
@@ -80,6 +86,11 @@ class Category_subproductController extends Controller
     // menampilkan fungsi edit
     function update (Request $request, $id)  
     {
+         $validatedData = $request->validate([
+            'id_category' => 'required',
+            'category_subproduct_name' => 'required',
+        ]);
+
     	$category_subproduct = Category_subproduct::find($id);
 
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade

@@ -16,6 +16,15 @@
                 <div class="panel-heading"><h3>Data About</h3></div>
                 <div class="panel-body">
                     <div class="responsive-table">
+                        @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     	<form method="POST" action="/family/public/cms/about/{{ $about_data->id }}/edit">
 						{{ csrf_field() }}
 	                        <table class="table">                        

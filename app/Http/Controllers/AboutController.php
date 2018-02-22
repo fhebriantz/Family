@@ -62,6 +62,13 @@ class AboutController extends Controller
     // menampilkan fungsi input
     function insert (Request $request)  
     {
+
+        $validatedData = $request->validate([
+
+                'title' => 'required',
+                'desc' => 'required|min:50',
+            ]);
+
     	$abouts = new About;
 
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
@@ -79,6 +86,12 @@ class AboutController extends Controller
     // menampilkan fungsi edit
     function update (Request $request, $id)  
     {
+        $validatedData = $request->validate([
+
+                'title' => 'required',
+                'desc' => 'required|min:50',
+            ]);
+        
     	$abouts = About::find($id);
 
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade

@@ -62,7 +62,27 @@ class Product_detailController extends Controller
     // menampilkan fungsi input
     function insert (Request $request)  
     {
-
+         $validatedData = $request->validate([
+            'id_category' => 'required',
+            'id_category_sub' => 'required',
+            'name_product' => 'required',
+            'price' => 'required|numeric',
+            'frame' => 'required',
+            'fork' => 'required',
+            'brakes_rear' => 'required',
+            'brakes_levers' => 'required',
+            'pedals' => 'required',
+            'crankset' => 'required',
+            'bottom_bracket' => 'required',
+            'chain' => 'required',
+            'cassete' => 'required',
+            'rim' => 'required',
+            'saddle' => 'required',
+            'seatpot' => 'required',
+            'stem' => 'required',
+            'handlebar' => 'required',
+            'image1' => 'required',
+        ]);
 
     	$product_detail = new Product_detail;
 
@@ -163,6 +183,27 @@ class Product_detailController extends Controller
     // menampilkan fungsi edit
     function update (Request $request, $id)  
     {
+        $validatedData = $request->validate([
+            'id_category' => 'required',
+            'id_category_sub' => 'required',
+            'name_product' => 'required',
+            'price' => 'required|numeric',
+            'frame' => 'required',
+            'fork' => 'required',
+            'brakes_rear' => 'required',
+            'brakes_levers' => 'required',
+            'pedals' => 'required',
+            'crankset' => 'required',
+            'bottom_bracket' => 'required',
+            'chain' => 'required',
+            'cassete' => 'required',
+            'rim' => 'required',
+            'saddle' => 'required',
+            'seatpot' => 'required',
+            'stem' => 'required',
+            'handlebar' => 'required',
+            'image1' => 'required',
+        ]);
 
         //check which submit was clicked on
         if(Input::get('submit')) 

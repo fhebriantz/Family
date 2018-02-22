@@ -16,6 +16,16 @@
                 <div class="panel-heading"><h3>Data Subproduct</h3></div>
                 <div class="panel-body">
                     <div class="responsive-table">
+                    	@if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                     	<form method="POST" action="/family/public/cms/product/subproduct/input">
 						{{ csrf_field() }}
 	                        <table class="table">
@@ -23,7 +33,7 @@
 									<td>ID Category</td>
 									<td> <!-- select class form control untuk membuat combo box -->
 									    <select name="id_category" style="width: 100%">
-									        <option>-- Pilih Kategori --</option>
+									        <option value="">-- Pilih Kategori --</option>
 									        @foreach($category_product as $catpro)
 									        <option value="{{$catpro->id}}">{{$no++}}.  {{$catpro->category_product_name}}</option>
 									        @endforeach
@@ -32,7 +42,7 @@
 								</tr>
 								<tr>
 									<td>Nama Subproduct</td>
-									<td><input type="text" name="category_subproduct_name" placeholder="Nama Sub Product" style="width: 100%"></td>
+									<td><input type="text" name="category_subproduct_name" placeholder="Nama Sub Product" value="{{ old('category_subproduct_name') }}" style="width: 100%"></td>
 								</tr>
 							
 								<tr>

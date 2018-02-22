@@ -16,16 +16,25 @@
                 <div class="panel-heading"><h3>Data FAQ</h3></div>
                 <div class="panel-body">
                     <div class="responsive-table">
+                        @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     	<form method="POST" action="/family/public/cms/faq/input">
 						{{ csrf_field() }}
 	                        <table class="table">                        
 	                            <tr>
 									<td>Title</td>
-									<td><input type="text" name="title" placeholder="Title" style="width: 100%"></td>
+									<td><input type="text" name="title" placeholder="Title" style="width: 100%" value="{{ old('title') }}"></td>
 								</tr>
 								<tr>
 									<td>Description</td>
-									<td> <textarea name="desc" class="ckeditor"></textarea></td>
+									<td> <textarea name="desc" class="ckeditor">{{ old('desc') }}</textarea></td>
 								</tr>
 
 								<tr>

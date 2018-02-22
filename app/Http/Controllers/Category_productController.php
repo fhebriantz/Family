@@ -52,15 +52,14 @@ class Category_productController extends Controller
     // menampilkan fungsi input
     function insert (Request $request)  
     {
-    	
+            $validatedData = $request->validate([
 
+                'category_product_name' => 'required'
+            ]);
+         
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
-        
-            if ($request->category_product_name=="") {
-                $request->session()->flash('status', '*Nama Produk harus diisi');
-                return  Redirect::back();
-            }
-            else{
+                
+
                 $category_product = new Category_product;
                 $category_product->id = $request->id; 
                 $category_product->category_product_name = $request->category_product_name;
@@ -70,18 +69,17 @@ class Category_productController extends Controller
                 // sama aja kaya href setelak klik submit
                 // mau pindah ke link mana setelah tombol submit di klik
             return  redirect('cms/product');
-            }
     		
     }
 
     // menampilkan fungsi edit
     function update (Request $request, $id)  
     {
-        if ($request->category_product_name=="") {
-                $request->session()->flash('status', '*Nama Produk harus diisi');
-                return  Redirect::back();
-            }
-            else{
+            $validatedData = $request->validate([
+
+                'category_product_name' => 'required'
+            ]);
+            
                 $category_product = Category_product::find($id);
                 $category_product->id = $request->id; 
                 $category_product->category_product_name = $request->category_product_name;
@@ -91,7 +89,6 @@ class Category_productController extends Controller
                 // sama aja kaya href setelak klik submit
                 // mau pindah ke link mana setelah tombol submit di klik
             return  redirect('cms/product');
-            }
     }
 
     public function delete($id){

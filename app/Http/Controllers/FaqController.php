@@ -51,6 +51,12 @@ class FaqController extends Controller
     // menampilkan fungsi input
     function insert (Request $request)  
     {
+          $validatedData = $request->validate([
+
+                'title' => 'required',
+                'desc' => 'required',
+            ]);
+
     	$faq = new Faq;
 
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
@@ -68,6 +74,12 @@ class FaqController extends Controller
     // menampilkan fungsi edit
     function update (Request $request, $id)  
     {
+        $validatedData = $request->validate([
+
+                'title' => 'required',
+                'desc' => 'required',
+            ]);
+        
     	$faq = Faq::find($id);
 
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
