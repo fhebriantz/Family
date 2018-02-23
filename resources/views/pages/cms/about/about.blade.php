@@ -20,6 +20,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Caption</th>
                                     <th>Title</th>
                                     <th>Description</th>
                                     <th>Created Date</th>
@@ -34,6 +35,7 @@
                                 @foreach($abouts as $about)
                                 <tr>    
                                     <td>{{ $no++ }}</td>
+                                    <td>{{$about->ket}}</td>
                                     <td>{{$about->title}}</td>
                                     <td>{!!$about->desc!!}</td>
                                     <td>{{$about->created_at}}</td>

@@ -21,8 +21,7 @@ class AboutController extends Controller
     	return view('pages/frontend/about/about', compact('abouts'));
     }
 
-
-// aaaaa
+    // aaaaa
 
     public function test(){ 
         $abouts = About::GetTableAbout();
@@ -65,6 +64,7 @@ class AboutController extends Controller
 
         $validatedData = $request->validate([
 
+                'ket' => 'required',
                 'title' => 'required',
                 'desc' => 'required|min:50',
             ]);
@@ -72,6 +72,7 @@ class AboutController extends Controller
     	$abouts = new About;
 
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
+            $abouts->ket = $request->ket; 
     		$abouts->title = $request->title; 
     		$abouts->desc = $request->desc;
             $abouts->created_by = Auth::user()->name; 
@@ -87,7 +88,7 @@ class AboutController extends Controller
     function update (Request $request, $id)  
     {
         $validatedData = $request->validate([
-
+                'ket' => 'required',
                 'title' => 'required',
                 'desc' => 'required|min:50',
             ]);
@@ -95,6 +96,7 @@ class AboutController extends Controller
     	$abouts = About::find($id);
 
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
+            $abouts->ket = $request->ket; 
     		$abouts->title = $request->title; 
     		$abouts->desc = $request->desc;
             $abouts->updated_by = Auth::user()->name ;

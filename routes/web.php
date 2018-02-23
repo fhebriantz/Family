@@ -8,6 +8,19 @@ Route::get('/logout', 'LogoutController@index');
 
 Auth::routes();
 
+Route::get('index', 'Web\Web_IndexController@show');
+
+Route::get('about', 'Web\Web_AboutController@show');
+
+Route::get('product', 'Web\Web_ProductController@show');
+Route::get('product/productdetail', 'Web\Web_ProductController@showdetail');
+
+Route::get('contact', 'Web\Web_ContactController@show');
+
+Route::get('news', 'Web\Web_NewsController@show');
+Route::get('news/newsdetail', 'Web\Web_NewsController@showdetail');
+
+
 Route::get('/home', 'AboutController@showcms');
 
 Route::get('cms/question', 'QuestionController@show');
@@ -20,7 +33,7 @@ Route::get('cms/forgotpass', 'ForgotpassController@show');
 
 // ABOUT===========TAMPIL=======================
 // menampilkan tabel about di frontend
-Route::get('/about', 'AboutController@show');
+Route::get('/abouts', 'AboutController@show');
 // menampilkan tabel about di cms
 Route::get('cms/about', 'AboutController@showcms'); 
 // menampilkan form input di cms
@@ -39,11 +52,35 @@ Route::put('cms/about/{id}/edit','AboutController@update');
 // memanggil fungsi delete
 Route::delete('cms/about/{id}/delete','AboutController@delete');
 
+// ------------------------------------------------------------------------------------------------News
+
+// News===========TAMPIL=======================
+// menampilkan tabel news di frontend
+Route::get('/newss', 'NewsController@show');
+// menampilkan tabel news di cms
+Route::get('cms/news', 'NewsController@showcms'); 
+// menampilkan form input di cms
+Route::get('cms/news/input', 'NewsController@input');
+// menampilkan form edit di cms
+Route::get('cms/news/{id}/edit','NewsController@edit');  
+// menampilkan form view di cms
+Route::get('cms/news/{id}/view','NewsController@view');  
+
+// News===========FUNGSI=======================
+
+// memanggil fungsi insert
+Route::post('/cms/news/input','NewsController@insert'); 
+// memanggil fungsi update
+Route::put('cms/news/{id}/edit','NewsController@update');  
+// memanggil fungsi delete
+Route::delete('cms/news/{id}/delete','NewsController@delete');
+
+
 // ---------------------------------------------------------------------------------PRODUCT CATEGORY
 
 // PRODUCT CATEGORY ===========TAMPIL============
 // menampilkan tabel di frontend
-Route::get('/product', 'Category_productController@show');
+Route::get('/products', 'Category_productController@show');
 // menampilkan tabel di cms
 Route::get('cms/product', 'Category_productController@showcms'); 
 // menampilkan form input di cms
@@ -132,10 +169,6 @@ Route::delete('cms/faq/{id}/delete','FaqController@delete');
 Route::post('/cms/faq/input','FaqController@insert'); 
 // memanggil fungsi update
 Route::put('cms/faq/{id}/edit','FaqController@update');  
-
-
-
-
 
 
 

@@ -12,6 +12,11 @@
                       </a>
                     </li>
                     <li class="ripple">
+                      <a href="/family/public/cms/news"> News 
+                        <span class="fa-angle-right fa right-arrow text-right"></span>
+                      </a>
+                    </li>
+                    <li class="ripple">
                       <a class="tree-toggle nav-header"></span> Product
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>

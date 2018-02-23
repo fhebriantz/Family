@@ -20,7 +20,11 @@
                                 <tr>
                                     <td>ID</td>
                                     <td><input type="number" min="0" step="1" name="id"  value="{{ $about_data->id }}" style="width: 100%" readonly></td>
-                                </tr>                    
+                                </tr>        
+                                <tr>
+                                    <td>Caption</td>
+                                    <td><input type="text" name="ket"  value="{{ $about_data->ket }}" style="width: 100%" readonly></td>
+                                </tr>            
 	                            <tr>
 									<td>Title</td>
 									<td><input type="text" name="title"  value="{{ $about_data->title }}" style="width: 100%" readonly></td>

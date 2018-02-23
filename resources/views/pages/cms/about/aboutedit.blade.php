@@ -27,7 +27,11 @@
                         @endif
                     	<form method="POST" action="/family/public/cms/about/{{ $about_data->id }}/edit">
 						{{ csrf_field() }}
-	                        <table class="table">                        
+	                        <table class="table">     
+                                <tr>
+                                    <td>Caption</td>
+                                    <td><input type="text" name="ket" placeholder="Caption" value="{{ $about_data->ket }}" style="width: 100%"></td>
+                                </tr>                   
 	                            <tr>
 									<td>Title</td>
 									<td><input type="text" name="title" placeholder="Title" value="{{ $about_data->title }}" style="width: 100%"></td>
