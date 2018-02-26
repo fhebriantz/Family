@@ -151,6 +151,7 @@ section.featured .featured-box img
 
 .product-box img{
 	position: relative;
+	height: auto;
 	width: 100%;
 }
 
@@ -257,7 +258,7 @@ footer
 	height: 249px; 
 	overflow: hidden;
 	padding: 30px 30px 60px 30px;
-	font-size: 20px;
+	font-size: 19px;
 }
 
 .story-box-right{

@@ -7,19 +7,23 @@ navbarx @endsection
        <section class="margintop marmin">
             <div class="container">
                 <hr>
-                <p class="title-page"><strong>NEWS / Lorem Ipsum</strong></p>               
+                <p class="title-page"><strong>NEWS / {{$news->title}}</strong></p>               
                 <hr>
             </div>            
         </section>
 
         <section class="header-about mobilehide">
-            <div class="header" style="background: url({{ asset('assets/content/bg4.jpg')}}) no-repeat top center;"></div>
+            <div class="container">
+                    <div class="gambarhead" style="height: 500px; overflow: hidden;">
+                        <img src="http://localhost/family/public/assets/content/{{$news->images}}" style="width: 100%; height: auto;" alt="">
+                    </div>
+            </div>
         </section>
 
         <section class="header-about mobileshow">
-            <div class="contaier">
+            <div class="container">
                     <div class="gambarhead">
-                        <img src="{{ asset('assets/content/bg4.jpg')}}" style="width: 100%; height: auto;" alt="">
+                        <img src="http://localhost/family/public/assets/content/{{$news->images}}" style="width: 100%; height: auto;" alt="">
                     </div>
             </div>
         </section>
@@ -28,10 +32,8 @@ navbarx @endsection
             <div class="container">
                 <div class="row">
                     <div class="description col-sm-12">
-                        @foreach($news as $berita)
-                        <h1 class="titlenews">{{$berita->title}}</h1>
-                        <p>{!!$berita->desc!!}</p>
-                        @endforeach
+                        <h1 class="titlenews">{{$news->title}}</h1>
+                        <p>{!!$news->desc!!}</p>
                     </div>
                 </div>
             </div>          

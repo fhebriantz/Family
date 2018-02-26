@@ -9,7 +9,7 @@ use App\Http\Model\About;
 class Web_IndexController extends Controller
 {
     public function show(){  
-    	$abouts = About::all();
+    	$abouts = About::all()->first();
     	return view('pages/web/index/index', compact('abouts'));
     }
 }

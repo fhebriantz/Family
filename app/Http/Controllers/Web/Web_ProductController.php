@@ -13,9 +13,10 @@ class Web_ProductController extends Controller
     	return view('pages/web/product/product', compact('product_detail'));
     }
 
-    public function showdetail(){  
-    	$product_detail = Product_detail::getTableDetail();
-    	return view('pages/web/product/productdetail', compact('product_detail'));
+    function view($id)
+    {
+        $product_detail = Product_detail::getTableDetail()->where('id','=',$id)->first();
+        return view('pages/web/product/productdetail', compact('product_detail'));
     }
 
 }

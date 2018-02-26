@@ -71,7 +71,7 @@ navbarx @endsection
 
                                         @foreach($product_detail as $detail)
                                         <div class="col-sm-4 col-md-3 product">
-                                            <a href="/family/public/product/productdetail">
+                                            <a href="/family/public/product/{{$detail->id}}">
                                                 <div class="product-box">
                                                     <img src="asset/img/{{$detail->image1}}">
                                                     <div class="descproducts">

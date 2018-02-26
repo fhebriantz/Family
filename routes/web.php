@@ -13,12 +13,13 @@ Route::get('index', 'Web\Web_IndexController@show');
 Route::get('about', 'Web\Web_AboutController@show');
 
 Route::get('product', 'Web\Web_ProductController@show');
-Route::get('product/productdetail', 'Web\Web_ProductController@showdetail');
+// menampilkan form view di cms
+Route::get('product/{id}','Web\Web_ProductController@view'); 
 
 Route::get('contact', 'Web\Web_ContactController@show');
 
 Route::get('news', 'Web\Web_NewsController@show');
-Route::get('news/newsdetail', 'Web\Web_NewsController@showdetail');
+Route::get('news/{id}','Web\Web_NewsController@view'); 
 
 
 Route::get('/home', 'AboutController@showcms');
@@ -72,6 +73,8 @@ Route::get('cms/news/{id}/view','NewsController@view');
 Route::post('/cms/news/input','NewsController@insert'); 
 // memanggil fungsi update
 Route::put('cms/news/{id}/edit','NewsController@update');  
+
+Route::put('cms/news/{id}/edit/delete1','NewsController@delete1'); 
 // memanggil fungsi delete
 Route::delete('cms/news/{id}/delete','NewsController@delete');
 

@@ -9,6 +9,6 @@
 <link rel="icon" href="{{ asset('assets/favicon.ico')}}">
 <link rel="stylesheet" href="{{ asset('assets/css/smoothproducts.css')}}">
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css')}}"/>
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=1.02')}}"/> 
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=1.09')}}"/> 
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jssor.css')}}"/>    
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.min.css')}}" />

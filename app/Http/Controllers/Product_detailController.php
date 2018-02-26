@@ -91,6 +91,7 @@ class Product_detailController extends Controller
             $product_detail->id_category = $request->id_category;
             $product_detail->id_category_sub = $request->id_category_sub;
             $product_detail->name_product = $request->name_product;
+
             $product_detail->price = $request->price; 
             $product_detail->frame = $request->frame;
             $product_detail->fork = $request->fork;

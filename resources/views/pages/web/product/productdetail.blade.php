@@ -67,32 +67,33 @@ navbarx @endsection
                             </div>
                             <div class="thumbproduct col-sm-5 col-md-6 col-xs-12">
                                 <div class="page">
-                                    <div class="sp-loading"><img src="{{ asset('assets/images/sp-loading.gif')}}" alt=""><br>LOADING IMAGES</div>
+                                    <div class="sp-loading"><img src="http://localhost/family/public/assets/images/sp-loading.gif" alt=""><br>LOADING IMAGES</div>
                                     <div class="sp-wrap">
-                                        <a href="{{ asset('assets/images/content2.jpg')}}"><img src="{{ asset('assets/images/content2.jpg')}}" alt=""></a>
-                                        <a href="{{ asset('assets/images/content1.jpg')}}"><img src="{{ asset('assets/images/content1.jpg')}}" alt=""></a>
-                                        <a href="{{ asset('assets/images/content2.jpg')}}"><img src="{{ asset('assets/images/content2.jpg')}}" alt=""></a>
-                                        <a href="{{ asset('assets/images/content1.jpg')}}"><img src="{{ asset('assets/images/content1.jpg')}}" alt=""></a>
+                                        <a href="http://localhost/family/public/asset/img/{{ $product_detail->image1 }}"><img src="http://localhost/family/public/asset/img/{{ $product_detail->image1 }}" alt=""></a>
+                                        <a href="http://localhost/family/public/asset/img/{{ $product_detail->image2 }}"><img src="http://localhost/family/public/asset/img/{{ $product_detail->image2 }}" alt=""></a>
+                                        <a href="http://localhost/family/public/asset/img/{{ $product_detail->image3 }}"><img src="http://localhost/family/public/asset/img/{{ $product_detail->image3 }}" alt=""></a>
+                                        <a href="http://localhost/family/public/asset/img/{{ $product_detail->image4 }}"><img src="http://localhost/family/public/asset/img/{{ $product_detail->image4 }}" alt=""></a>
                                     </div>
                                 </div>
      
                             </div>
                             <div class="detailproduct col-sm-4 col-xs-12">
-                                <h3>Harley 10</h3>
-                                <p><strong>Frame:</strong> Hiten Steel Kids Frame Front <br>
-                                    <strong>Fork:</strong> Hiten Steel Kids Fork<br>
-                                <strong>Brakes Rear:</strong> Steel Band Brake<br>
-                                <strong>Brake Levers:</strong> PP Plastic<br>
-                                <strong>Pedals:</strong> PP Plastic<br>
-                                <strong>Crankset:</strong> Steel, 1/2"x1/8"x28T<br>
-                                <strong>Bottom Bracket:</strong> Steel BB<br>
-                                <strong>Chain:</strong> KMC-C410<br>
-                                <strong>Cassete:</strong></strong> Steel, 1/2"x1/8"x16T<br>
-                                <strong>Rim:</strong> Steel Rim w/ Steel Hub 16H and Stanless steel spoke<br>
-                                <strong>Saddle:</strong> PVC Leather<br>
-                                <strong>Seatpost:</strong> Steel<br>
-                                <strong>Stem:</strong> Steel<br>
-                                <strong>Handlebar:</strong> Steel CTB Handlebar<br>
+                                <h3>{{ $product_detail->name_product }}</h3>
+                                <p><strong>Price: </strong>Rp. {{ $product_detail->price }}<br>
+                                <strong>Frame: </strong>{{ $product_detail->frame }}<br>
+                                <strong>Fork: </strong>{{ $product_detail->fork }}<br>
+                                <strong>Brakes Rear: </strong>{{ $product_detail->brakes_rear }}<br>
+                                <strong>Brake Levers: </strong>{{ $product_detail->brakes_levers }}<br>
+                                <strong>Pedals: </strong>{{ $product_detail->pedals }}<br>
+                                <strong>Crankset: </strong>{{ $product_detail->crankset }}<br>
+                                <strong>Bottom Bracket: </strong>{{ $product_detail->bottom_bracket }}<br>
+                                <strong>Chain: </strong>{{ $product_detail->chain }}<br>
+                                <strong>Cassete: </strong></strong>{{ $product_detail->cassete }}<br>
+                                <strong>Rim: </strong>{{ $product_detail->rim }}<br>
+                                <strong>Saddle: </strong>{{ $product_detail->saddle }}<br>
+                                <strong>Seatpost: </strong>{{ $product_detail->seatpot }}<br>
+                                <strong>Stem: </strong>{{ $product_detail->stem }}<br>
+                                <strong>Handlebar: </strong>{{ $product_detail->handlebar }}<br>
                             </div>
                         </div>
                     </div>

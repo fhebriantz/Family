@@ -25,7 +25,7 @@
                                 </ul>
                             </div>
                         @endif
-                    	<form method="POST" action="/family/public/cms/news/input">
+                    	<form method="POST" action="/family/public/cms/news/input" enctype="multipart/form-data">
 						{{ csrf_field() }}
 	                        <table class="table">                    
 	                            <tr>
@@ -36,6 +36,11 @@
 									<td>Description</td>
 									<td> <textarea name="desc" class="ckeditor">{{ old('desc') }}</textarea></td>
 								</tr>
+
+                                <tr>
+                                    <td>Images</td>
+                                    <td><input type="file" id="inputgambar" name="images"  style="width: 100%" placeholder="Image" ></td>
+                                </tr>
 
 								<tr>
 									<td></td>

@@ -54,7 +54,7 @@ navbarabs @endsection
                         </div>
                         <div class="col-sm-5 story-box-left">
                             <p style="color: #e4e41d">Our Story</p>
-                            <div   class="readmoreabout" style="color: white"><p class="sadsa">PT. Jakarta Tunggal Citra is one of the world’s leading Tricycles and Babywalkers manufacturers. We design, create, build and customize our products, to satisfy a range of customers’ requirements. From the high-end market of Los Angeles City, to the small town of Banten, in Indonesia. We do business directly to the customer one at a time and believe, that we do it better than anyone on the planet.</p></div>
+                            <div   class="readmoreabout" style="color: white"><p>{!! $abouts->desc !!}</p></div>
                             <a href="/family/public/about" class="readmorelink">...Read More</a>
                         </div>
                         <div class="col-sm-7 mobilehidden story-box-right">
