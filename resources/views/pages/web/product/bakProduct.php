@@ -28,16 +28,38 @@ navbarx @endsection
                             <div class="sidebar col-sm-3 col-md-2 mobilehide">
                                 <p><strong>PRODUCT</strong></p>
                                 <ul class="sidebarsub">
-                                @foreach($tricycle as $rodatiga)     
+                                    <li class="productbs">Baby Series
+                                        <ul class="productbs-ex">
+                                            <li><a href="/family/public/product">CS Series</a></li>
+                                            <li><a href="/family/public/product">FS Series</a></li>
+                                        </ul>
+                                    </li>     
+                                    <li class="productbw">Baby Walker
+                                        <ul class="productbw-ex">
+                                            <li><a href="/family/public/product">FB - 1 Series</a></li>
+                                            <li><a href="/family/public/product">FB - 2 Series</a></li>
+                                            <li><a href="/family/public/product">FB - 3 Series</a></li>
+                                            <li><a href="/family/public/product">FB - 5 Series</a></li>
+                                            <li><a href="/family/public/product">FB - 7 Series</a></li>
+                                        </ul>
+                                    </li>     
+                                    <li class="productbc">Bycycle
+                                        <ul class="productbc-ex">
+                                            <li><a href="/family/public/product">Family bike</a></li>     
+                                        </ul>
+                                    </li>     
+                                    <li class="productroc">Ride On Car
+                                        <ul class="productroc-ex">
+                                            <li><a href="/family/public/product">FT Series</a></li>
+                                        </ul>
+                                    </li>     
                                     <li class="producttrc">Tricycle
                                         <ul class="producttrc-ex">
-                                            $test = load model sub category ->where(id = $id)
-                                            @foreach($test as $asd)
-                                                <li><a href="/family/public/category/{{$rodatiga->id}}">{{$asd->category_subproduct_name}}</a></li>
+                                            @foreach($tricycle as $rodatiga)
+                                                <li><a href="/family/public/category/{{$rodatiga->id}}">{{$rodatiga->category_subproduct_name}}</a></li>
                                             @endforeach
                                         </ul>
-                                    </li>
-                                @endforeach                          
+                                    </li>                          
                                 </ul>
                                 <script></script>
                             </div>

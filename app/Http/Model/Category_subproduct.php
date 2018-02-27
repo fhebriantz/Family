@@ -18,4 +18,13 @@ class Category_subproduct extends Model
      return $category_subproducts;
     }
 
+    public static function showcut(){
+    	$tricycle = DB::table('category_subproducts')
+    	->select('*')
+    	->where('id_category','=',3)
+    	->get();
+
+     return $tricycle;
+    }
+
 }

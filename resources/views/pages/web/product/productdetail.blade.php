@@ -75,7 +75,6 @@ navbarx @endsection
                                         <a href="http://localhost/family/public/asset/img/{{ $product_detail->image4 }}"><img src="http://localhost/family/public/asset/img/{{ $product_detail->image4 }}" alt=""></a>
                                     </div>
                                 </div>
-     
                             </div>
                             <div class="detailproduct col-sm-4 col-xs-12">
                                 <h3>{{ $product_detail->name_product }}</h3>

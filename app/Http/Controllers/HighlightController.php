@@ -95,7 +95,7 @@ class HighlightController extends Controller
             ]);
         if(Input::get('submit')) 
         {
-        	$highlight = new Highlight;
+        	$highlight = Highlight::find($id);
 
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
     		$highlight->flag = $request->flag; 

@@ -72,7 +72,9 @@ navbarabs @endsection
         				<div class="col-sm-4 marginbottom">
         					<a href="/family/public/news">
 	        					<div class="featured-box">
-	        						<img src="{{ asset('assets/content/content1.jpg')}}" alt="news picture">
+                                    <div style="height: 200px; overflow: hidden;">
+	        					        <img style="min-height: 200px;" src="http://localhost/family/public/asset/img/{{ $highlight1->namefile }}" alt="news picture">
+                                    </div>
 	        						<div class="title-box"><h3>NEWS</h3></div>
 	        					</div>
         					</a>
@@ -81,7 +83,9 @@ navbarabs @endsection
         					<a href="/family/public/product">
 	        					<div class="featured-box">
 	        						<div class="featured-box">
-		        						<img src="{{ asset('assets/content/content2.jpg')}}" alt="product picture">
+                                        <div style="height: 200px; overflow: hidden;">
+		        						    <img style="min-height: 200px;" src="http://localhost/family/public/asset/img/{{ $highlight2->namefile }}" alt="product picture">
+                                        </div>
 		        						<div class="title-box"><h3>PRODUCT</h3></div>
 		        					</div>
 	        					</div>
@@ -91,7 +95,9 @@ navbarabs @endsection
         					<a href="/family/public/about">
 	        					<div class="featured-box">
 	        						<div class="featured-box">
-		        						<img src="{{ asset('assets/content/content3.jpg')}}" alt="about picture">
+                                        <div style="height: 200px; overflow: hidden;">
+		        						    <img style="min-height: 200px;" src="http://localhost/family/public/asset/img/{{ $highlight3->namefile }}" alt="about picture">
+                                        </div>
 		        						<div class="title-box"><h3>ABOUT</h3></div>
 		        					</div>
 	        					</div>

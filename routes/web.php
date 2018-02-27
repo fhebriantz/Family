@@ -1,5 +1,9 @@
 <?php
 
+
+Route::get('product/category/{id}','Web\Web_ProductController@show_list_category_prod'); 
+
+
 Route::get('/', function () {
     return view('pages/user/login');
 });
@@ -78,6 +82,26 @@ Route::put('cms/news/{id}/edit/delete1','NewsController@delete1');
 // memanggil fungsi delete
 Route::delete('cms/news/{id}/delete','NewsController@delete');
 
+// --------------------------------------------------------------------------------------------Highlight
+
+// Highlight===========TAMPIL=======================
+// menampilkan tabel highlight di frontend
+Route::get('/highlights', 'HighlightController@show');
+// menampilkan tabel highlight di cms
+Route::get('cms/highlight', 'HighlightController@showcms'); 
+// menampilkan form input di cms
+Route::get('cms/highlight/input', 'HighlightController@input');
+// menampilkan form edit di cms
+Route::get('cms/highlight/{id}/edit','HighlightController@edit');  
+// menampilkan form view di cms
+Route::get('cms/highlight/{id}/view','HighlightController@view');  
+
+// Highlight===========FUNGSI=======================
+
+// memanggil fungsi insert
+Route::post('/cms/highlight/input','HighlightController@insert'); 
+// memanggil fungsi update
+Route::put('cms/highlight/{id}/edit','HighlightController@update');  
 
 // ---------------------------------------------------------------------------------PRODUCT CATEGORY
 

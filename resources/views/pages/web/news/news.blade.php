@@ -40,8 +40,10 @@ navbarx @endsection
                         @foreach($news as $berita)
                         <div class="col-sm-4 col-md-3 product">
                             <a href="/family/public/news/{{$berita->id}}">
-                                <div class="product-box">
-                                    <img src="http://localhost/family/public/assets/content/{{$berita->images}}" alt="news picture">
+                                <div class="product-box" style="overflow: hidden;">
+                                    <div  style="overflow: hidden;">
+                                        <img class="mobila" src="http://localhost/family/public/assets/content/{{$berita->images}}" alt="news picture">
+                                    </div>
                                     <div class="descproduct">
                                         <div class="descoverflow">
                                             <h4>{{$berita->title}}</h4>

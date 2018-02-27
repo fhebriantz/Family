@@ -7,6 +7,11 @@
                       <p class="animated fadeInRight">Sat,October 1st 2029</p>
                     </li>
                     <li class="ripple">
+                      <a href="/family/public/cms/highlight"> Highlight 
+                        <span class="fa-angle-right fa right-arrow text-right"></span>
+                      </a>
+                    </li>
+                    <li class="ripple">
                       <a href="/family/public/cms/about"> About 
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
