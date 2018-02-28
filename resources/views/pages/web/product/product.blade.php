@@ -4,10 +4,10 @@
 navbarx @endsection
 
 @section('contents')
-       <section class="margintop marmin">
+       <section class="margintop marmin" id="ontop">
             <div class="container">
                 <hr>
-                <p class="title-page"><strong>PRODUCT</strong></p>               
+                <p class="title-page"><strong><a style="color: #0cb14b; text-decoration: none;" href="http://localhost/family/public/product">PRODUCT</a></strong></p>               
                 <hr>
             </div>            
         </section>
@@ -28,29 +28,33 @@ navbarx @endsection
                             <div class="sidebar col-sm-3 col-md-2 mobilehide">
                                 <p><strong>PRODUCT</strong></p>
                                 <ul class="sidebarsub">
-                                @foreach($tricycle as $rodatiga)     
-                                    <li class="producttrc">Tricycle
+                                @foreach($catpro as $cats)     
+                                    <li class="producttrc">{{$cats->category_product_name}}
                                         <ul class="producttrc-ex">
-                                            $test = load model sub category ->where(id = $id)
-                                            @foreach($test as $asd)
-                                                <li><a href="/family/public/category/{{$rodatiga->id}}">{{$asd->category_subproduct_name}}</a></li>
+
+        <?php $subpro = App\Http\Model\Category_subproduct::all()->where('id_category','=',$cats->id); ?>
+
+                                            @foreach($subpro as $listsub)
+                                                <li><a href="/family/public/product/category/{{$listsub->id}}">{{$listsub->category_subproduct_name}}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
                                 @endforeach                          
                                 </ul>
-                                <script></script>
                             </div>
                             <div class="col-sm-9 col-md-10">
                                 <div class="row">
-                                    <div class="box-wrapper">
-
+                                    <div class="box-wrapper"> 
+                                        <div style="margin-left: 15px;">
+                                            <h3>{{$product_detail->total()}} Total Products</h3>
+                                            <p>{{$product_detail->count()}} Products in this page </p>
+                                        </div>
                                         @foreach($product_detail as $detail)
                                         <div class="col-sm-4 col-md-3 product">
                                             <a href="/family/public/product/{{$detail->id}}">
                                                 <div class="product-box" style="overflow: hidden;">
                                                     <div class="mobiles" style="overflow: hidden;">
-                                                        <img src="asset/img/{{$detail->image1}}">
+                                                        <img src="http://localhost/family/public/asset/img/{{$detail->image1}}">
                                                     </div>
                                                     <div class="descproducts">
                                                         <h4>{{$detail->name_product}}</h4>
@@ -61,18 +65,12 @@ navbarx @endsection
                                         </div> 
                                         @endforeach 
 
+
                                     </div>
                                 </div>
                                 <div class="center" >
                                       <div class="pagination">
-                                        <a href="/family/public/product">&laquo;</a>
-                                        <a href="/family/public/product">1</a>
-                                        <a href="/family/public/product" class="active">2</a>            
-                                        <a href="/family/public/product">3</a>            
-                                        <a href="/family/public/product">4</a>           
-                                        <a href="/family/public/product" class="hidenpagination" >5</a>           
-                                        <a href="/family/public/product" class="hidenpagination" >6</a>
-                                        <a href="/family/public/product">&raquo;</a>            
+                                        {{$product_detail->links()}}           
                                       </div><!--pagination-->
                                     </div> <!--center--> 
                             </div>
@@ -85,39 +83,35 @@ navbarx @endsection
         <section class="mobileshow" style="margin-top: 20px;" id="allproduct" name="allproduct">
             <div class="container" style="background: #1e846e">
                 <div class="row">
-                    <div class="col-xs-12 text-center">
+                    <div class="col-xs-12">
                         <div class="titlepro" style="margin-bottom: 20px; margin-top: 20px; color: white;"><p><strong>All Product</strong></p></div>
                         <div class="row">
-                            <div class="col-xs-6 allpro">
-                                <p><strong>Tricycle</strong></p>
-                                <p><a href="/family/public/product">F1 Series</a></p>
-                                <p><a href="/family/public/product">F5 Series</a></p>
-                                <p><a href="/family/public/product">F7 Series</a></p>
-                                <p><a href="/family/public/product">F8 Series</a></p>
-                                <p><a href="/family/public/product">F9 Series</a></p>
+                            <div class="col-xs-12 allpro">
+                                <div class="sidebar col-sm-3 col-md-2 mobileshow">
+                                <ul class="sidebarsub">
+                                @foreach($catpro as $cats)     
+                                    <li class="producttrc" style="color: #fed400; font-size: 16px;">{{$cats->category_product_name}} 
+                                        <ul class="producttrc-ex">
 
-                                <p><strong>Bicycle</strong></p>
-                                <p><a href="/family/public/product">Family bike</a></p>
+        <?php $subpro = App\Http\Model\Category_subproduct::all()->where('id_category','=',$cats->id); ?>
 
-                                <p><strong>Ride on Car</strong></p>
-                                <p><a href="/family/public/product">FT Series</a></p>
-                                
-                            </div>
-                            <div class="col-xs-6 allpro">
-                                <p><strong>Baby Walker</strong></p>
-                                <p><a href="/family/public/product">FB - 1 Series</a></p>
-                                <p><a href="/family/public/product">FB - 2 Series</a></p>
-                                <p><a href="/family/public/product">FB - 3 Series</a></p>
-                                <p><a href="/family/public/product">FB - 5 Series</a></p>
-                                <p><a href="/family/public/product">FB - 7 Series</a></p>
-
-                                <p><strong>Baby Stroller</strong></p>
-                                <p><a href="/family/public/product">CS Series</a></p>
-                                <p><a href="/family/public/product">FS Series</a></p>
+                                            @foreach($subpro as $listsub)
+                                                <li><a href="/family/public/product/category/{{$listsub->id}}">{{$listsub->category_subproduct_name}}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @endforeach                          
+                                </ul>
+                            </div> 
                             </div>
                         </div>
                     </div>
+
                 </div>
+
             </div>
         </section>
+        <div class="buttondrop mobileshow" style="padding: 15px">
+            <a name="allproduct" href="#ontop" style="color: white"><button type="button" class="btn" style="width: 100%; background: #1e846e;">Back to Top</button></a>
+        </div>
 @endsection

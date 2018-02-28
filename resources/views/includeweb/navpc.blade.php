@@ -19,13 +19,13 @@
                     <div class="col-xs-12">
                         <div class="row">
                             <div class="subproduct col-xs-6 text-center">
-                                <a href="/family/public/product" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-ROC.png')}}"></a><br>
-                                <a href="/family/public/product" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-TC.png')}}"></a><br>
-                                <a href="/family/public/product" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-BC.png')}}"></a><br>
+                                <a href="/family/public/product/main/6" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-ROC.png')}}"></a><br>
+                                <a href="/family/public/product/main/3" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-TC.png')}}"></a><br>
+                                <a href="/family/public/product/main/5" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-BC.png')}}"></a><br>
                             </div>
                             <div class="subproduct col-xs-6 text-center">
-                                <a href="/family/public/product" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-BS.png')}}"></a><br>
-                                <a href="/family/public/product" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-BW.png')}}"></a><br>
+                                <a href="/family/public/product/main/8" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-BS.png')}}"></a><br>
+                                <a href="/family/public/product/main/4" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-BW.png')}}"></a><br>
                                 <div class="pading-subproduct-a"><a class="sante" href="/family/public/product"><strong class="font16">SEE ALL PRODUCT</strong></a></div>
                             </div>
                         </div>                        

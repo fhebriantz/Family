@@ -2,6 +2,7 @@
 
 
 Route::get('product/category/{id}','Web\Web_ProductController@show_list_category_prod'); 
+Route::get('product/main/{id}','Web\Web_ProductController@show_list_main_prod'); 
 
 
 Route::get('/', function () {
@@ -23,8 +24,9 @@ Route::get('product/{id}','Web\Web_ProductController@view');
 Route::get('contact', 'Web\Web_ContactController@show');
 
 Route::get('news', 'Web\Web_NewsController@show');
-Route::get('news/{id}','Web\Web_NewsController@view'); 
+Route::get('news/{id}','Web\Web_NewsController@view');
 
+Route::post('question/input', 'Web_QuestionController@insert');
 
 Route::get('/home', 'AboutController@showcms');
 

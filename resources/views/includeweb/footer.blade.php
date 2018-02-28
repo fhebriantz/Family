@@ -7,16 +7,28 @@
                     </div>
                     <div class="col-sm-5 col-xs-9 marginbottomx mobilepading">
                         <div class="form-question">
-                            <form>
+
+                            @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <p style="color: red">{{ session('berhasil')}}</p>
+                            <form method="POST" action="/family/public/question/input" enctype="multipart/form-data">
+                                {{ csrf_field() }}
                                 <div class="form-group">
                                     <label>GOT QUESTION?</label>
                                     <input type="text" id="email" name="email" class="form-control" placeholder="Email">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" id="message" name="message" class="form-control" placeholder="message">
+                                    <input type="text" id="question" name="question" class="form-control" placeholder="question">
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn btn-default" style="float: right;" id="submit">Submit</button>
+                                    <input class="btn btn-info" name="submit" value="submit" style="float: right" type="submit">
                                 </div>                                
                             </form>
                         </div>
