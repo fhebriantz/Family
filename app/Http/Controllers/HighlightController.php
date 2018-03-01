@@ -57,7 +57,7 @@ class HighlightController extends Controller
 
         $validatedData = $request->validate([
 
-                'namefile' => 'required',
+                'namefile' => 'required|unique:highlight',
                 'flag' => 'required',
             ]);
 

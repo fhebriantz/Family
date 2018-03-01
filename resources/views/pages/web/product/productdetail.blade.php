@@ -28,40 +28,18 @@ navbarx @endsection
                             <div class="sidebar col-sm-3 col-md-2 mobilehide">
                                 <p><strong>PRODUCT</strong></p>
                                 <ul class="sidebarsub">
-                                    <li class="productbs">Baby Series
-                                        <ul class="productbs-ex">
-                                            <li><a href="product.html">CS Series</a></li>
-                                            <li><a href="product.html">FS Series</a></li>
-                                        </ul>
-                                    </li>     
-                                    <li class="productbw">Baby Walker
-                                        <ul class="productbw-ex">
-                                            <li><a href="product.html">FB - 1 Series</a></li>
-                                            <li><a href="product.html">FB - 2 Series</a></li>
-                                            <li><a href="product.html">FB - 3 Series</a></li>
-                                            <li><a href="product.html">FB - 5 Series</a></li>
-                                            <li><a href="product.html">FB - 7 Series</a></li>
-                                        </ul>
-                                    </li>     
-                                    <li class="productbc">Bycycle
-                                        <ul class="productbc-ex">
-                                            <li><a href="product.html">Family bike</a></li>     
-                                        </ul>
-                                    </li>     
-                                    <li class="productroc">Ride On Car
-                                        <ul class="productroc-ex">
-                                            <li><a href="product.html">FT Series</a></li>
-                                        </ul>
-                                    </li>     
-                                    <li class="producttrc">Tricycle
-                                        <ul class="producttrc-ex">
-                                            <li><a href="product.html">F1 Series</a></li>
-                                            <li><a href="product.html">F5 Series</a></li>
-                                            <li><a href="product.html">F7 Series</a></li>
-                                            <li><a href="product.html">F8 Series</a></li>
-                                            <li><a href="product.html">F9 Series</a></li>
-                                        </ul>
-                                    </li>                          
+                                     @foreach($catpro as $cats)     
+                                        <li class="producttrc">{{$cats->category_product_name}}
+                                            <ul class="producttrc-ex">
+
+        <?php $subpro = App\Http\Model\Category_subproduct::all()->where('id_category','=',$cats->id); ?>
+
+                                                @foreach($subpro as $listsub)
+                                                    <li><a href="/family/public/product/category/{{$listsub->id}}">{{$listsub->category_subproduct_name}}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
+                                    @endforeach                        
                                 </ul>
                                 <script></script>
                             </div>

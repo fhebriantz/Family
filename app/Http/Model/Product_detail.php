@@ -53,4 +53,14 @@ class Product_detail extends Model
 
 	     return $product_details;
 	    }
+
+    // public static function getTablecat($id){
+    //     $category_products = DB::table('category_products')
+    //         ->join('product_details.id_category', '=', 'category_products', 'category_products.id')
+    //         ->select('*')
+    //         ->where('id','=',$id)
+    //         ->get();
+
+    //      return $category_products;
+    //     }
 }

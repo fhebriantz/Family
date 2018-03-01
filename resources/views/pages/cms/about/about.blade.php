@@ -35,7 +35,7 @@
                                 @foreach($abouts as $about)
                                 <tr>    
                                     <td>{{ $no++ }}</td>
-                                    <td>{{$about->ket}}</td>
+                                    <td>{{$about->caption}}</td>
                                     <td>{{$about->title}}</td>
                                     <td>{!!$about->desc!!}</td>
                                     <td>{{$about->created_at}}</td>
@@ -48,7 +48,7 @@
                                         <form method="POST" action="/family/public/cms/about/{{ $about->id }}/delete" class="text-center" style="float: right; padding-left: 10px;">
                                             <!-- csrf perlu ditambahakan di setiap post -->
                                             {{ csrf_field() }}
-                                            <input class="btn btn-danger" type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure want to delete tittle {{$about->title}}?');"> 
+                                            <input class="btn btn-danger" type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure want to delete caption {{$about->caption}}?');"> 
                                             <input type="hidden" name="_method" value="DELETE">
                                         </form>
                                     </td>

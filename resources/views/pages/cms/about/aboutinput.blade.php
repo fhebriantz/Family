@@ -30,7 +30,7 @@
 	                        <table class="table">  
                                 <tr>
                                     <td>Caption</td>
-                                    <td><input type="text" name="ket" placeholder="Caption" value="{{ old('ket') }}" style="width: 100%"></td>
+                                    <td><input type="text" name="caption" placeholder="Caption" value="{{ old('caption') }}" style="width: 100%"></td>
                                 </tr>                       
 	                            <tr>
 									<td>Title</td>

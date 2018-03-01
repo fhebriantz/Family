@@ -57,7 +57,7 @@ class NewsController extends Controller
 
         $validatedData = $request->validate([
 
-                'title' => 'required',
+                'title' => 'required|unique:news',
                 'desc' => 'required|min:50',
                 'images' => 'required',
             ]);

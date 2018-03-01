@@ -29,7 +29,7 @@ navbarx @endsection
                 <div class="row">
                     <div class="description col-sm-12">
                         @foreach($abouts as $about)
-                        <h1 class="titlenews">{{$about->ket}}:</h1>
+                        <h1 class="titlenews">{{$about->caption}}:</h1>
                         <p><strong>{{$about->title}}</strong></p>
                         <p>{!!$about->desc!!}</p>
                         @endforeach

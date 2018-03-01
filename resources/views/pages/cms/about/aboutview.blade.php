@@ -23,7 +23,7 @@
                                 </tr>        
                                 <tr>
                                     <td>Caption</td>
-                                    <td><input type="text" name="ket"  value="{{ $about_data->ket }}" style="width: 100%" readonly></td>
+                                    <td><input type="text" name="caption"  value="{{ $about_data->caption }}" style="width: 100%" readonly></td>
                                 </tr>            
 	                            <tr>
 									<td>Title</td>

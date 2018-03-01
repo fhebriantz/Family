@@ -13,6 +13,7 @@
                @guest
                @else
               <ul class="nav navbar-nav navbar-right user-nav">
+                <li class="user-name" style="margin-right: 0px"><span><a href="/family/public/" target="_blank">View Web Family |</a></span></li>
                 <li class="user-name"><span>{{ Auth::user()->name }}</span></li>
                   <li class="dropdown avatar-dropdown">
                    <img src="{{ asset('asset/img/avatar.jpg')}}" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>

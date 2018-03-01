@@ -66,7 +66,7 @@ class Category_subproductController extends Controller
     {
         $validatedData = $request->validate([
             'id_category' => 'required',
-            'category_subproduct_name' => 'required',
+            'category_subproduct_name' => 'required|unique:category_subproducts',
         ]);
 
     	$category_subproduct = new Category_subproduct;

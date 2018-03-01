@@ -5,9 +5,7 @@ Route::get('product/category/{id}','Web\Web_ProductController@show_list_category
 Route::get('product/main/{id}','Web\Web_ProductController@show_list_main_prod'); 
 
 
-Route::get('/', function () {
-    return view('pages/user/login');
-});
+Route::get('/', 'Web\Web_IndexController@show');
 
 Route::get('/logout', 'LogoutController@index');
 
@@ -26,9 +24,9 @@ Route::get('contact', 'Web\Web_ContactController@show');
 Route::get('news', 'Web\Web_NewsController@show');
 Route::get('news/{id}','Web\Web_NewsController@view');
 
-Route::post('question/input', 'Web_QuestionController@insert');
+Route::post('question/input', 'Web\Web_QuestionController@insert');
 
-Route::get('/home', 'AboutController@showcms');
+Route::get('/home', 'HighlightController@showcms')->name('home');
 
 Route::get('cms/question', 'QuestionController@show');
 
@@ -202,5 +200,3 @@ Route::put('cms/faq/{id}/edit','FaqController@update');
 
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

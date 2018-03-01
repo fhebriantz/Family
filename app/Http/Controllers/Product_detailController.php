@@ -11,10 +11,12 @@ use App\file;
 use Illuminate\Support\Facades\Input;
 use Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\MessageBag;
 
 class Product_detailController extends Controller
 {
    
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -62,10 +64,11 @@ class Product_detailController extends Controller
     // menampilkan fungsi input
     function insert (Request $request)  
     {
+ 
          $validatedData = $request->validate([
             'id_category' => 'required',
             'id_category_sub' => 'required',
-            'name_product' => 'required',
+            'name_product' => 'required|unique:product_details',
             'price' => 'required|numeric',
             'frame' => 'required',
             'fork' => 'required',

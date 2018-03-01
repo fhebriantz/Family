@@ -64,7 +64,7 @@ class AboutController extends Controller
 
         $validatedData = $request->validate([
 
-                'ket' => 'required',
+                'caption' => 'required|unique:abouts',
                 'title' => 'required',
                 'desc' => 'required|min:50',
             ]);
@@ -72,7 +72,7 @@ class AboutController extends Controller
     	$abouts = new About;
 
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
-            $abouts->ket = $request->ket; 
+            $abouts->caption = $request->caption; 
     		$abouts->title = $request->title; 
     		$abouts->desc = $request->desc;
             $abouts->created_by = Auth::user()->name; 
@@ -88,7 +88,7 @@ class AboutController extends Controller
     function update (Request $request, $id)  
     {
         $validatedData = $request->validate([
-                'ket' => 'required',
+                'caption' => 'required',
                 'title' => 'required',
                 'desc' => 'required|min:50',
             ]);
@@ -96,7 +96,7 @@ class AboutController extends Controller
     	$abouts = About::find($id);
 
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
-            $abouts->ket = $request->ket; 
+            $abouts->caption = $request->caption; 
     		$abouts->title = $request->title; 
     		$abouts->desc = $request->desc;
             $abouts->updated_by = Auth::user()->name ;

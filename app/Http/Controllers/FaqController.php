@@ -53,7 +53,7 @@ class FaqController extends Controller
     {
           $validatedData = $request->validate([
 
-                'title' => 'required',
+                'title' => 'required|unique:faqs',
                 'desc' => 'required',
             ]);
 

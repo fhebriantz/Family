@@ -12,15 +12,15 @@ class Web_ProductController extends Controller
 {
     public function show(){  
     	$product_detail = Product_detail::getTableDetailweb();
-    	$tricycle = Category_subproduct::all();
         $catpro = Category_product::all();
-    	return view('pages/web/product/product', compact('product_detail','tricycle','catpro'));
+    	return view('pages/web/product/product', compact('product_detail','catpro'));
     }
 
     function view($id)
     {
         $product_detail = Product_detail::getTableDetail()->where('id','=',$id)->first();
-        return view('pages/web/product/productdetail', compact('product_detail'));
+        $catpro = Category_product::all();
+        return view('pages/web/product/productdetail', compact('product_detail','catpro'));
     }
     // Sub List ============== Sub List ============ Sub List ============ Sub List
     function show_list_category_prod($id)
@@ -36,6 +36,7 @@ class Web_ProductController extends Controller
         $product_detail = Product_detail::getTableDetailmain($id);
         $tricycle = Category_subproduct::all();
         $catpro = Category_product::all();
+        // $cat = Category_product::getTablecat($id);
         return view('pages/web/product/product', compact('product_detail','tricycle','catpro'));
     }
 
