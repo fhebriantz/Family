@@ -7,7 +7,7 @@ navbarx @endsection
        <section class="margintop marmin">
             <div class="container">
                 <hr>
-                <p class="title-page"><strong>NEWS / {{$news->title}}</strong></p>               
+                <p class="title-page"><strong>{{trans('content.news')}} / {{$news->title}}</strong></p>               
                 <hr>
             </div>            
         </section>
@@ -15,7 +15,7 @@ navbarx @endsection
         <section class="header-about mobilehide">
             <div class="container">
                     <div class="gambarhead" style="height: 500px; overflow: hidden;">
-                        <img src="http://localhost/family/public/assets/content/{{$news->images}}" style="width: 100%; height: auto;" alt="">
+                        <img src="{{asset('/assets/content/'.$news->images)}}" style="width: 100%; height: auto;" alt="">
                     </div>
             </div>
         </section>
@@ -23,7 +23,7 @@ navbarx @endsection
         <section class="header-about mobileshow">
             <div class="container">
                     <div class="gambarhead">
-                        <img src="http://localhost/family/public/assets/content/{{$news->images}}" style="width: 100%; height: auto;" alt="">
+                        <img src="{{asset('/assets/content/'.$news->images)}}" style="width: 100%; height: auto;" alt="">
                     </div>
             </div>
         </section>

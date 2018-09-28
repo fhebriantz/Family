@@ -13,7 +13,7 @@
     <div class="col-md-12 top-20 padding-0">
         <div class="col-md-12">
             <div class="panel">
-                <div class="panel-heading"><h3>Data About</h3>  <a href="/family/public/cms/about/input"><button type="button" style="margin-bottom: 10px;" class="btn btn-success">Add Data</button></a></div>
+                <div class="panel-heading"><h3>Data About</h3>  <a href="{{url('/cms/about/input')}}"><button type="button" style="margin-bottom: 10px;" class="btn btn-success">Add Data</button></a></div>
                 <div class="panel-body">
                     <div class="responsive-table">
                         <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">                        
@@ -43,9 +43,9 @@
                                     <td>{{$about->updated_at}}</td>
                                     <td>{{$about->updated_by}}</td>
                                     <td style="float: left;">
-                                        <a href="/family/public/cms/about/{{ $about->id }}/view"><button type="button" class="btn btn-primary">View</button></a>
-                                        <a href="/family/public/cms/about/{{ $about->id }}/edit" style="padding-left: 10px;"><button type="button" class="btn btn-warning">Edit</button></a>
-                                        <form method="POST" action="/family/public/cms/about/{{ $about->id }}/delete" class="text-center" style="float: right; padding-left: 10px;">
+                                        <a href="{{url('/cms/about/'.$about->id.'/view')}}"><button type="button" class="btn btn-primary">View</button></a>
+                                        <a href="{{url('/cms/about/'.$about->id.'/edit')}}" style="padding-left: 10px;"><button type="button" class="btn btn-warning">Edit</button></a>
+                                        <form method="POST" action="{{url('/cms/about/'.$about->id.'/delete')}}" class="text-center" style="float: right; padding-left: 10px;">
                                             <!-- csrf perlu ditambahakan di setiap post -->
                                             {{ csrf_field() }}
                                             <input class="btn btn-danger" type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure want to delete caption {{$about->caption}}?');"> 

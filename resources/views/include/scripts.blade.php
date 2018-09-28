@@ -14,12 +14,13 @@
 
 <!-- custom -->
 <script src="{{ asset('asset/js/main.js')}}"></script>
-<script src="/family/public/js/ckeditor/ckeditor.js"></script>
+<script src="{{url('/js/ckeditor/ckeditor.js')}}"></script>
 <script type="text/javascript">
   $(document).ready(function(){
     $('#datatables-example').DataTable();
   });
 </script>
+
 <script type="text/javascript">
 
       function readURL(input) {

@@ -41,8 +41,8 @@
                                     <td>{{$sorotan->updated_at}}</td>
                                     <td>{{$sorotan->updated_by}}</td>
                                     <td style="float: left;">
-                                        <a href="/family/public/cms/highlight/{{ $sorotan->id }}/view"><button type="button" class="btn btn-primary">View</button></a>
-                                        <a href="/family/public/cms/highlight/{{ $sorotan->id }}/edit" style="padding-left: 10px;"><button type="button" class="btn btn-warning">Edit</button></a>                               
+                                        <a href="{{url('/cms/highlight/'.$sorotan->id.'/view')}}"><button type="button" class="btn btn-primary">View</button></a>
+                                        <a href="{{url('/cms/highlight/'.$sorotan->id.'/edit')}}" style="padding-left: 10px;"><button type="button" class="btn btn-warning">Edit</button></a>                               
                                     </td>
                                 </tr>
                                 @endforeach

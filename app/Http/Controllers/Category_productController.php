@@ -56,6 +56,7 @@ class Category_productController extends Controller
 
                 'category_product_name' => 'required|unique:category_products'
             ]);
+
          
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
                 

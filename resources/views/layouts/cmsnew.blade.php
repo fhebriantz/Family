@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
 <head>
   <!-- start: Css -->
   @include('include/head')
   <!-- end: Css -->
+  @yield('header')
 </head>
 @guest
  <body id="mimin" class="dashboard form-signin-wrapper">

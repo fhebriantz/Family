@@ -7,17 +7,17 @@
                       <p class="animated fadeInRight">Sat,October 1st 2029</p>
                     </li>
                     <li class="ripple">
-                      <a href="/family/public/cms/highlight"> Highlight 
+                      <a href="{{url('/cms/highlight')}}"> Highlight 
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
                     </li>
                     <li class="ripple">
-                      <a href="/family/public/cms/about"> About 
+                      <a href="{{url('/cms/about')}}"> About 
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
                     </li>
                     <li class="ripple">
-                      <a href="/family/public/cms/news"> News 
+                      <a href="{{url('/cms/news')}}"> News 
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
                     </li>
@@ -26,19 +26,29 @@
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
                       <ul class="nav nav-list tree">
-                        <li><a href="/family/public/cms/product">Category Product</a></li>
-                        <li><a href="/family/public/cms/product/subproduct">Sub Category Product</a></li>
-                        <li><a href="/family/public/cms/product/subproduct/detail">Detail Product</a></li>
+                        <li><a href="{{url('/cms/product')}}">Category Product</a></li>
+                        <li><a href="{{url('/cms/product/subproduct')}}">Sub Category Product</a></li>
+                        <li><a href="{{url('/cms/product/subproduct/detail')}}">Detail Product</a></li>
                       </ul>
                     </li>
                     <li class="ripple">
-                      <a href="/family/public/cms/faq">FAQ
+                      <a class="tree-toggle nav-header"></span> Tag Filtering
+                        <span class="fa-angle-right fa right-arrow text-right"></span>
+                      </a>
+                      <ul class="nav nav-list tree">
+                        <li><a href="{{url('/cms/mainan')}}">Mainan</a></li>
+                        <li><a href="{{url('/cms/sandaran')}}">Sandaran Tangan</a></li>
+                        <li><a href="{{url('/cms/ban')}}">Ban</a></li>
+                      </ul>
+                    </li>
+                    <li class="ripple">
+                      <a href="{{url('/cms/faq')}}">FAQ
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
                     </li>
-                    <li class="ripple"><a href="/family/public/cms/question"> Questions  <span class="fa-angle-right fa right-arrow text-right"></span> </a>                      
+                    <li class="ripple"><a href="{{url('/cms/question')}}"> Questions  <span class="fa-angle-right fa right-arrow text-right"></span> </a>                      
                     </li>
-                    <li><a href="/family/public/cms/forgotpass">Password</a></li>
+                    <li><a href="{{url('/cms/forgotpass')}}">Password</a></li>
                   </ul>
                 </div>
             </div>

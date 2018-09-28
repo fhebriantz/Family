@@ -17,11 +17,11 @@
                                     </ul>
                                 </div>
                             @endif
-                            <p style="color: red">{{ session('berhasil')}}</p>
-                            <form method="POST" action="/family/public/question/input" enctype="multipart/form-data">
+                            <p style="color: blue">{{ session('berhasil')}}</p>
+                            <form method="POST" action="{{url('/question/input')}}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="form-group">
-                                    <label>GOT QUESTION?</label>
+                                    <label>{{trans('footer.question')}}</label>
                                     <input type="text" id="email" name="email" class="form-control" placeholder="Email">
                                 </div>
                                 <div class="form-group">

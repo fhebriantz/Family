@@ -44,6 +44,7 @@
 }
 
 
+
 hr{
 	margin-top: 10px;
     margin-bottom: 10px;
@@ -264,7 +265,7 @@ footer
 	height: 249px; 
 	overflow: hidden;
 	padding: 30px 30px 60px 30px;
-	font-size: 19px;
+	font-size: 14px;
 }
 
 .story-box-right{
@@ -572,6 +573,7 @@ footer
 		height: 16px;
 }
 
+
  
  
 @media only screen and (min-width: 1200px) and (max-width:1450px){
@@ -673,7 +675,7 @@ footer
 	}
 	.story-box-left{
 		height: 225px; 
-		font-size: 17px;
+		font-size: 12px;
 	}
 	.readmoreabout{
 		width: 100%;

@@ -7,7 +7,7 @@ navbarx @endsection
        <section class="margintop marmin">
             <div class="container">
                 <hr>
-                <p class="title-page"><strong>NEWS</strong></p>               
+                <p class="title-page"><strong>{{trans('content.news')}}</strong></p>               
                 <hr>
             </div>            
         </section>
@@ -20,9 +20,9 @@ navbarx @endsection
                             <img src="{{ asset('assets/content/content1.jpg')}}" class="img-story">
                         </div>
                         <div class="col-sm-5 story-box-left">
-                            <p style="color: #e4e41d">Our Story</p>
+                            <p style="color: #e4e41d">{{trans('content.ourstory')}}</p>
                             <div   class="readmoreabout" style="color: white"><p>{!! $abouts->desc !!}</p></div>
-                            <a href="/family/public/about" class="readmorelink">...Read More</a>
+                            <a href="{{url('/about')}}" class="readmorelink">{{trans('content.readmore')}}</a>
                         </div>
                         <div class="col-sm-7 mobilehidden story-box-right">
                             <img src="{{ asset('assets/content/content1.jpg')}}" class="img-story">
@@ -39,10 +39,10 @@ navbarx @endsection
 
                         @foreach($news as $berita)
                         <div class="col-sm-4 col-md-3 product">
-                            <a href="/family/public/news/{{$berita->id}}">
+                            <a href="{{url('/news/'.$berita->id)}}">
                                 <div class="product-box" style="overflow: hidden;">
                                     <div  style="overflow: hidden;">
-                                        <img class="mobila" src="http://localhost/family/public/assets/content/{{$berita->images}}" alt="news picture">
+                                        <img class="mobila" src="{{asset('/assets/content/'.$berita->images)}}" alt="news picture">
                                     </div>
                                     <div class="descproduct">
                                         <div class="descoverflow">

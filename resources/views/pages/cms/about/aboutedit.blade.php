@@ -25,20 +25,20 @@
                                 </ul>
                             </div>
                         @endif
-                    	<form method="POST" action="/family/public/cms/about/{{ $about_data->id }}/edit">
+                    	<form method="POST" action="{{url('/cms/about/'.$about_data->id.'/edit')}}">
 						{{ csrf_field() }}
 	                        <table class="table">     
                                 <tr>
                                     <td>Caption</td>
-                                    <td><input type="text" name="caption" placeholder="Caption" value="{{ $about_data->caption }}" style="width: 100%"></td>
+                                    <td><input type="text"  class="form-control" name="caption" placeholder="Caption" value="{{ $about_data->caption }}" style="width: 100%"></td>
                                 </tr>                   
 	                            <tr>
 									<td>Title</td>
-									<td><input type="text" name="title" placeholder="Title" value="{{ $about_data->title }}" style="width: 100%"></td>
+									<td><input  class="form-control" type="text" name="title" placeholder="Title" value="{{ $about_data->title }}" style="width: 100%"></td>
 								</tr>
 								<tr>
 									<td>Description</td>
-									<td> <textarea name="desc" class="ckeditor">{{ $about_data->desc }}</textarea></td>
+									<td> <textarea  class="form-control ckeditor" name="desc">{{ $about_data->desc }}</textarea></td>
 								</tr>
 
 								<tr>

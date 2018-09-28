@@ -33,7 +33,7 @@
                                     <td>{{$pertanyaan->question}}</td>
                                     <td>{{$pertanyaan->email}}</td>
                                     <td>
-                                        <form method="POST" action="/family/public/cms/{{ $pertanyaan->id }}/delete" class="text-center" style="float: left; margin: 0px 10px;" >
+                                        <form method="POST" action="{{url('/cms/'.$pertanyaan->id.'/delete')}}" class="text-center" style="float: left; margin: 0px 10px;" >
                                             <!-- csrf perlu ditambahakan di setiap post -->
                                             {{ csrf_field() }}
                                             <input class="btn btn-danger" type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure want to delete question from {{$pertanyaan->email}}?');"> 

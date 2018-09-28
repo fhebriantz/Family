@@ -21,30 +21,30 @@
 
                                 <tr>
                                     <td>ID</td>
-                                    <td><input type="number" min="0" step="1" name="id"  value="{{ $product_data->id }}" style="width: 100%" readonly></td>
+                                    <td><input  class="form-control" type="number" min="0" step="1" name="id"  value="{{ $product_data->id }}" style="width: 100%" readonly></td>
                                 </tr>
 
     							<tr>
     								<td>Nama Product</td>
-    								<td><input type="text" name="category_product_name" value="{{ $product_data->category_product_name }}" style="width: 100%" readonly></td>
+    								<td><input  class="form-control" type="text" name="category_product_name" value="{{ $product_data->category_product_name }}" style="width: 100%" readonly></td>
     							</tr>
 
 
                                 <tr>
                                     <td>Created Date</td>
-                                    <td><input type="text" name="created_at"  value="{{ $product_data->created_at }}" style="width: 100%" readonly></td>
+                                    <td><input class="form-control"  type="text" name="created_at"  value="{{ $product_data->created_at }}" style="width: 100%" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Created By</td>
-                                    <td><input type="text" name="created_by"  value="{{ $product_data->created_by }}" style="width: 100%" readonly></td>
+                                    <td><input class="form-control"  type="text" name="created_by"  value="{{ $product_data->created_by }}" style="width: 100%" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Modified Date</td>
-                                    <td><input type="text" name="updated_at"  value="{{ $product_data->updated_at }}" style="width: 100%" readonly></td>
+                                    <td><input class="form-control"  type="text" name="updated_at"  value="{{ $product_data->updated_at }}" style="width: 100%" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Modified By</td>
-                                    <td><input type="text" name="updated_by"  value="{{ $product_data->updated_by }}" style="width: 100%" readonly></td>
+                                    <td><input  class="form-control" type="text" name="updated_by"  value="{{ $product_data->updated_by }}" style="width: 100%" readonly></td>
                                 </tr>
 						</table>
                     </div>

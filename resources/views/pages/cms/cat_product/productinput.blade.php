@@ -25,12 +25,12 @@
                                 </ul>
                             </div>
                         @endif
-                    	<form method="POST" action="/family/public/cms/product/input">
+                    	<form method="POST" action="{{url('/cms/product/input')}}">
 						{{ csrf_field() }}
 	                        <table class="table">
 							<tr>
 								<td>Nama Product</td>
-								<td><input type="text" name="category_product_name" placeholder="Nama Product" style="width: 100%"><p style="color: red">{{ session('status')}}</p></td>
+								<td><input type="text" class="form-control"  name="category_product_name" placeholder="Nama Product" style="width: 100%"><p style="color: red">{{ session('status')}}</p></td>
                                 
 							</tr>
 						

@@ -7,7 +7,7 @@ navbarx @endsection
        <section class="margintop marmin" id="ontop">
             <div class="container">
                 <hr>
-                <p class="title-page"><strong><a style="color: #0cb14b; text-decoration: none;" href="http://localhost/family/public/product">PRODUCT</a></strong></p>               
+                <p class="title-page"><strong><a style="color: #0cb14b; text-decoration: none;" href="{{url('/product')}}">{{trans('content.product')}}</a></strong></p>               
                 <hr>
             </div>            
         </section>
@@ -15,7 +15,7 @@ navbarx @endsection
         <section class="butonproduct mobileshow">
             <div class="container">
                 <div class="buttondrop">
-                  <a name="allproduct" href="#allproduct" style="color: white"><button type="button" class="btn" style="width: 100%; background: #1e846e;">See All Product</button></a>
+                  <a name="allproduct" href="#allproduct" style="color: white"><button type="button" class="btn" style="width: 100%; background: #1e846e;">{{trans('content.seeall')}}</button></a>
                 </div>
             </div>
         </section>
@@ -26,7 +26,7 @@ navbarx @endsection
                     <div class="bungkus col-sm-12">
                         <div class="row">
                             <div class="sidebar col-sm-3 col-md-2 mobilehide">
-                                <p><strong>PRODUCT</strong></p>
+                                <p><strong>{{trans('content.product')}}</strong></p>
                                 <ul class="sidebarsub">
                                 @foreach($catpro as $cats)     
                                     <li class="producttrc">{{$cats->category_product_name}}
@@ -35,7 +35,7 @@ navbarx @endsection
         <?php $subpro = App\Http\Model\Category_subproduct::all()->where('id_category','=',$cats->id); ?>
 
                                             @foreach($subpro as $listsub)
-                                                <li><a href="/family/public/product/category/{{$listsub->id}}">{{$listsub->category_subproduct_name}}</a></li>
+                                                <li><a href="{{url('/product/category/'.$listsub->id)}}">{{$listsub->category_subproduct_name}}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
@@ -46,15 +46,15 @@ navbarx @endsection
                                 <div class="row">
                                     <div class="box-wrapper"> 
                                         <div style="margin-left: 15px;">
-                                            <h3>{{$product_detail->total()}} Total Products</h3>
-                                            <p>{{$product_detail->count()}} Products in this page </p>
+                                            <h3>{{$product_detail->total()}} Total {{trans('content.productlow')}}</h3>
+                                            <p>{{$product_detail->count()}} {{trans('content.productlow')}} {{trans('content.thispage')}}</p>
                                         </div>
                                         @foreach($product_detail as $detail)
                                         <div class="col-sm-4 col-md-3 product">
-                                            <a href="/family/public/product/{{$detail->id}}">
+                                            <a href="{{url('/product/'.$detail->id)}}">
                                                 <div class="product-box" style="overflow: hidden;">
                                                     <div class="mobiles" style="overflow: hidden;">
-                                                        <img src="http://localhost/family/public/asset/img/{{$detail->image1}}">
+                                                        <img src="{{asset('/asset/img/'.$detail->image1)}}">
                                                     </div>
                                                     <div class="descproducts">
                                                         <h4>{{$detail->name_product}}</h4>
@@ -96,7 +96,7 @@ navbarx @endsection
         <?php $subpro = App\Http\Model\Category_subproduct::all()->where('id_category','=',$cats->id); ?>
 
                                             @foreach($subpro as $listsub)
-                                                <li><a href="/family/public/product/category/{{$listsub->id}}">{{$listsub->category_subproduct_name}}</a></li>
+                                                <li><a href="{{url('/product/category/'.$listsub->id)}}">{{$listsub->category_subproduct_name}}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
@@ -112,6 +112,6 @@ navbarx @endsection
             </div>
         </section>
         <div class="buttondrop mobileshow" style="padding: 15px">
-            <a name="allproduct" href="#ontop" style="color: white"><button type="button" class="btn" style="width: 100%; background: #1e846e;">Back to Top</button></a>
+            <a name="allproduct" href="#ontop" style="color: white"><button type="button" class="btn" style="width: 100%; background: #1e846e;">{{trans('content.backtop')}}</button></a>
         </div>
 @endsection

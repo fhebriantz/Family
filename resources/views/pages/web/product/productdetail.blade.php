@@ -7,7 +7,7 @@ navbarx @endsection
        <section class="margintop marmin">
             <div class="container">
                 <hr>
-                <p class="title-page"><strong>PRODUCT / TRICYCLE / HARLEY</strong></p>               
+                <p class="title-page"><strong>{{trans('content.product')}} / {{ $product_detail->category_subproduct_name }} / {{ $product_detail->name_product }}</strong></p>               
                 <hr>
             </div>            
         </section>
@@ -15,7 +15,7 @@ navbarx @endsection
         <section class="butonproduct mobileshow">
             <div class="container">
                 <div class="buttondrop">
-                  <a name="allproduct" href="#allproduct" style="color: white"><button type="button" class="btn" style="width: 100%; background: #1e846e;">See All Product</button></a>
+                  <a name="allproduct" href="#allproduct" style="color: white"><button type="button" class="btn" style="width: 100%; background: #1e846e;">{{trans('content.seeall')}}</button></a>
                 </div>
             </div>
         </section>
@@ -26,7 +26,7 @@ navbarx @endsection
                     <div class="bungkus col-sm-12">
                         <div class="row">
                             <div class="sidebar col-sm-3 col-md-2 mobilehide">
-                                <p><strong>PRODUCT</strong></p>
+                                <p><strong>{{trans('content.product')}}</strong></p>
                                 <ul class="sidebarsub">
                                      @foreach($catpro as $cats)     
                                         <li class="producttrc">{{$cats->category_product_name}}
@@ -35,7 +35,7 @@ navbarx @endsection
         <?php $subpro = App\Http\Model\Category_subproduct::all()->where('id_category','=',$cats->id); ?>
 
                                                 @foreach($subpro as $listsub)
-                                                    <li><a href="/family/public/product/category/{{$listsub->id}}">{{$listsub->category_subproduct_name}}</a></li>
+                                                    <li><a href="{{url('/product/category/'.$listsub->id)}}">{{$listsub->category_subproduct_name}}</a></li>
                                                 @endforeach
                                             </ul>
                                         </li>
@@ -45,32 +45,19 @@ navbarx @endsection
                             </div>
                             <div class="thumbproduct col-sm-5 col-md-6 col-xs-12">
                                 <div class="page">
-                                    <div class="sp-loading"><img src="http://localhost/family/public/assets/images/sp-loading.gif" alt=""><br>LOADING IMAGES</div>
+                                    <div class="sp-loading"><img src="{{asset('/assets/images/sp-loading.gif')}}" alt=""><br>LOADING IMAGES</div>
                                     <div class="sp-wrap">
-                                        <a href="http://localhost/family/public/asset/img/{{ $product_detail->image1 }}"><img src="http://localhost/family/public/asset/img/{{ $product_detail->image1 }}" alt=""></a>
-                                        <a href="http://localhost/family/public/asset/img/{{ $product_detail->image2 }}"><img src="http://localhost/family/public/asset/img/{{ $product_detail->image2 }}" alt=""></a>
-                                        <a href="http://localhost/family/public/asset/img/{{ $product_detail->image3 }}"><img src="http://localhost/family/public/asset/img/{{ $product_detail->image3 }}" alt=""></a>
-                                        <a href="http://localhost/family/public/asset/img/{{ $product_detail->image4 }}"><img src="http://localhost/family/public/asset/img/{{ $product_detail->image4 }}" alt=""></a>
+                                        <a href="{{asset('/asset/img/'.$product_detail->image1)}}"><img src="{{asset('/asset/img/'.$product_detail->image1)}}" alt=""></a>
+                                        <a href="{{asset('/asset/img/'.$product_detail->image2)}}"><img src="{{asset('/asset/img/'.$product_detail->image2)}}" alt=""></a>
+                                        <a href="{{asset('/asset/img/'.$product_detail->image3)}}"><img src="{{asset('/asset/img/'.$product_detail->image3)}}" alt=""></a>
+                                        <a href="{{asset('/asset/img/'.$product_detail->image4)}}"><img src="{{asset('/asset/img/'.$product_detail->image4)}}" alt=""></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="detailproduct col-sm-4 col-xs-12">
                                 <h3>{{ $product_detail->name_product }}</h3>
-                                <p><strong>Price: </strong>Rp. {{ $product_detail->price }}<br>
-                                <strong>Frame: </strong>{{ $product_detail->frame }}<br>
-                                <strong>Fork: </strong>{{ $product_detail->fork }}<br>
-                                <strong>Brakes Rear: </strong>{{ $product_detail->brakes_rear }}<br>
-                                <strong>Brake Levers: </strong>{{ $product_detail->brakes_levers }}<br>
-                                <strong>Pedals: </strong>{{ $product_detail->pedals }}<br>
-                                <strong>Crankset: </strong>{{ $product_detail->crankset }}<br>
-                                <strong>Bottom Bracket: </strong>{{ $product_detail->bottom_bracket }}<br>
-                                <strong>Chain: </strong>{{ $product_detail->chain }}<br>
-                                <strong>Cassete: </strong></strong>{{ $product_detail->cassete }}<br>
-                                <strong>Rim: </strong>{{ $product_detail->rim }}<br>
-                                <strong>Saddle: </strong>{{ $product_detail->saddle }}<br>
-                                <strong>Seatpost: </strong>{{ $product_detail->seatpot }}<br>
-                                <strong>Stem: </strong>{{ $product_detail->stem }}<br>
-                                <strong>Handlebar: </strong>{{ $product_detail->handlebar }}<br>
+                                <p><strong>{{trans('content.price')}}: </strong>Rp. {{ $product_detail->price }}<br>
+                                {!! $product_detail->description !!}
                             </div>
                         </div>
                     </div>

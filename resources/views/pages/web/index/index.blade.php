@@ -53,9 +53,9 @@ navbarabs @endsection
                             <img src="{{ asset('assets/content/content1.jpg')}}" class="img-story">
                         </div>
                         <div class="col-sm-5 story-box-left">
-                            <p style="color: #e4e41d">Our Story</p>
+                            <p style="color: #e4e41d">{{trans('content.ourstory')}}</p>
                             <div   class="readmoreabout" style="color: white"><p>{!! $abouts->desc !!}</p></div>
-                            <a href="/family/public/about" class="readmorelink">...Read More</a>
+                            <a href="{{url('/about')}}" class="readmorelink">{{trans('content.readmore')}}</a>
                         </div>
                         <div class="col-sm-7 mobilehidden story-box-right">
                             <img src="{{ asset('assets/content/content1.jpg')}}" class="img-story">
@@ -70,35 +70,35 @@ navbarabs @endsection
         		<div class="row">
         			<div class="box-wrapper">
         				<div class="col-sm-4 marginbottom">
-        					<a href="/family/public/news">
+        					<a href="{{url('/news')}}">
 	        					<div class="featured-box">
                                     <div style="height: 200px; overflow: hidden;">
-	        					        <img style="min-height: 200px;" src="http://localhost/family/public/asset/img/{{ $highlight1->namefile }}" alt="news picture">
+	        					        <img style="min-height: 200px;" src="{{asset('/asset/img/'.$highlight1->namefile)}}" alt="news picture">
                                     </div>
-	        						<div class="title-box"><h3>NEWS</h3></div>
+	        						<div class="title-box"><h3>{{trans('content.news')}}</h3></div>
 	        					</div>
         					</a>
         				</div>
         				<div class="col-sm-4 marginbottom">
-        					<a href="/family/public/product">
+        					<a href="{{url('/product')}}">
 	        					<div class="featured-box">
 	        						<div class="featured-box">
                                         <div style="height: 200px; overflow: hidden;">
-		        						    <img style="min-height: 200px;" src="http://localhost/family/public/asset/img/{{ $highlight2->namefile }}" alt="product picture">
+		        						    <img style="min-height: 200px;" src="{{asset('/asset/img/'.$highlight2->namefile)}}" alt="product picture">
                                         </div>
-		        						<div class="title-box"><h3>PRODUCT</h3></div>
+		        						<div class="title-box"><h3>{{trans('content.product')}}</h3></div>
 		        					</div>
 	        					</div>
         					</a>
         				</div>
         				<div class="col-sm-4 marginbottom">
-        					<a href="/family/public/about">
+        					<a href="{{url('/about')}}">
 	        					<div class="featured-box">
 	        						<div class="featured-box">
                                         <div style="height: 200px; overflow: hidden;">
-		        						    <img style="min-height: 200px;" src="http://localhost/family/public/asset/img/{{ $highlight3->namefile }}" alt="about picture">
+		        						    <img style="min-height: 200px;" src="{{asset('/asset/img/'.$highlight3->namefile)}}" alt="about picture">
                                         </div>
-		        						<div class="title-box"><h3>ABOUT</h3></div>
+		        						<div class="title-box"><h3>{{trans('content.about')}}</h3></div>
 		        					</div>
 	        					</div>
 	        				</a>

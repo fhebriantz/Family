@@ -6,19 +6,19 @@
                 <span class="middle"></span>
                 <span class="bottom"></span>
               </div>
-                <a href="/family/public/cms/about" class="navbar-brand"> 
+                <a href="{{url('/cms/about')}}" class="navbar-brand"> 
                  <b>CMS FAMILY</b>
                 </a>
            
                @guest
                @else
               <ul class="nav navbar-nav navbar-right user-nav">
-                <li class="user-name" style="margin-right: 0px"><span><a href="/family/public/" target="_blank">View Web Family |</a></span></li>
+                <li class="user-name" style="margin-right: 0px"><span><a href="{{url('/')}}" target="_blank">View Web Family |</a></span></li>
                 <li class="user-name"><span>{{ Auth::user()->name }}</span></li>
                   <li class="dropdown avatar-dropdown">
                    <img src="{{ asset('asset/img/avatar.jpg')}}" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
                    <ul class="dropdown-menu user-dropdown">
-                     <li><a href="/family/public/cms/about"><span class="fa fa-user"></span> My Profile</a></li>
+                     <li><a href="{{url('/cms/about')}}"><span class="fa fa-user"></span> My Profile</a></li>
                      <li role="separator" class="divider"></li>
                      <li class="more">
                       <ul>

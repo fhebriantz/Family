@@ -7,10 +7,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Model\Product_detail;
 use App\Http\Model\Category_subproduct;
 use App\Http\Model\Category_product;
+use App;
 
 class Web_ProductController extends Controller
 {
     public function show(){  
+        App::setLocale(session()->get('lang'));
     	$product_detail = Product_detail::getTableDetailweb();
         $catpro = Category_product::all();
     	return view('pages/web/product/product', compact('product_detail','catpro'));
@@ -18,6 +20,7 @@ class Web_ProductController extends Controller
 
     function view($id)
     {
+        App::setLocale(session()->get('lang'));
         $product_detail = Product_detail::getTableDetail()->where('id','=',$id)->first();
         $catpro = Category_product::all();
         return view('pages/web/product/productdetail', compact('product_detail','catpro'));
@@ -25,6 +28,7 @@ class Web_ProductController extends Controller
     // Sub List ============== Sub List ============ Sub List ============ Sub List
     function show_list_category_prod($id)
     {
+        App::setLocale(session()->get('lang'));
         $product_detail = Product_detail::getTableDetailsub($id);
         $tricycle = Category_subproduct::all();
         $catpro = Category_product::all();
@@ -33,6 +37,7 @@ class Web_ProductController extends Controller
     // Main List ============= Main List =========== Main List ============= Main List
     function show_list_main_prod($id)
     {
+        App::setLocale(session()->get('lang'));
         $product_detail = Product_detail::getTableDetailmain($id);
         $tricycle = Category_subproduct::all();
         $catpro = Category_product::all();

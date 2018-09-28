@@ -26,13 +26,13 @@
                             </div>
                         @endif
 
-                    	<form method="POST" action="/family/public/cms/product/subproduct/input">
+                    	<form method="POST" action="{{url('/cms/product/subproduct/input')}}">
 						{{ csrf_field() }}
 	                        <table class="table">
 								<tr>
 									<td>ID Category</td>
 									<td> <!-- select class form control untuk membuat combo box -->
-									    <select name="id_category" style="width: 100%">
+									    <select  class="form-control" name="id_category" style="width: 100%">
 									        <option value="">-- Pilih Kategori --</option>
 									        @foreach($category_product as $catpro)
 									        <option value="{{$catpro->id}}">{{$no++}}.  {{$catpro->category_product_name}}</option>
@@ -42,7 +42,7 @@
 								</tr>
 								<tr>
 									<td>Nama Subproduct</td>
-									<td><input type="text" name="category_subproduct_name" placeholder="Nama Sub Product" value="{{ old('category_subproduct_name') }}" style="width: 100%"></td>
+									<td><input class="form-control"  type="text" name="category_subproduct_name" placeholder="Nama Sub Product" value="{{ old('category_subproduct_name') }}" style="width: 100%"></td>
 								</tr>
 							
 								<tr>

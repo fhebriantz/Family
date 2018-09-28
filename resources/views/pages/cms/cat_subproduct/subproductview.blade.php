@@ -19,39 +19,39 @@
 	                        <table class="table">
 	                        	<tr>
 									<td>ID</td>
-									<td><input type="number" min="0" step="1" name="id" value="{{ $category_subproduct->id }}" style="width: 100%"  readonly></td>
+									<td><input  class="form-control" type="number" min="0" step="1" name="id" value="{{ $category_subproduct->id }}" style="width: 100%"  readonly></td>
 								</tr>
 								
 								<tr>
 									<td>Nama Subproduct</td>
-									<td><input type="text" name="category_subproduct_name" value="{{ $category_subproduct->category_subproduct_name }}" style="width: 100%" readonly></td>
+									<td><input class="form-control"  type="text" name="category_subproduct_name" value="{{ $category_subproduct->category_subproduct_name }}" style="width: 100%" readonly></td>
 								</tr>
 
                                 <tr>
                                     <td>Category Product</td>
-                                    <td><input type="text" name="category_product_name" value="{{ $category_subproduct->category_product_name }}" style="width: 100%" readonly></td>
+                                    <td><input class="form-control"  type="text" name="category_product_name" value="{{ $category_subproduct->category_product_name }}" style="width: 100%" readonly></td>
                                 </tr>
 
                                 <tr>
                                     <td>ID Category Product</td>
-                                    <td><input type="number" min="0" step="1" name="id_category" value="{{ $category_subproduct->id_category }}" style="width: 100%" readonly></td>
+                                    <td><input class="form-control"  type="number" min="0" step="1" name="id_category" value="{{ $category_subproduct->id_category }}" style="width: 100%" readonly></td>
                                 </tr>
 
 								<tr>
                                     <td>Created Date</td>
-                                    <td><input type="text" name="created_at"  value="{{ $category_subproduct->created_at }}" style="width: 100%" readonly></td>
+                                    <td><input  class="form-control" type="text" name="created_at"  value="{{ $category_subproduct->created_at }}" style="width: 100%" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Created By</td>
-                                    <td><input type="text" name="created_by"  value="{{ $category_subproduct->created_by }}" style="width: 100%" readonly></td>
+                                    <td><input  class="form-control" type="text" name="created_by"  value="{{ $category_subproduct->created_by }}" style="width: 100%" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Modified Date</td>
-                                    <td><input type="text" name="updated_at"  value="{{ $category_subproduct->updated_at }}" style="width: 100%" readonly></td>
+                                    <td><input  class="form-control" type="text" name="updated_at"  value="{{ $category_subproduct->updated_at }}" style="width: 100%" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Modified By</td>
-                                    <td><input type="text" name="updated_by"  value="{{ $category_subproduct->updated_by }}" style="width: 100%" readonly></td>
+                                    <td><input  class="form-control" type="text" name="updated_by"  value="{{ $category_subproduct->updated_by }}" style="width: 100%" readonly></td>
                                 </tr>
 						</table>
                     </div>

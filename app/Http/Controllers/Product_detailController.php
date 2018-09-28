@@ -10,6 +10,11 @@ use App\Http\Model\Category_product;
 use App\file;
 use Illuminate\Support\Facades\Input;
 use Auth;
+use DateTime;
+use Response;
+use Date;
+use Carbon;
+use vendor\autoload;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\MessageBag;
 
@@ -70,20 +75,7 @@ class Product_detailController extends Controller
             'id_category_sub' => 'required',
             'name_product' => 'required|unique:product_details',
             'price' => 'required|numeric',
-            'frame' => 'required',
-            'fork' => 'required',
-            'brakes_rear' => 'required',
-            'brakes_levers' => 'required',
-            'pedals' => 'required',
-            'crankset' => 'required',
-            'bottom_bracket' => 'required',
-            'chain' => 'required',
-            'cassete' => 'required',
-            'rim' => 'required',
-            'saddle' => 'required',
-            'seatpot' => 'required',
-            'stem' => 'required',
-            'handlebar' => 'required',
+            'description' => 'required',
             'image1' => 'required',
         ]);
 
@@ -94,22 +86,8 @@ class Product_detailController extends Controller
             $product_detail->id_category = $request->id_category;
             $product_detail->id_category_sub = $request->id_category_sub;
             $product_detail->name_product = $request->name_product;
-
             $product_detail->price = $request->price; 
-            $product_detail->frame = $request->frame;
-            $product_detail->fork = $request->fork;
-            $product_detail->brakes_rear = $request->brakes_rear;
-            $product_detail->brakes_levers = $request->brakes_levers;
-            $product_detail->pedals = $request->pedals;
-            $product_detail->crankset = $request->crankset;
-            $product_detail->bottom_bracket = $request->bottom_bracket;
-            $product_detail->chain = $request->chain;
-            $product_detail->cassete = $request->cassete;
-            $product_detail->rim = $request->rim;
-            $product_detail->saddle = $request->saddle;
-            $product_detail->seatpot = $request->seatpot;
-            $product_detail->stem = $request->stem;
-            $product_detail->handlebar = $request->handlebar;
+            $product_detail->description = $request->description;
             // Gambar 1 =============================================
             if($request->file('image1') == "")
             {
@@ -192,20 +170,7 @@ class Product_detailController extends Controller
             'id_category_sub' => 'required',
             'name_product' => 'required',
             'price' => 'required|numeric',
-            'frame' => 'required',
-            'fork' => 'required',
-            'brakes_rear' => 'required',
-            'brakes_levers' => 'required',
-            'pedals' => 'required',
-            'crankset' => 'required',
-            'bottom_bracket' => 'required',
-            'chain' => 'required',
-            'cassete' => 'required',
-            'rim' => 'required',
-            'saddle' => 'required',
-            'seatpot' => 'required',
-            'stem' => 'required',
-            'handlebar' => 'required',
+            'description' => 'required',
             'image1' => 'required',
         ]);
 
@@ -213,39 +178,29 @@ class Product_detailController extends Controller
         if(Input::get('submit')) 
         {
             $product_detail = Product_detail::find($id);
-
-            // nama = nama field di database, var_nama = var_nama di dalam form input_blade
             $product_detail->id = $request->id;
             $product_detail->id_category = $request->id_category;
             $product_detail->id_category_sub = $request->id_category_sub;
+            $product_detail->price = $request->price;
             $product_detail->name_product = $request->name_product;
-            $product_detail->price = $request->price; 
-            $product_detail->frame = $request->frame;
-            $product_detail->fork = $request->fork;
-            $product_detail->brakes_rear = $request->brakes_rear;
-            $product_detail->brakes_levers = $request->brakes_levers;
-            $product_detail->pedals = $request->pedals;
-            $product_detail->crankset = $request->crankset;
-            $product_detail->bottom_bracket = $request->bottom_bracket;
-            $product_detail->chain = $request->chain;
-            $product_detail->cassete = $request->cassete;
-            $product_detail->rim = $request->rim;
-            $product_detail->saddle = $request->saddle;
-            $product_detail->seatpot = $request->seatpot;
-            $product_detail->stem = $request->stem;
-            $product_detail->handlebar = $request->handlebar;
+            $product_detail->description = $request->description;
 
             // Gambar 1 =============================================
-            if($request->file('image1') == "")
+            if($request->file('image1') == "" || $request->file('image1') == null)
             {
                 $product_detail->image1 = $product_detail->image1;
             } 
              else
             {
-            $file1       = $request->file('image1');
-            $fileName1   = $file1->getClientOriginalName();
-            $request->file('image1')->move("C:/xampp/htdocs/family/public/asset/img", $fileName1);
-            $product_detail->image1 = $fileName1;
+                $this->validate($request, [
+                    'image1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $file1      = $request->file('image1');
+                $fileName1   = time().'.'.$file1->getClientOriginalExtension();
+                $destinationPath = public_path('/asset/img');
+                $file1->move($destinationPath, $fileName1);
+                $product_detail->image1 = $fileName1;
             }
 
             // Gambar 2 =============================================

@@ -13,7 +13,7 @@
     <div class="col-md-12 top-20 padding-0">
         <div class="col-md-12">
             <div class="panel">
-                <div class="panel-heading"><h3>Data FAQ</h3>  <a href="/family/public/cms/faq/input"><button type="button" style="margin-bottom: 10px;" class="btn btn-success">Add Data</button></a></div>
+                <div class="panel-heading"><h3>Data FAQ</h3>  <a href="{{url('/cms/faq/input')}}"><button type="button" style="margin-bottom: 10px;" class="btn btn-success">Add Data</button></a></div>
                 <div class="panel-body">
                     <div class="responsive-table">
                         <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">                        
@@ -41,9 +41,9 @@
                                     <td>{{$fa->updated_at}}</td>
                                     <td>{{$fa->updated_by}}</td>
                                     <td style="float: left;">
-                                        <a href="/family/public/cms/faq/{{ $fa->id }}/view"><button type="button" class="btn btn-primary">View</button></a>
-                                        <a href="/family/public/cms/faq/{{ $fa->id }}/edit" style="padding-left: 10px;"><button type="button" class="btn btn-warning">Edit</button></a>
-                                        <form method="POST" action="/family/public/cms/faq/{{ $fa->id }}/delete" class="text-center" style="float: right; padding-left: 10px;">
+                                        <a href="{{url('/cms/faq/'.$fa->id.'/view')}}"><button type="button" class="btn btn-primary">View</button></a>
+                                        <a href="{{url('/cms/faq/'.$fa->id.'/edit')}}" style="padding-left: 10px;"><button type="button" class="btn btn-warning">Edit</button></a>
+                                        <form method="POST" action="{{url('/cms/faq/'.$fa->id.'/delete')}}" class="text-center" style="float: right; padding-left: 10px;">
                                             <!-- csrf perlu ditambahakan di setiap post -->
                                             {{ csrf_field() }}
                                             <input class="btn btn-danger" type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure want to delete question {{$fa->title}}?');"> 

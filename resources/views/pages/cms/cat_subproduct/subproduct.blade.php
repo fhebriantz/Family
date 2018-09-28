@@ -13,7 +13,7 @@
     <div class="col-md-12 top-20 padding-0">
         <div class="col-md-12">
             <div class="panel">
-                <div class="panel-heading"><h3>Data Subroduct</h3>  <a href="/family/public/cms/product/subproduct/input"><button type="button" style="margin-bottom: 10px;" class="btn btn-success">Add Data</button></a></div>
+                <div class="panel-heading"><h3>Data Subroduct</h3>  <a href="{{url('/cms/product/subproduct/input')}}"><button type="button" style="margin-bottom: 10px;" class="btn btn-success">Add Data</button></a></div>
                 <div class="panel-body">
                     <div class="responsive-table">
                         <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">                        
@@ -41,9 +41,9 @@
                                     <td>{{$subproduct->updated_at}}</td>
                                     <td>{{$subproduct->updated_by}}</td>
                                     <td style="float: left;">
-                                        <a href="/family/public/cms/product/subproduct/{{ $subproduct->id}}/view"><button type="button" class="btn btn-primary">View</button></a>
-                                        <a href="/family/public/cms/product/subproduct/{{ $subproduct->id}}/edit" style="padding-left: 10px;"><button type="button" class="btn btn-warning">Edit</button></a>
-                                        <form method="POST" action="/family/public/cms/product/subproduct/{{ $subproduct->id}}/delete" class="text-center" style="float: right; padding-left: 10px;">
+                                        <a href="{{url('/cms/product/subproduct/'.$subproduct->id.'/view')}}"><button type="button" class="btn btn-primary">View</button></a>
+                                        <a href="{{url('/cms/product/subproduct/'.$subproduct->id.'/edit')}}" style="padding-left: 10px;"><button type="button" class="btn btn-warning">Edit</button></a>
+                                        <form method="POST" action="{{url('/cms/product/subproduct/'.$subproduct->id.'/delete')}}" class="text-center" style="float: right; padding-left: 10px;">
                                             <!-- csrf perlu ditambahakan di setiap post -->
                                             {{ csrf_field() }}
                                             <input class="btn btn-danger" type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure want to delete {{$subproduct->category_subproduct_name}}?');"> 

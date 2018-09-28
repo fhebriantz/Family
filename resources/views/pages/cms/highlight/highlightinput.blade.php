@@ -25,7 +25,7 @@
                                 </ul>
                             </div>
                         @endif
-                    	<form method="POST" action="/family/public/cms/highlight/input" enctype="multipart/form-data">
+                    	<form method="POST" action="{{url('/cms/highlight/input')}}" enctype="multipart/form-data">
 						{{ csrf_field() }}
 	                        <table class="table">                    
 

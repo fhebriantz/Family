@@ -19,35 +19,35 @@
 	                        <table class="table">    
                                 <tr>
                                     <td>ID</td>
-                                    <td><input type="number" min="0" step="1" name="id"  value="{{ $about_data->id }}" style="width: 100%" readonly></td>
+                                    <td><input type="number" class="form-control" min="0" step="1" name="id"  value="{{ $about_data->id }}" style="width: 100%" readonly></td>
                                 </tr>        
                                 <tr>
                                     <td>Caption</td>
-                                    <td><input type="text" name="caption"  value="{{ $about_data->caption }}" style="width: 100%" readonly></td>
+                                    <td><input type="text" class="form-control"  name="caption"  value="{{ $about_data->caption }}" style="width: 100%" readonly></td>
                                 </tr>            
 	                            <tr>
 									<td>Title</td>
-									<td><input type="text" name="title"  value="{{ $about_data->title }}" style="width: 100%" readonly></td>
+									<td><input type="text"  class="form-control" name="title"  value="{{ $about_data->title }}" style="width: 100%" readonly></td>
 								</tr>
 								<tr>
 									<td>Description</td>
-									<td> <textarea name="desc" class="ckeditor" readonly>{{ $about_data->desc }}</textarea></td>
+									<td> <textarea name="desc" class="form-control ckeditor" readonly>{{ $about_data->desc }}</textarea></td>
 								</tr>
                                 <tr>
                                     <td>Created Date</td>
-                                    <td><input type="text" name="created_at" value="{{ $about_data->created_at }}" style="width: 100%" readonly></td>
+                                    <td><input type="text"  class="form-control" name="created_at" value="{{ $about_data->created_at }}" style="width: 100%" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Created By</td>
-                                    <td><input type="text" name="created_by" value="{{ $about_data->created_by }}" style="width: 100%" readonly></td>
+                                    <td><input type="text"  class="form-control" name="created_by" value="{{ $about_data->created_by }}" style="width: 100%" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Modified Date</td>
-                                    <td><input type="text" name="updated_at" value="{{ $about_data->updated_at }}" style="width: 100%" readonly></td>
+                                    <td><input type="text"  class="form-control" name="updated_at" value="{{ $about_data->updated_at }}" style="width: 100%" readonly></td>
                                 </tr>
                                 <tr>
                                     <td>Modified By</td>
-                                    <td><input type="text" name="updated_by" value="{{ $about_data->updated_by }}" style="width: 100%" readonly></td>
+                                    <td><input type="text"  class="form-control" name="updated_by" value="{{ $about_data->updated_by }}" style="width: 100%" readonly></td>
                                 </tr>
 	                        </table>
                     </div>

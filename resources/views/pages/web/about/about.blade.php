@@ -7,20 +7,20 @@ navbarx @endsection
        <section class="margintop marmin">
             <div class="container">
                 <hr>
-                <p class="title-page"><strong>About Us</strong></p>               
+                <p class="title-page"><strong>{{trans('header.about')}}</strong></p>               
                 <hr>
             </div>            
         </section>
 
         <section class="header-about mobilehide">
-            <div class="header" style="background: url(assets/content/bg3.jpg) no-repeat top center;"></div>
+            <div class="header" style="background: url({{ asset('assets/content/bg3.jpg')}}) no-repeat top center;"></div>
         </section>
 
         <section class="header-about mobileshow">
             <div class="contaier">
-                    <div class="gambarhead">
-                        <img src="{{ asset('assets/content/bg3.jpg')}}" style="width: 100%; height: auto;" alt="">
-                    </div>
+                <div class="gambarhead">
+                    <img src="{{ asset('assets/content/bg3.jpg')}}" style="width: 100%; height: auto;" alt="">
+                </div>
             </div>
         </section>
 

@@ -25,20 +25,20 @@
                                 </ul>
                             </div>
                         @endif
-                    	<form method="POST" action="/family/public/cms/about/input">
+                    	<form method="POST" action="{{url('/cms/about/input')}}">
 						{{ csrf_field() }}
 	                        <table class="table">  
                                 <tr>
                                     <td>Caption</td>
-                                    <td><input type="text" name="caption" placeholder="Caption" value="{{ old('caption') }}" style="width: 100%"></td>
+                                    <td><input type="text"  class="form-control" name="caption" placeholder="Caption" value="{{ old('caption') }}" style="width: 100%"></td>
                                 </tr>                       
 	                            <tr>
 									<td>Title</td>
-									<td><input type="text" name="title" placeholder="Title" style="width: 100%" value="{{ old('title') }}"></td>
+									<td><input type="text"  class="form-control" name="title" placeholder="Title" style="width: 100%" value="{{ old('title') }}"></td>
 								</tr>
 								<tr>
 									<td>Description</td>
-									<td> <textarea name="desc" class="ckeditor">{{ old('desc') }}</textarea></td>
+									<td> <textarea name="desc" class="form-control"  class="ckeditor">{{ old('desc') }}</textarea></td>
 								</tr>
 
 								<tr>

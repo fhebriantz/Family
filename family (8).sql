@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2018 at 10:21 AM
+-- Generation Time: Mar 15, 2018 at 10:15 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -329,8 +329,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'lutfi', 'lutfi.febrianto@gmail.com', '$2y$10$ghiHFDe.fJxyvCURXrLpxOzNN7/rGD9RrNSkHbVO/wx/4g/CkD4hi', '8w4Hp5grQzWvKFDlsQ3qw2dxM5U7h9rv714LDzBqElB6FTZ5ozbdcwiq5NXL', '2018-02-15 00:49:31', '2018-02-18 20:26:46'),
-(2, 'asd', 'asd@gmail.com', '$2y$10$ghiHFDe.fJxyvCURXrLpxOzNN7/rGD9RrNSkHbVO/wx/4g/CkD4hi', 'DJGkrhUvhU34GNFsyVmeYu0Lhc7EaXncF0iq1UavuRxjhLkqzmN7GoDknFMD', '2018-02-15 10:56:31', '2018-02-18 20:24:08');
+(1, 'lutfi', 'lutfi.febrianto@gmail.com', '$2y$10$ghiHFDe.fJxyvCURXrLpxOzNN7/rGD9RrNSkHbVO/wx/4g/CkD4hi', '2JYhlW86hfOMajqJt5JzaNusneWgqTnMIqBWlvSXpbp0l6auPX0SaXaKrl1x', '2018-02-15 00:49:31', '2018-02-18 20:26:46'),
+(2, 'asd', 'asd@gmail.com', '$2y$10$ghiHFDe.fJxyvCURXrLpxOzNN7/rGD9RrNSkHbVO/wx/4g/CkD4hi', 'DJGkrhUvhU34GNFsyVmeYu0Lhc7EaXncF0iq1UavuRxjhLkqzmN7GoDknFMD', '2018-02-15 10:56:31', '2018-02-18 20:24:08'),
+(3, 'asd', 'lord_trafo@gmail.com', '$2y$10$LeBmW9NcL/5OgLZpj9E6JOEhjQTYsoQ9MU/rBXKCR2K3ZitV5uoiq', NULL, '2018-03-14 00:27:23', '2018-03-14 00:27:23');
 
 --
 -- Indexes for dumped tables
@@ -404,7 +405,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `abouts`
 --
 ALTER TABLE `abouts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `category_products`
@@ -458,7 +459,7 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

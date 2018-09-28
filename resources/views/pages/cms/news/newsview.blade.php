@@ -27,12 +27,12 @@
 								</tr>
 								<tr>
 									<td>Description</td>
-									<td> <textarea name="desc" class="ckeditor" readonly>{{ $news_data->desc }}</textarea></td>
+									<td><textarea name="desc" class="form-control" readonly>{{ $news_data->desc }}</textarea></td>
 								</tr>
                                 <tr>
                                     <td>Images</td>
                                     <td><input type="text" name="images" placeholder="Image" value="{{ $news_data->images }}" style="width: 100%" readonly>
-                                        <img src="/family/public/asset/img/{{ $news_data->images }}" style="max-height:200px;max-width:200px;margin-top:10px;"></td>
+                                        <img src="{{asset('asset/img/'.$news_data->images)}}" style="max-height:200px;max-width:200px;margin-top:10px;"></td>
                                 </tr>
                                 <tr>
                                     <td>Created Date</td>

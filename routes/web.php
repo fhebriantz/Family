@@ -7,11 +7,15 @@ Route::get('product/main/{id}','Web\Web_ProductController@show_list_main_prod');
 
 Route::get('/', 'Web\Web_IndexController@show');
 
+Route::get('/english', 'Web\Web_IndexController@english');
+Route::get('/bahasa', 'Web\Web_IndexController@bahasa');
+
+
 Route::get('/logout', 'LogoutController@index');
 
 Auth::routes();
 
-Route::get('index', 'Web\Web_IndexController@show');
+Route::get('/index', 'Web\Web_IndexController@show');
 
 Route::get('about', 'Web\Web_AboutController@show');
 
@@ -175,7 +179,46 @@ Route::put('cms/product/subproduct/detail/{id}/edit/delete5','Product_detailCont
 // memanggil fungsi delete
 Route::delete('cms/product/subproduct/detail/{id}/delete','Product_detailController@delete');
 
-//---------------------------------------------------------------------------------------------FAQ
+
+// menampilkan tabel di cms
+Route::get('/cms/mainan', 'MainanController@showcms'); 
+// menampilkan form input di cms
+Route::get('/cms/mainan/input', 'MainanController@input');
+// menampilkan form edit di cms
+Route::get('/cms/mainan/{id}/edit','MainanController@edit');
+// memanggil fungsi insert
+Route::post('/cms/mainan/input','MainanController@insert'); 
+// memanggil fungsi update
+Route::put('/cms/mainan/{id}/edit','MainanController@update');
+// memanggil fungsi delete
+Route::delete('/cms/mainan/{id}/delete','MainanController@delete');
+
+// menampilkan tabel di cms
+Route::get('/cms/ban', 'BanController@showcms'); 
+// menampilkan form input di cms
+Route::get('/cms/ban/input', 'BanController@input');
+// menampilkan form edit di cms
+Route::get('/cms/ban/{id}/edit','BanController@edit');
+// memanggil fungsi insert
+Route::post('/cms/ban/input','BanController@insert'); 
+// memanggil fungsi update
+Route::put('/cms/ban/{id}/edit','BanController@update');
+// memanggil fungsi delete
+Route::delete('/cms/ban/{id}/delete','BanController@delete');
+
+// menampilkan tabel di cms
+Route::get('/cms/sandaran', 'SandaranController@showcms'); 
+// menampilkan form input di cms
+Route::get('/cms/sandaran/input', 'SandaranController@input');
+// menampilkan form edit di cms
+Route::get('/cms/sandaran/{id}/edit','SandaranController@edit');
+// memanggil fungsi insert
+Route::post('/cms/sandaran/input','SandaranController@insert'); 
+// memanggil fungsi update
+Route::put('/cms/sandaran/{id}/edit','SandaranController@update');
+// memanggil fungsi delete
+Route::delete('/cms/tag/sandaran/{id}/delete','SandaranController@delete');
+
 
 // FAQ===========TAMPIL=======================
 // menampilkan tabel di frontend

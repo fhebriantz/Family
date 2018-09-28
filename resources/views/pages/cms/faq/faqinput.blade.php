@@ -25,7 +25,7 @@
                                 </ul>
                             </div>
                         @endif
-                    	<form method="POST" action="/family/public/cms/faq/input">
+                    	<form method="POST" action="{{url('/cms/faq/input')}}">
 						{{ csrf_field() }}
 	                        <table class="table">                        
 	                            <tr>
