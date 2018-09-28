@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2018 at 10:15 AM
+-- Generation Time: Sep 28, 2018 at 01:27 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -99,7 +99,7 @@ CREATE TABLE `category_subproducts` (
 
 INSERT INTO `category_subproducts` (`id`, `category_subproduct_name`, `id_category`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
 (2, 'F1 Series', 3, '2018-02-16 15:23:37', '', '2018-02-19 03:52:30', NULL),
-(3, 'F5 Series', 3, '2018-02-16 15:23:37', '', '2018-02-19 03:52:35', NULL),
+(3, 'F5 Series', 3, '2018-02-16 15:23:37', '', '2018-09-26 01:52:26', 'lutfi'),
 (4, 'F7 Series', 3, '2018-02-16 15:23:37', '', '2018-02-19 03:52:38', NULL),
 (5, 'F8 Series', 3, '2018-02-16 15:23:37', '', '2018-02-19 03:52:42', NULL),
 (6, 'F9 series', 3, '2018-02-16 15:23:37', '', '2018-02-19 03:52:45', NULL),
@@ -142,8 +142,7 @@ INSERT INTO `faqs` (`id`, `title`, `desc`, `created_at`, `created_by`, `updated_
 (5, 'asdasdasdas', '<p>asdasdasd</p>', '2018-02-21 21:30:02', 'lutfi', '2018-02-21 21:30:02', NULL),
 (6, 'qwweq', '<p>qweqwe</p>', '2018-02-21 21:32:17', 'lutfi', '2018-02-21 21:32:17', NULL),
 (7, 'asds', '<p>asd</p>', '2018-02-21 21:32:31', 'lutfi', '2018-02-21 21:32:31', NULL),
-(8, 'ddd', '<p>dd</p>', '2018-02-21 21:33:26', 'lutfi', '2018-02-21 21:33:26', NULL),
-(9, 'asd', '<p>asd</p>', '2018-02-21 21:33:41', 'lutfi', '2018-02-21 21:33:41', NULL);
+(8, 'ddd', '<p>dd</p>', '2018-02-21 21:33:26', 'lutfi', '2018-02-21 21:33:26', NULL);
 
 -- --------------------------------------------------------
 
@@ -169,6 +168,75 @@ INSERT INTO `highlight` (`id`, `namefile`, `flag`, `created_by`, `created_at`, `
 (2, 'content2.jpg', '1', 'lutfi', '2018-02-26 21:14:19', 'lutfi', '2018-02-27 01:43:36'),
 (9, 'bg2.jpg', '2', 'lutfi', '2018-02-26 22:58:07', NULL, '2018-02-27 01:43:47'),
 (10, 'bg3.jpg', '3', 'lutfi', '2018-02-26 22:59:13', NULL, '2018-02-27 01:43:56');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_ban`
+--
+
+CREATE TABLE `master_ban` (
+  `id` int(11) NOT NULL,
+  `nama_ban` varchar(256) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_by` varchar(256) NOT NULL,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_by` varchar(256) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `master_ban`
+--
+
+INSERT INTO `master_ban` (`id`, `nama_ban`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(1, 'RODA 9', '2018-09-27 10:43:26', '', '2018-09-27 10:43:26', NULL),
+(2, 'RODA RACING', '2018-09-27 10:43:26', '', '2018-09-27 10:43:26', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_mainan`
+--
+
+CREATE TABLE `master_mainan` (
+  `id` int(11) NOT NULL,
+  `nama_mainan` varchar(256) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_by` varchar(256) NOT NULL,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_by` varchar(256) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `master_mainan`
+--
+
+INSERT INTO `master_mainan` (`id`, `nama_mainan`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(1, 'MAINAN RIOs', '2018-09-27 10:43:51', '', '2018-09-27 04:14:34', 'lutfi'),
+(3, 'Mainan Kuda', '2018-09-27 04:16:02', 'lutfi', '2018-09-27 04:16:02', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_sandaran`
+--
+
+CREATE TABLE `master_sandaran` (
+  `id` int(11) NOT NULL,
+  `nama_sandaran` varchar(256) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_by` varchar(256) NOT NULL,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_by` varchar(256) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `master_sandaran`
+--
+
+INSERT INTO `master_sandaran` (`id`, `nama_sandaran`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(1, 'SANDARAN TANGAN STANDARD', '2018-09-27 10:49:50', '', '2018-09-27 10:49:50', NULL),
+(2, 'SANDARAN TANGAN PESAWAT', '2018-09-27 10:49:50', '', '2018-09-27 10:49:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -246,21 +314,11 @@ CREATE TABLE `product_details` (
   `name_product` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_category` int(11) NOT NULL,
   `id_category_sub` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
-  `frame` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fork` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `brakes_rear` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `brakes_levers` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pedals` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `crankset` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bottom_bracket` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `chain` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `cassete` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `rim` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `saddle` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `seatpot` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stem` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `handlebar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` int(11) DEFAULT NULL,
+  `id_mainan` int(11) NOT NULL,
+  `id_sandaran` int(11) NOT NULL,
+  `id_ban` int(11) NOT NULL,
   `image1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image3` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -276,15 +334,17 @@ CREATE TABLE `product_details` (
 -- Dumping data for table `product_details`
 --
 
-INSERT INTO `product_details` (`id`, `name_product`, `id_category`, `id_category_sub`, `price`, `frame`, `fork`, `brakes_rear`, `brakes_levers`, `pedals`, `crankset`, `bottom_bracket`, `chain`, `cassete`, `rim`, `saddle`, `seatpot`, `stem`, `handlebar`, `image1`, `image2`, `image3`, `image4`, `image5`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(3, 'Silver Bikes', 5, 12, 9000000, 'Gold', 'sand', 'iron', 'sand', 'metal', 'iron', 'gold', 'metal', 'Wood', 'wood', 'gold', 'wood', 'rock', 'metal', 'content1.jpg', 'content2.jpg', 'content3.jpg', 'content2.jpg', 'content1.jpg', '2018-02-16 15:34:36', '', '2018-02-28 10:07:48', 'lutfi'),
-(4, 'Iron Bike', 5, 12, 5600000, 'Gold', 'metal', 'Sand', 'gold', 'sand', 'iron', 'gold', 'metal', 'stone', 'wood', 'gold', 'wood', 'rock', 'metal', 'content1.jpg', 'jok.jpg', 'stang.jpg', 'ban.jpg', 'bike.jpg', '2018-02-16 15:34:29', '', '2018-02-28 10:07:52', 'lutfi'),
-(5, 'Bronze Bike', 5, 12, 5400000, 'Gold', 'metal', 'iron', 'gold', 'metal', 'sand', 'gold', 'Wood', 'stone', 'wood', 'Wood', 'wood', 'rock', 'metal', 'content2.jpg', 'jok.jpg', 'stang.jpg', 'ban.jpg', 'bike.jpg', '2018-02-16 15:34:36', '', '2018-02-28 10:07:55', 'lutfi'),
-(6, 'Wood Bike', 5, 12, 3400000, 'Gold', 'metal', 'iron', 'gold', 'metal', 'iron', 'gold', 'metal', 'stone', 'wood', 'gold', 'wood', 'Wock', 'metal', 'content3.jpg', 'jok.jpg', 'stang.jpg', 'ban.jpg', 'bike.jpg', '2018-02-16 15:34:29', '', '2018-02-23 03:30:07', 'lutfi'),
-(7, 'Steel Bike', 5, 12, 8000000, 'Gold', 'metal', 'iron', 'gold', 'metal', 'iron', 'Wood', 'metal', 'stone', 'wood', 'gold', 'wood', 'rock', 'metal', 'content1.jpg', 'jok.jpg', 'stang.jpg', 'ban.jpg', 'bike.jpg', '2018-02-16 15:34:36', '', '2018-02-23 03:30:16', 'lutfi'),
-(8, 'Platinum Bike', 5, 12, 6000000, 'Gold', 'metal', 'iron', 'gold', 'metal', 'iron', 'gold', 'metal', 'stone', 'wood', 'gold', 'wood', 'rock', 'metal', 'content1.jpg', 'bg3.jpg', 'stang.jpg', 'ban.jpg', 'bike.jpg', '2018-02-16 15:34:29', '', '2018-02-27 00:12:11', 'lutfi'),
-(9, '3asd', 4, 7, 3, '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', 'bg1.jpg', '1.jpg', NULL, NULL, NULL, '2018-02-26 00:32:14', 'lutfi', '2018-02-27 23:26:23', 'lutfi'),
-(10, '3asds', 3, 2, 3, '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', '3', 'e-KTPSementara.jpg', 'e-KTPSementara.jpg', 'inta-6-smallsize.jpg', NULL, NULL, '2018-02-28 23:48:32', 'lutfi', '2018-02-28 23:55:42', 'lutfi');
+INSERT INTO `product_details` (`id`, `name_product`, `id_category`, `id_category_sub`, `description`, `price`, `id_mainan`, `id_sandaran`, `id_ban`, `image1`, `image2`, `image3`, `image4`, `image5`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(3, 'Silver Bikes', 5, 12, '<p class=\"Standard\"><span lang=\"IN\">Roda 9</span></p><p class=\"Standard\">Mainan “KUDA”</p><p class=\"Standard\">Sandaran Tangan “STANDARD”</p><p class=\"Standard\">Gagang Dorongan</p><p class=\"Standard\">Kanopi</p><p class=\"Standard\">Keranjang Belakang</p><p class=\"Standard\">Tatakan Kaki</p><p></p>', 12345, 0, 0, 0, 'content1.jpg', 'content2.jpg', 'content3.jpg', 'content2.jpg', 'content1.jpg', '2018-02-16 15:34:36', '', '2018-09-27 03:32:39', 'lutfi'),
+(4, 'Iron Bike', 5, 12, '', 5600000, 0, 0, 0, '1537866068.jpg', 'jok.jpg', 'stang.jpg', 'ban.jpg', 'bike.jpg', '2018-02-16 15:34:29', '', '2018-09-25 02:01:08', 'lutfi'),
+(5, 'Bronze Bike', 5, 12, '', 5400000, 0, 0, 0, 'content2.jpg', 'jok.jpg', 'stang.jpg', 'ban.jpg', 'bike.jpg', '2018-02-16 15:34:36', '', '2018-02-28 10:07:55', 'lutfi'),
+(6, 'Wood Bike', 5, 12, '', 3400000, 0, 0, 0, 'content3.jpg', 'jok.jpg', 'stang.jpg', 'ban.jpg', 'bike.jpg', '2018-02-16 15:34:29', '', '2018-02-23 03:30:07', 'lutfi'),
+(7, 'Steel Bike', 5, 12, '', 8000000, 0, 0, 0, 'content1.jpg', 'jok.jpg', 'stang.jpg', 'ban.jpg', 'bike.jpg', '2018-02-16 15:34:36', '', '2018-02-23 03:30:16', 'lutfi'),
+(8, 'Platinum Bike', 5, 12, '', 6000000, 0, 0, 0, 'content1.jpg', 'bg3.jpg', 'stang.jpg', 'ban.jpg', 'bike.jpg', '2018-02-16 15:34:29', '', '2018-02-27 00:12:11', 'lutfi'),
+(9, '3asd', 4, 7, '', 3, 0, 0, 0, 'bg1.jpg', '1.jpg', NULL, NULL, NULL, '2018-02-26 00:32:14', 'lutfi', '2018-02-27 23:26:23', 'lutfi'),
+(10, '3asds', 3, 2, '', 3, 0, 0, 0, 'e-KTPSementara.jpg', 'e-KTPSementara.jpg', 'inta-6-smallsize.jpg', NULL, NULL, '2018-02-28 23:48:32', 'lutfi', '2018-02-28 23:55:42', 'lutfi'),
+(11, '1', 3, 3, '', 1, 0, 0, 0, 'pasfoto.jpg', NULL, NULL, NULL, NULL, '2018-09-02 21:40:29', 'lutfi', '2018-09-02 21:40:29', NULL),
+(12, 'abas', 4, 7, '<p>asdasd asd asd asdasd </p>', 12345, 0, 0, 0, '478b1213-57d3-4a00-8318-af5af3d543e4.jpg', NULL, NULL, NULL, NULL, '2018-09-27 03:26:08', 'lutfi', '2018-09-27 03:26:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -306,7 +366,8 @@ CREATE TABLE `questions` (
 
 INSERT INTO `questions` (`id`, `question`, `email`, `created_at`, `updated_at`) VALUES
 (1, 'Berapa harga sepeda?', 'all_email@ymail.com', '2018-02-16 04:22:11', '2018-02-16 04:22:11'),
-(2, 'Siapa nama saya? berapa harga sepeda semut? hahahaha', 'asd@gmail.com', '2018-02-28 20:33:00', '2018-02-28 20:33:00');
+(3, 'lu siapa sih hah kakakakakaakkakaakakakak ak akakaka ka', 'lutfi.febrianto@gmail.com', '2018-09-26 01:42:36', '2018-09-26 01:42:36'),
+(4, 'mau nanya apaann kkaakakkas daskd askdaksdkasdk asdk', 'lutfi.febrianto@gmail.com', '2018-09-26 01:43:08', '2018-09-26 01:43:08');
 
 -- --------------------------------------------------------
 
@@ -329,7 +390,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'lutfi', 'lutfi.febrianto@gmail.com', '$2y$10$ghiHFDe.fJxyvCURXrLpxOzNN7/rGD9RrNSkHbVO/wx/4g/CkD4hi', '2JYhlW86hfOMajqJt5JzaNusneWgqTnMIqBWlvSXpbp0l6auPX0SaXaKrl1x', '2018-02-15 00:49:31', '2018-02-18 20:26:46'),
+(1, 'lutfi', 'lutfi.febrianto@gmail.com', '$2y$10$ms.CFHfEVncKyNxjAVM5G..KfijLwuU1t6llJXaQ4bmUTD.t0Jbmu', 'k4ztd2zoiJweV1X08SHTNvDGp0NvKxuTXGivr6usamiCIGXXxe0DTGbpvTgc', '2018-02-15 00:49:31', '2018-08-19 20:51:07'),
 (2, 'asd', 'asd@gmail.com', '$2y$10$ghiHFDe.fJxyvCURXrLpxOzNN7/rGD9RrNSkHbVO/wx/4g/CkD4hi', 'DJGkrhUvhU34GNFsyVmeYu0Lhc7EaXncF0iq1UavuRxjhLkqzmN7GoDknFMD', '2018-02-15 10:56:31', '2018-02-18 20:24:08'),
 (3, 'asd', 'lord_trafo@gmail.com', '$2y$10$LeBmW9NcL/5OgLZpj9E6JOEhjQTYsoQ9MU/rBXKCR2K3ZitV5uoiq', NULL, '2018-03-14 00:27:23', '2018-03-14 00:27:23');
 
@@ -365,6 +426,24 @@ ALTER TABLE `faqs`
 -- Indexes for table `highlight`
 --
 ALTER TABLE `highlight`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `master_ban`
+--
+ALTER TABLE `master_ban`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `master_mainan`
+--
+ALTER TABLE `master_mainan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `master_sandaran`
+--
+ALTER TABLE `master_sandaran`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -423,13 +502,31 @@ ALTER TABLE `category_subproducts`
 -- AUTO_INCREMENT for table `faqs`
 --
 ALTER TABLE `faqs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `highlight`
 --
 ALTER TABLE `highlight`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `master_ban`
+--
+ALTER TABLE `master_ban`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `master_mainan`
+--
+ALTER TABLE `master_mainan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `master_sandaran`
+--
+ALTER TABLE `master_sandaran`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -447,13 +544,13 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `product_details`
 --
 ALTER TABLE `product_details`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
