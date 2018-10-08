@@ -15,6 +15,7 @@
         <nav class="navbar @yield('nav') navbar-expand-lg navbar-static-top mobilehide">
             @include('includeweb/navpc')
         </nav>
+        
         <!-- Navbar pc end-->
 
         <!-- start: Content ================================================================= -->

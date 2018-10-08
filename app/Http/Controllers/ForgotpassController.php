@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // untuk menyingkat materi gak usah pake APP
 use App\Http\Model\Forgotpass;
+use vendor\autoload;
 use Auth;
 
 class ForgotpassController extends Controller

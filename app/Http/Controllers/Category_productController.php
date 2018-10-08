@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // untuk menyingkat materi gak usah pake APP
 use App\Http\Model\Category_product;
+use Illuminate\Routing\Middleware\LoginCheck;
 use Illuminate\Support\Facades\Redirect;
+use vendor\autoload;
 use Auth;
 
 class Category_productController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('logincheck');
     }
 
     public function show(){ 
@@ -64,7 +66,7 @@ class Category_productController extends Controller
                 $category_product = new Category_product;
                 $category_product->id = $request->id; 
                 $category_product->category_product_name = $request->category_product_name;
-                $category_product->created_by = Auth::user()->name; 
+                $category_product->created_by = session()->get('session_name'); 
                 // untuk mengsave
                 $category_product->save();
                 // sama aja kaya href setelak klik submit
@@ -84,7 +86,7 @@ class Category_productController extends Controller
                 $category_product = Category_product::find($id);
                 $category_product->id = $request->id; 
                 $category_product->category_product_name = $request->category_product_name;
-                $category_product->updated_by = Auth::user()->name; 
+                $category_product->updated_by = session()->get('session_name'); 
                 // untuk mengsave
                 $category_product->save();
                 // sama aja kaya href setelak klik submit

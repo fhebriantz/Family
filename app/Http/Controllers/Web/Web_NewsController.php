@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Model\News;
 use App\Http\Model\About;
+use vendor\autoload;
 use App;
 
 class Web_NewsController extends Controller

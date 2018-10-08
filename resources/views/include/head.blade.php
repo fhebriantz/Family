@@ -12,7 +12,7 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('asset/css/plugins/font-awesome.min.css')}}"/>
   <link rel="stylesheet" type="text/css" href="{{ asset('asset/css/plugins/datatables.bootstrap.min.css')}}"/>
   <link rel="stylesheet" type="text/css" href="{{ asset('asset/css/plugins/animate.min.css')}}"/>
-  <link href="{{ asset('asset/css/style.css')}}" rel="stylesheet">
+  <link href="{{ asset('asset/css/style.css?v=1.005')}}" rel="stylesheet">
   <!-- end: Css -->
 
   <link rel="shortcut icon" href="{{ asset('asset/img/logomi.png')}}">

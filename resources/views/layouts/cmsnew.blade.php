@@ -6,9 +6,7 @@
   <!-- end: Css -->
   @yield('header')
 </head>
-@guest
- <body id="mimin" class="dashboard form-signin-wrapper">
-@else
+
 <body id="mimin" class="dashboard">
 
       <!-- start: Header -->
@@ -19,13 +17,11 @@
           <!-- start:Left Menu -->
           @include('include/left_menu')  
           <!-- end: Left Menu -->
-@endguest
           <!-- start: Content -->
           @yield('content')
           <!-- end: content -->
 
           <!-- start: right menu -->
-          @include('include/right_menu') 
           <!-- end: right menu -->
       </div>
 

@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // untuk menyingkat materi gak usah pake APP
 use App\Http\Model\Ban;
+use Illuminate\Routing\Middleware\LoginCheck;
+use vendor\autoload;
 use Auth;
 
 class BanController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('logincheck');
     }
     
     public function show(){ 
@@ -52,7 +54,7 @@ class BanController extends Controller
 
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
     		$ban->nama_ban = $request->nama_ban; 
-            $ban->created_by = Auth::user()->name; 
+            $ban->created_by = session()->get('session_name'); 
     	// untuk mengsave
     	$ban->save();
 
@@ -72,7 +74,7 @@ class BanController extends Controller
 
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
             $ban->nama_ban = $request->nama_ban; 
-            $ban->updated_by = Auth::user()->name; 
+            $ban->updated_by = session()->get('session_name'); 
     	// untuk mengsave
     	$ban->save();
 

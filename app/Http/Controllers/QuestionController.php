@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 // untuk menyingkat materi gak usah pake APP
+use Illuminate\Routing\Middleware\LoginCheck;
 use App\Http\Model\Question;
+use vendor\autoload;
 
 class QuestionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('logincheck');
     } 
     
     public function show(){ 

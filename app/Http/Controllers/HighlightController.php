@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // untuk menyingkat materi gak usah pake APP
 use Auth;
+use Illuminate\Routing\Middleware\LoginCheck;
 use App\Http\Model\Highlight;
 use Illuminate\Support\Facades\Input;
+use vendor\autoload;
 use Illuminate\Support\Facades\Redirect;
 
 class HighlightController extends Controller
@@ -14,7 +16,7 @@ class HighlightController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('logincheck');
     }
 
     public function show(){ 
@@ -76,7 +78,7 @@ class HighlightController extends Controller
                 $request->file('namefile')->move("C:/xampp/htdocs/family/public/asset/img", $fileNames);
                 $highlight->namefile = $fileNames;
             }
-            $highlight->created_by = Auth::user()->name; 
+            $highlight->created_by = session()->get('session_name'); 
     	// untuk mengsave
     	$highlight->save();
 
@@ -110,7 +112,7 @@ class HighlightController extends Controller
                 $request->file('namefile')->move("C:/xampp/htdocs/family/public/asset/img", $fileNames);
                 $highlight->namefile = $fileNames;
             }
-            $highlight->created_by = Auth::user()->name; 
+            $highlight->created_by = session()->get('session_name'); 
     		// untuk mengsave
     		$highlight->save();
 
@@ -125,7 +127,7 @@ class HighlightController extends Controller
 
             // nama = nama field di database, var_nama = var_nama di dalam form input_blade
             $highlight->flag = $request->flag; 
-            $highlight->updated_by = Auth::user()->name;
+            $highlight->updated_by = session()->get('session_name');
 
             $nol="";
             $highlight->namefile = $nol;

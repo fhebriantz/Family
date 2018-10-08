@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Http\Model\News;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Routing\Middleware\LoginCheck;
+use vendor\autoload;
 use Illuminate\Support\Facades\Redirect;
 
 class NewsController extends Controller
@@ -14,7 +16,7 @@ class NewsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('logincheck');
     }
 
     public function show(){ 
@@ -78,7 +80,7 @@ class NewsController extends Controller
                 $request->file('images')->move("C:/xampp/htdocs/family/public/asset/img", $fileNames);
                 $news->images = $fileNames;
             }
-            $news->created_by = Auth::user()->name; 
+            $news->created_by = session()->get('session_name'); 
     	// untuk mengsave
     	$news->save();
 
@@ -115,7 +117,7 @@ class NewsController extends Controller
                 $news->images = $fileNames;
                 }
 
-                $news->updated_by = Auth::user()->name;
+                $news->updated_by = session()->get('session_name');
 
         	// untuk mengsave
         	$news->save();
@@ -132,7 +134,7 @@ class NewsController extends Controller
             // nama = nama field di database, var_nama = var_nama di dalam form input_blade
             $news->title = $request->title; 
             $news->desc = $request->desc;
-            $news->updated_by = Auth::user()->name;
+            $news->updated_by = session()->get('session_name');
 
             $nol="";
             $news->images = $nol;

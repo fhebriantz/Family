@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Model\Product_detail;
 use App\Http\Model\Category_subproduct;
 use App\Http\Model\Category_product;
+use Illuminate\Routing\Middleware\LoginCheck;
+use App\Http\Model\Mainan;
+use App\Http\Model\Sandaran;
+use App\Http\Model\Ban;
 use App\file;
 use Illuminate\Support\Facades\Input;
 use Auth;
@@ -24,7 +28,7 @@ class Product_detailController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('logincheck');
     }
 
 
@@ -45,9 +49,12 @@ class Product_detailController extends Controller
     {
     	$category_subproduct = Category_subproduct::getTableSub();
         $category_product = Category_product::all();
+        $mainan = Mainan::all();
+        $sandaran = Sandaran::all();
+        $ban = Ban::all();
         $no = 1;
         $nos = 1;
-    	return  view('pages/cms/detail_product/detailinput', compact('category_product','category_subproduct','no','nos'));
+    	return  view('pages/cms/detail_product/detailinput', compact('category_product','category_subproduct','no','nos','mainan','sandaran','ban'));
     }
 
     function edit($id)
@@ -55,15 +62,22 @@ class Product_detailController extends Controller
     	$product_detail=Product_detail::where('id','=',$id)->first();
         $category_product=Category_product::all();
         $category_subproduct=Category_subproduct::getTableSub();
+        $mainan = Mainan::all();
+        $sandaran = Sandaran::all();
+        $ban = Ban::all();
         $no = 1;
         $nos = 1;
-    	return view('pages/cms/detail_product/detailedit', compact('product_detail','category_product','category_subproduct','no','nos'));
+    	return view('pages/cms/detail_product/detailedit', compact('product_detail','category_product','category_subproduct','no','nos','mainan','sandaran','ban'));
     }
 
     function view($id)
     {
         $product_detail=Product_detail::getTableDetail()->where('id','=',$id)->first();
-        return view('pages/cms/detail_product/detailview', compact('product_detail'));
+        
+        $mainan = Mainan::all();
+        $sandaran = Sandaran::all();
+        $ban = Ban::all();
+        return view('pages/cms/detail_product/detailview', compact('product_detail','mainan','sandaran','ban'));
     }
 
     // menampilkan fungsi input
@@ -75,6 +89,10 @@ class Product_detailController extends Controller
             'id_category_sub' => 'required',
             'name_product' => 'required|unique:product_details',
             'price' => 'required|numeric',
+            'id_sandaran' => 'required',
+            'id_mainan' => 'required',
+            'id_ban' => 'required',
+            'id' => 'required',
             'description' => 'required',
             'image1' => 'required',
         ]);
@@ -87,6 +105,9 @@ class Product_detailController extends Controller
             $product_detail->id_category_sub = $request->id_category_sub;
             $product_detail->name_product = $request->name_product;
             $product_detail->price = $request->price; 
+            $product_detail->id_sandaran = $request->id_sandaran; 
+            $product_detail->id_mainan = $request->id_mainan; 
+            $product_detail->id_ban = $request->id_ban; 
             $product_detail->description = $request->description;
             // Gambar 1 =============================================
             if($request->file('image1') == "")
@@ -153,7 +174,7 @@ class Product_detailController extends Controller
             $product_detail->image5 = $fileName5;
             }
             
-            $product_detail->created_by = Auth::user()->name; 
+            $product_detail->created_by = session()->get('session_name'); 
 
     	// untuk mengsave
     	$product_detail->save();
@@ -168,6 +189,9 @@ class Product_detailController extends Controller
         $validatedData = $request->validate([
             'id_category' => 'required',
             'id_category_sub' => 'required',
+            'id_sandaran' => 'required',
+            'id_mainan' => 'required',
+            'id_ban' => 'required',
             'name_product' => 'required',
             'price' => 'required|numeric',
             'description' => 'required',
@@ -182,6 +206,9 @@ class Product_detailController extends Controller
             $product_detail->id_category = $request->id_category;
             $product_detail->id_category_sub = $request->id_category_sub;
             $product_detail->price = $request->price;
+            $product_detail->id_sandaran = $request->id_sandaran; 
+            $product_detail->id_mainan = $request->id_mainan; 
+            $product_detail->id_ban = $request->id_ban; 
             $product_detail->name_product = $request->name_product;
             $product_detail->description = $request->description;
 
@@ -254,7 +281,7 @@ class Product_detailController extends Controller
             $request->file('image5')->move("C:/xampp/htdocs/family/public/asset/img", $fileName5);
             $product_detail->image5 = $fileName5;
             }
-            $product_detail->updated_by = Auth::user()->name; 
+            $product_detail->updated_by = session()->get('session_name'); 
             // untuk mengsave
             $product_detail->save();
             // sama aja kaya href setelak klik submit
@@ -299,7 +326,7 @@ class Product_detailController extends Controller
             
             $product_detail->image5 = $product_detail->image5;
            
-            $product_detail->updated_by = Auth::user()->name; 
+            $product_detail->updated_by = session()->get('session_name'); 
             // untuk mengsave
             $product_detail->save();
             // sama aja kaya href setelak klik submit
@@ -346,7 +373,7 @@ class Product_detailController extends Controller
             
             $product_detail->image5 = $product_detail->image5;
            
-            $product_detail->updated_by = Auth::user()->name; 
+            $product_detail->updated_by = session()->get('session_name'); 
             // untuk mengsave
             $product_detail->save();
             // sama aja kaya href setelak klik submit
@@ -391,7 +418,7 @@ class Product_detailController extends Controller
             
             $product_detail->image5 = $product_detail->image5;
            
-            $product_detail->updated_by = Auth::user()->name; 
+            $product_detail->updated_by = session()->get('session_name'); 
             // untuk mengsave
             $product_detail->save();
             // sama aja kaya href setelak klik submit
@@ -436,7 +463,7 @@ class Product_detailController extends Controller
             
             $product_detail->image5 = $product_detail->image5;
            
-            $product_detail->updated_by = Auth::user()->name; 
+            $product_detail->updated_by = session()->get('session_name'); 
             // untuk mengsave
             $product_detail->save();
             // sama aja kaya href setelak klik submit
@@ -482,7 +509,7 @@ class Product_detailController extends Controller
             $product_detail->image5 = $nol;
             // test 1
            
-            $product_detail->updated_by = Auth::user()->name; 
+            $product_detail->updated_by = session()->get('session_name'); 
             // untuk mengsave
             $product_detail->save();
             // sama aja kaya href setelak klik submit

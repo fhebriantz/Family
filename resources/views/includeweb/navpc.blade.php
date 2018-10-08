@@ -10,8 +10,16 @@
                   <img class="logo" src="{{ asset('assets/img/logo.png')}}" alt="Logo Family">
                 </a>
               </div>
+
              
-            <div id="navbar" class="navbar-collapse collapse">
+         <div id="navbar" class="navbar-collapse collapse" style="position: relative;">
+
+            <!-- <div id="google_translate_element"></div>
+            <script type="text/javascript">
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+            }</script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
 
               <ul class=" center-nav nav navbar-nav navbar-right">
                 <li class="active"><a href="{{url('/index')}}"><strong class="font16">{{trans('header.home')}}</strong></a></li>
@@ -36,10 +44,12 @@
                 </li>               
                 <li><a href="{{url('/about')}}"><strong class="font16">{{trans('header.about')}}</strong></a></li>
                 <li><a href="{{url('/contact')}}"><strong class="font16">{{trans('header.contact')}}</strong></a></li>
-                <li><a href="{{url('/cms/about')}}"><strong class="font16">{{trans('header.login')}}</strong></a></li>
-                <li><a href="{{url('/english')}}"><strong class="font16">ENG</strong></a></li>
-                <li><a href="{{url('/bahasa')}}"><strong class="font16">INA</strong></a></li>
 
               </ul>
             </div>
+             <div  class=" navbar-right" style=" background-color: #0db14b !important; padding: 2px 5px ;">
+              <a href="{{url('/english')}}"><img src="{{ asset('assets/img/eng.png')}}" style="height: 15px; width: 20px;" alt=""></a>
+              <a href="{{url('/bahasa')}}"><img src="{{ asset('assets/img/ina.png')}}" style="height: 15px; width: 20px;" alt=""></a>
+              <a href="{{url('/login_cms')}}" style="color: #ffd826; text-decoration: none;"><strong class="font16">{{trans('header.login')}}</strong></a>
+             </div>
           </div><!-- /.container-fluid -->

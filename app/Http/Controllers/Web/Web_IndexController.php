@@ -8,6 +8,7 @@ use App\Http\Model\About;
 use App\Http\Model\Highlight;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Foundation\Application;
+use vendor\autoload;
 use App;
 use Session;
 use Carbon;

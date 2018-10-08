@@ -16,6 +16,9 @@ navbarx @endsection
             <div class="container">
                 <div class="buttondrop">
                   <a name="allproduct" href="#allproduct" style="color: white"><button type="button" class="btn" style="width: 100%; background: #1e846e;">{{trans('content.seeall')}}</button></a>
+                  @if (Session::has('flash_category'))
+          <div class="alert alert-danger">{{ Session::get('flash_category') }}</div>
+        @endif
                 </div>
             </div>
         </section>
@@ -41,6 +44,41 @@ navbarx @endsection
                                     </li>
                                 @endforeach                          
                                 </ul>
+                                <?php use Illuminate\Support\Facades\Input; ?>
+                                <form method="GET" action="{{url('/product/filter')}}">
+                                <div style="width: 100%; height: auto; padding: 5px; font-size: 11px; color: black !important;">
+                                        <p>Pilih Category</p>
+                                        <select name="category" id="">
+                                            <option value="">{{trans('content.select')}} {{trans('content.category')}}</option>
+                                            @foreach($catpro as $cat)
+                                                <option value="{{$cat->id}}" {{ (Input::old("category") == $cat->id ? "selected":"") }}>{{$cat->category_product_name}}</option>
+                                            @endforeach
+                                        </select>
+                                        <p>Pilih Mainan</p>
+                                        <select name="mainan" id="">
+                                            <option value="">{{trans('content.select')}} {{trans('content.toy')}}</option>
+                                            @foreach($mainan as $main)
+                                                <option value="{{$main->id}}">{{$main->nama_mainan}}</option>
+                                            @endforeach
+                                        </select>
+                                        <p>Pilih Sandaran</p>
+                                        <select name="sandaran" id="">
+                                            <option value="">{{trans('content.select')}} {{trans('content.backrest')}}</option>
+                                            @foreach($sandaran as $sandar)
+                                                <option value="{{$sandar->id}}">{{$sandar->nama_sandaran}}</option>
+                                            @endforeach
+                                        </select>
+                                        <p>Pilih Ban</p>
+                                        <select name="ban" id="">
+                                            <option value="">{{trans('content.select')}} {{trans('content.tire')}}</option>
+                                            @foreach($ban as $ba)
+                                                <option value="{{$ba->id}}">{{$ba->nama_ban}}</option>
+                                            @endforeach
+                                        </select>
+                                </div>
+                                <input class="btn" name="submit" value="Filter" type="submit" style="padding: 5px; width: 100%" >
+                                </form>
+                                
                             </div>
                             <div class="col-sm-9 col-md-10">
                                 <div class="row">
@@ -64,8 +102,6 @@ navbarx @endsection
                                             </a>
                                         </div> 
                                         @endforeach 
-
-
                                     </div>
                                 </div>
                                 <div class="center" >

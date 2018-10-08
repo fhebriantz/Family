@@ -9,6 +9,7 @@ navbarx @endsection
                 <hr>
                 <p class="title-page"><strong>{{trans('header.about')}}</strong></p>               
                 <hr>
+                
             </div>            
         </section>
 

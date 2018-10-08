@@ -12,4 +12,10 @@ return [
     'ourstory' => 'Our Story',
     'backtop' => 'Back to Top',
     'price' => 'Price',
+    'select' => 'Select',
+    'category' => 'Category',
+    'toy' => 'Toy',
+    'backrest' => 'HandGrip',
+    'tire' => 'Tire',
+
 ];

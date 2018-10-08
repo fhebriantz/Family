@@ -72,6 +72,42 @@
 								</tr>
 
 								<tr>
+									<td>Tag Mainan</td>
+									<td> <!-- select class form control untuk membuat combo box -->
+									    <select class="form-control"  name="id_mainan" style="width: 100%">
+									    	<option value="">-- Pilih Kategori --</option>
+									        @foreach($mainan as $main)
+									        <option value="{{$main->id}}">{{$main->nama_mainan}}</option>
+									        @endforeach
+									    </select>
+									</td>
+								</tr>
+
+								<tr>
+									<td>Tag HandGrip</td>
+									<td> <!-- select class form control untuk membuat combo box -->
+									    <select class="form-control"  name="id_sandaran" style="width: 100%">
+									    	<option value="">-- Pilih Kategori --</option>
+									        @foreach($sandaran as $sandar)
+									        <option value="{{$sandar->id}}">{{$sandar->nama_sandaran}}</option>
+									        @endforeach
+									    </select>
+									</td>
+								</tr>
+
+								<tr>
+									<td>Tag Ban</td>
+									<td> <!-- select class form control untuk membuat combo box -->
+									    <select class="form-control"  name="id_ban" style="width: 100%">
+									    	<option value="">-- Pilih Kategori --</option>
+									        @foreach($ban as $ba)
+									        <option value="{{$ba->id}}">{{$ba->nama_ban}}</option>
+									        @endforeach
+									    </select>
+									</td>
+								</tr>
+
+								<tr>
 									<td>Image1</td>
 									<td><input type="file" id="inputgambar" name="image1"  style="width: 100%" placeholder="Image1" ></td>
 								</tr>

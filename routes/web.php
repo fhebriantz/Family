@@ -1,6 +1,8 @@
 <?php
 
-
+Route::get('/', 'Controller@method')
+    ->name('my_route_name');
+    
 Route::get('product/category/{id}','Web\Web_ProductController@show_list_category_prod'); 
 Route::get('product/main/{id}','Web\Web_ProductController@show_list_main_prod'); 
 
@@ -12,6 +14,8 @@ Route::get('/bahasa', 'Web\Web_IndexController@bahasa');
 
 
 Route::get('/logout', 'LogoutController@index');
+
+Route::get('/product/filter','Web\Web_ProductController@filter');
 
 Auth::routes();
 
@@ -36,9 +40,13 @@ Route::get('cms/question', 'QuestionController@show');
 
 Route::delete('cms/{id}/delete','QuestionController@delete');
 
-Route::get('cms/forgotpass', 'ForgotpassController@show'); 
+Route::get('cms/forgotpass', 'LoginController@list_user'); 
 
 // ------------------------------------------------------------------------------------------------ABOUT
+
+Route::get('login_cms', 'LoginController@show'); 
+Route::post('login_cms', 'LoginController@login');
+Route::get('logout_cms', 'LoginController@logout');
 
 // ABOUT===========TAMPIL=======================
 // menampilkan tabel about di frontend

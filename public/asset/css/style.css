@@ -514,6 +514,10 @@ p.quote{
   margin-right: 5px;
 }
 
+.topnav .navbar-header .navbar-right-lang{
+  margin-right: 5px;
+}
+
 .topnav .navbar-header li.active{
   border-bottom: 3px solid #fff;
   background:none !important;
@@ -1661,7 +1665,7 @@ ul li a:focus {
     height: 40px;
     width: 40px;
     border: 4px solid #108DB6 !important;
-    margin-top: 5px;
+    margin-top: -8px;
   }
 
   .panel-primary .panel-heading,

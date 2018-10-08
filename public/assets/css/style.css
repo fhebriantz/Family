@@ -9,6 +9,20 @@
     width: 100%;
 }
 
+ul.producttrc-ex {
+    margin-left: -32px;
+    font-size: 12px;
+}
+
+a.gflag {vertical-align:middle;font-size:16px;padding:1px 0;background-repeat:no-repeat;background-image:url(//gtranslate.net/flags/16.png);}
+a.gflag img {border:0;}
+a.gflag:hover {background-image:url(//gtranslate.net/flags/16a.png);}
+#goog-gt-tt {display:none !important;}
+.goog-te-banner-frame {display:none !important;}
+.goog-te-menu-value:hover {text-decoration:none !important;}
+body {top:0 !important;}
+#google_translate_element2 {display:none!important;}
+
 
 .heading{
 	display: block;
@@ -106,6 +120,12 @@ img.logo
 .navbar-right
 {
     background-color: #ffd826;
+    margin-top: 15px;
+    margin-right: 0;
+}
+
+.navbar-right-lang
+{
     margin-top: 15px;
     margin-right: 0;
 }
@@ -890,6 +910,10 @@ footer
 	}
 
 	.navbar-right{
+		background-color: inherit;
+	}
+
+	.navbar-right-lang{
 		background-color: inherit;
 	}
 

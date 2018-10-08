@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // untuk menyingkat materi gak usah pake APP
 use Auth;
+use Illuminate\Routing\Middleware\LoginCheck;
+use vendor\autoload;
 use App\Http\Model\About;
 
 class AboutController extends Controller
@@ -12,7 +14,7 @@ class AboutController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('logincheck');
     }
 
     public function show(){ 
@@ -75,7 +77,7 @@ class AboutController extends Controller
             $abouts->caption = $request->caption; 
     		$abouts->title = $request->title; 
     		$abouts->desc = $request->desc;
-            $abouts->created_by = Auth::user()->name; 
+            $abouts->created_by = session()->get('session_name'); 
     	// untuk mengsave
     	$abouts->save();
 
@@ -99,7 +101,7 @@ class AboutController extends Controller
             $abouts->caption = $request->caption; 
     		$abouts->title = $request->title; 
     		$abouts->desc = $request->desc;
-            $abouts->updated_by = Auth::user()->name ;
+            $abouts->updated_by = session()->get('session_name') ;
     	// untuk mengsave
     	$abouts->save();
 

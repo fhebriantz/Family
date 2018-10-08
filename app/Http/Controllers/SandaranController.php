@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 // untuk menyingkat materi gak usah pake APP
+use Illuminate\Routing\Middleware\LoginCheck;
 use App\Http\Model\Sandaran;
+use vendor\autoload;
 use Auth;
 
 class SandaranController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('logincheck');
     }
     
     public function show(){ 
@@ -52,7 +54,7 @@ class SandaranController extends Controller
 
             // nama = nama field di database, var_nama = var_nama di dalam form input_blade
             $sandaran->nama_sandaran = $request->nama_sandaran; 
-            $sandaran->created_by = Auth::user()->name; 
+            $sandaran->created_by = session()->get('session_name'); 
         // untuk mengsave
         $sandaran->save();
 
@@ -72,7 +74,7 @@ class SandaranController extends Controller
 
             // nama = nama field di database, var_nama = var_nama di dalam form input_blade
             $sandaran->nama_sandaran = $request->nama_sandaran; 
-            $sandaran->updated_by = Auth::user()->name; 
+            $sandaran->updated_by = session()->get('session_name'); 
         // untuk mengsave
         $sandaran->save();
 

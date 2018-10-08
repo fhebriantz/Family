@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Model\Question;
 use Illuminate\Support\Facades\Input;
+use vendor\autoload;
 use Illuminate\Support\Facades\Redirect;
 use App;
 

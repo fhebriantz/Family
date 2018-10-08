@@ -32,7 +32,16 @@ class Product_detail extends Model
             ->paginate(4);
 
 	     return $product_details;
-	    }    
+	    }  
+
+        public static function getTableFilter(){
+        $product_details = DB::table('product_details')
+            ->join('category_products', 'category_products.id', '=', 'product_details.id_category')
+            ->join('category_subproducts', 'category_subproducts.id', '=', 'product_details.id_category_sub')
+            ->select('product_details.*', 'category_products.category_product_name', 'category_products.id as id_catpro', 'category_subproducts.category_subproduct_name',  'category_subproducts.id as id_catsub');
+
+         return $product_details;
+        }    
 
 	public static function getTableDetailsub($id){
     	$product_details = DB::table('product_details')

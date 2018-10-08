@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // untuk menyingkat materi gak usah pake APP
 use App\Http\Model\Mainan;
+use vendor\autoload;
+use Illuminate\Routing\Middleware\LoginCheck;
 use Auth;
 
 class MainanController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('logincheck');
     }
     
     public function show(){ 
@@ -52,7 +54,7 @@ class MainanController extends Controller
 
             // nama = nama field di database, var_nama = var_nama di dalam form input_blade
             $mainan->nama_mainan = $request->nama_mainan; 
-            $mainan->created_by = Auth::user()->name; 
+            $mainan->created_by = session()->get('session_name'); 
         // untuk mengsave
         $mainan->save();
 
@@ -72,7 +74,7 @@ class MainanController extends Controller
 
             // nama = nama field di database, var_nama = var_nama di dalam form input_blade
             $mainan->nama_mainan = $request->nama_mainan; 
-            $mainan->updated_by = Auth::user()->name; 
+            $mainan->updated_by = session()->get('session_name'); 
         // untuk mengsave
         $mainan->save();
 

@@ -41,6 +41,44 @@ navbarx @endsection
                                         </li>
                                     @endforeach                        
                                 </ul>
+                                <form method="GET" action="{{url('/product/filter')}}">
+                                <ul>
+                                    <li>
+                                        <select name="category" id="">
+                                            <option value="">{{trans('content.select')}} {{trans('content.category')}}</option>
+                                            @foreach($catpro as $cat)
+                                                <option value="{{$cat->id}}">{{$cat->category_product_name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <select name="mainan" id="">
+                                            <option value="">{{trans('content.select')}} {{trans('content.toy')}}</option>
+                                            @foreach($mainan as $main)
+                                                <option value="{{$main->id}}">{{$main->nama_mainan}}</option>
+                                            @endforeach
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <select name="sandaran" id="">
+                                            <option value="">{{trans('content.select')}} {{trans('content.backrest')}}</option>
+                                            @foreach($sandaran as $sandar)
+                                                <option value="{{$sandar->id}}">{{$sandar->nama_sandaran}}</option>
+                                            @endforeach
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <select name="ban" id="">
+                                            <option value="">{{trans('content.select')}} {{trans('content.tire')}}</option>
+                                            @foreach($ban as $ba)
+                                                <option value="{{$ba->id}}">{{$ba->nama_ban}}</option>
+                                            @endforeach
+                                        </select>
+                                    </li>
+                                </ul>
+                                
+                                    <input class="" name="submit" value="Filter" type="submit" >
+                                </form>
                                 <script></script>
                             </div>
                             <div class="thumbproduct col-sm-5 col-md-6 col-xs-12">

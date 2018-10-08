@@ -1,10 +1,10 @@
-@extends('layouts.cmsnew')
+@extends('layouts.cmslogin')
 
 @section('content')
 
 <div class="container">
 
-        <form class="form-signin" method="POST" action="{{ route('login') }}">
+        <form class="form-signin" method="POST" action="{{ url('login_cms')}}">
           {{ csrf_field() }}
           <div class="panel periodic-login">
               <div class="panel-body text-center">
@@ -13,24 +13,20 @@
                   <p class="element-name">Made In Indonesia</p>
 
                   <i class="icons icon-arrow-down"></i>
+
                   <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                    <input type="email" class="form-text" name="email" required placeholder="Email">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="text" class="form-text" name="username" required placeholder="username">
                     <span class="bar"></span>
                     <label></label>
                   </div>
                   <div class="form-group form-animate-text" style="margin-top:40px !important;">
                     <input type="password" class="form-text" name="password" required placeholder="Password">
                     <span class="bar"></span>
-                    <label></label>
+                    <p style="padding-top: 10px; color: #fff"><strong>{{session()->get('message')}}</strong></p>
                   </div>
-                  <label class="pull-left">
-                  <input type="checkbox" class="icheck pull-left" name="checkbox1"/> Remember me
-                  </label>
-                  <input type="submit" class="btn  col-md-12" value="SignIn"/>
+                  <input type="submit" name="login" class="btn col-md-12" value="LOGIN"/>
               </div>
-                <div class="text-center" style="padding:5px;">
-                    <a href="{{ route('password.request') }}">Forgot Password </a>
-                </div>
           </div>
         </form>
 

@@ -167,7 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Weglot\Translate\TranslateServiceProvider::class,
         /*
          * Application Service Providers...
          */

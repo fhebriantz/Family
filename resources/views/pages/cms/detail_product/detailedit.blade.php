@@ -79,13 +79,73 @@
 								</tr>
 
 								<tr>
+									<td>Price</td>
+									<td><input type="text" class="form-control"  name="price" placeholder="Harga Produk" value="{{ $product_detail->price }}" style="width: 100%"></td>
+								</tr>
+
+								<tr>
 									<td>Description</td>
 									<td><textarea id="summernote" name="description">{!! $product_detail->description !!}</textarea></td>
 								</tr>
 
 								<tr>
-									<td>Price</td>
-									<td><input type="text" class="form-control"  name="price" placeholder="Harga Produk" value="{{ $product_detail->price }}" style="width: 100%"></td>
+									<td>Tag Mainan</td>
+									<td> <!-- select class form control untuk membuat combo box -->
+									    <select class="form-control"  name="id_mainan" style="width: 100%">
+									    	<option value="">-- Pilih Kategori --</option>
+									        @foreach($mainan as $main)
+									        <option value="{{$main->id}}"
+
+									        	<?php if ($main->id == $product_detail->id_mainan): ?>
+
+										        	<?php echo "selected" ?>
+										        	
+										        <?php endif ?> 
+
+										        >{{$main->nama_mainan}}</option>
+									        @endforeach
+									    </select>
+									</td>
+								</tr>
+
+								<tr>
+									<td>Tag HandGrip</td>
+									<td> <!-- select class form control untuk membuat combo box -->
+									    <select class="form-control"  name="id_sandaran" style="width: 100%">
+									    	<option value="">-- Pilih Kategori --</option>
+									        @foreach($sandaran as $sandar)
+									        <option value="{{$sandar->id}}"
+
+									        	<?php if ($sandar->id == $product_detail->id_sandaran): ?>
+
+										        	<?php echo "selected" ?>
+										        	
+										        <?php endif ?> 
+
+										        >{{$sandar->nama_sandaran}}</option>
+									        @endforeach
+									    </select>
+									</td>
+								</tr>
+
+								<tr>
+									<td>Tag Ban</td>
+									<td> <!-- select class form control untuk membuat combo box -->
+									    <select class="form-control"  name="id_ban" style="width: 100%">
+									    	<option value="">-- Pilih Kategori --</option>
+									        @foreach($ban as $ba)
+									        <option value="{{$ba->id}}"
+
+									        	<?php if ($ba->id == $product_detail->id_ban): ?>
+
+										        	<?php echo "selected" ?>
+										        	
+										        <?php endif ?> 
+
+										        >{{$ba->nama_ban}}</option>
+									        @endforeach
+									    </select>
+									</td>
 								</tr>
 
 								<tr>

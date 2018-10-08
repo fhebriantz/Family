@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 // untuk menyingkat materi gak usah pake APP
 use App\Http\Model\Category_subproduct;
 use App\Http\Model\Category_product;
+use Illuminate\Routing\Middleware\LoginCheck;
+use vendor\autoload;
 use Auth;
 
 class Category_subproductController extends Controller
@@ -13,7 +15,7 @@ class Category_subproductController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('logincheck');
     }
 
     public function show(){ 
@@ -75,7 +77,7 @@ class Category_subproductController extends Controller
     		$category_subproduct->id = $request->id;
     		$category_subproduct->id_category = $request->id_category;
     		$category_subproduct->category_subproduct_name = $request->category_subproduct_name;
-            $category_subproduct->created_by = Auth::user()->name; 
+            $category_subproduct->created_by = session()->get('session_name'); 
     	// untuk mengsave
     	$category_subproduct->save();
     	// sama aja kaya href setelak klik submit
@@ -97,7 +99,7 @@ class Category_subproductController extends Controller
     		$category_subproduct->id = $request->id;
     		$category_subproduct->id_category = $request->id_category; 
     		$category_subproduct->category_subproduct_name = $request->category_subproduct_name;
-            $category_subproduct->updated_by = Auth::user()->name;
+            $category_subproduct->updated_by = session()->get('session_name');
 
     	// untuk mengsave
     	$category_subproduct->save();

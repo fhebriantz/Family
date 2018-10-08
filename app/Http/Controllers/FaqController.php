@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // untuk menyingkat materi gak usah pake APP
 use App\Http\Model\Faq;
+use Illuminate\Routing\Middleware\LoginCheck;
+use vendor\autoload;
 use Auth;
 
 class FaqController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('logincheck');
     }
     
     public function show(){ 
@@ -62,7 +64,7 @@ class FaqController extends Controller
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
     		$faq->title = $request->title; 
     		$faq->desc = $request->desc;
-            $faq->created_by = Auth::user()->name; 
+            $faq->created_by = session()->get('session_name'); 
     	// untuk mengsave
     	$faq->save();
 
@@ -85,7 +87,7 @@ class FaqController extends Controller
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
     		$faq->title = $request->title; 
     		$faq->desc = $request->desc;
-            $faq->updated_by = Auth::user()->name; 
+            $faq->updated_by = session()->get('session_name'); 
     	// untuk mengsave
     	$faq->save();
 
