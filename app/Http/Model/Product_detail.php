@@ -22,7 +22,6 @@ class Product_detail extends Model
 
 
 
-
 	// WEB ============================
     public static function getTableDetailweb(){
     	$product_details = DB::table('product_details')

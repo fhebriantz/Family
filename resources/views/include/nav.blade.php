@@ -16,7 +16,7 @@
                 </li>
                 <li class="avatar-dropdown" style="margin-right: 15px">
                   <a href="{{url('/logout_cms')}}">
-                   <img src="{{ asset('asset/img/logout.png')}}" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
+                   <img src="{{ asset('asset/img/logout.png')}}" class="img-circle avatar" />
                    </a>
                 </li>
               </ul>

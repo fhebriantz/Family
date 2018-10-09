@@ -29,14 +29,14 @@
                     <div class="col-xs-12">
                         <div class="row">
                             <div class="subproduct col-xs-6 text-center">
-                                <a href="{{url('/product/main/6')}}" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-ROC.png')}}"></a><br>
                                 <a href="{{url('/product/main/3')}}" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-TC.png')}}"></a><br>
                                 <a href="{{url('/product/main/5')}}" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-BC.png')}}"></a><br>
+                                <a href="{{url('/product/main/6')}}" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-ROC.png')}}"></a><br>
                             </div>
                             <div class="subproduct col-xs-6 text-center">
-                                <a href="{{url('/product/main/8')}}" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-BS.png')}}"></a><br>
                                 <a href="{{url('/product/main/4')}}" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-BW.png')}}"></a><br>
-                                <div class="pading-subproduct-a"><a class="sante" href="{{url('/product')}}"><strong class="font16">SEE ALL PRODUCT</strong></a></div>
+                                <a href="{{url('/product/main/8')}}" class="sante"><img  class="pading-subproduct" src="{{ asset('assets/img/Icon-BS.png')}}"></a><br>
+                                <div class="pading-subproduct-a"><a class="sante" href="{{url('/product')}}"><strong class="font16">{{trans('content.seeall')}}</strong></a></div>
                             </div>
                         </div>                        
                     </div>                      
@@ -48,8 +48,8 @@
               </ul>
             </div>
              <div  class=" navbar-right" style=" background-color: #0db14b !important; padding: 2px 5px ;">
+              <a href="{{url('/login_cms')}}" style="color: #ffd826; text-decoration: none;"><strong class="font16">{{trans('header.language')}}</strong></a>
               <a href="{{url('/english')}}"><img src="{{ asset('assets/img/eng.png')}}" style="height: 15px; width: 20px;" alt=""></a>
               <a href="{{url('/bahasa')}}"><img src="{{ asset('assets/img/ina.png')}}" style="height: 15px; width: 20px;" alt=""></a>
-              <a href="{{url('/login_cms')}}" style="color: #ffd826; text-decoration: none;"><strong class="font16">{{trans('header.login')}}</strong></a>
              </div>
           </div><!-- /.container-fluid -->
