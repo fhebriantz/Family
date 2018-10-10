@@ -79,12 +79,13 @@ navbarx @endsection
                             </div>
                             <div class="thumbproduct col-sm-5 col-md-6 col-xs-12">
                                 <div class="page">
-                                    <div class="sp-loading"><img src="{{asset('/assets/images/sp-loading.gif')}}" alt=""><br>LOADING IMAGES</div>
+                                    <div class="sp-loading"><img src="{{asset('assets/images/sp-loading.gif')}}" alt=""><br>LOADING IMAGES</div>
                                     <div class="sp-wrap">
                                         <a href="{{asset('/asset/img/'.$product_detail->image1)}}"><img src="{{asset('/asset/img/'.$product_detail->image1)}}" alt=""></a>
                                         <a href="{{asset('/asset/img/'.$product_detail->image2)}}"><img src="{{asset('/asset/img/'.$product_detail->image2)}}" alt=""></a>
                                         <a href="{{asset('/asset/img/'.$product_detail->image3)}}"><img src="{{asset('/asset/img/'.$product_detail->image3)}}" alt=""></a>
                                         <a href="{{asset('/asset/img/'.$product_detail->image4)}}"><img src="{{asset('/asset/img/'.$product_detail->image4)}}" alt=""></a>
+                                        <a href="{{asset('/asset/img/'.$product_detail->image5)}}"><img src="{{asset('/asset/img/'.$product_detail->image5)}}" alt=""></a>
                                     </div>
                                 </div>
                             </div>

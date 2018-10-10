@@ -34,7 +34,7 @@ Route::get('news/{id}','Web\Web_NewsController@view');
 
 Route::post('question/input', 'Web\Web_QuestionController@insert');
 
-Route::get('/home', 'HighlightController@showcms')->name('home');
+Route::get('/home', 'ImagesController@showcms')->name('home');
 
 Route::get('cms/question', 'QuestionController@show');
 
@@ -94,26 +94,26 @@ Route::put('cms/news/{id}/edit/delete1','NewsController@delete1');
 // memanggil fungsi delete
 Route::delete('cms/news/{id}/delete','NewsController@delete');
 
-// --------------------------------------------------------------------------------------------Highlight
+// --------------------------------------------------------------------------------------------Images
 
-// Highlight===========TAMPIL=======================
+// Images===========TAMPIL=======================
 // menampilkan tabel highlight di frontend
-Route::get('/highlights', 'HighlightController@show');
+Route::get('/highlights', 'ImagesController@show');
 // menampilkan tabel highlight di cms
-Route::get('cms/highlight', 'HighlightController@showcms'); 
+Route::get('cms/highlight', 'ImagesController@showcms'); 
 // menampilkan form input di cms
-Route::get('cms/highlight/input', 'HighlightController@input');
+Route::get('cms/highlight/input', 'ImagesController@input');
 // menampilkan form edit di cms
-Route::get('cms/highlight/{id}/edit','HighlightController@edit');  
+Route::get('cms/highlight/{id}/edit','ImagesController@edit');  
 // menampilkan form view di cms
-Route::get('cms/highlight/{id}/view','HighlightController@view');  
+Route::get('cms/highlight/{id}/view','ImagesController@view');  
 
-// Highlight===========FUNGSI=======================
+// Images===========FUNGSI=======================
 
 // memanggil fungsi insert
-Route::post('/cms/highlight/input','HighlightController@insert'); 
+Route::post('/cms/highlight/input','ImagesController@insert'); 
 // memanggil fungsi update
-Route::put('cms/highlight/{id}/edit','HighlightController@update');  
+Route::put('cms/highlight/{id}/edit','ImagesController@update');  
 
 // ---------------------------------------------------------------------------------PRODUCT CATEGORY
 

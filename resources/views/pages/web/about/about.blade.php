@@ -14,7 +14,7 @@ navbarx @endsection
         </section>
 
         <section class="header-about mobilehide">
-            <div class="header" style="background: url({{ asset('assets/content/bg3.jpg')}}) no-repeat top center;"></div>
+            <div class="header" style="background: url({{asset('/asset/img/'.$highlight3->namefile)}}) no-repeat top center;"></div>
         </section>
 
         <section class="header-about mobileshow">

@@ -7,7 +7,7 @@
 <meta name="keywords"  content="family" />
 <meta name="Resource-type" content="Document" />
 <link rel="icon" href="{{ asset('assets/favicon.ico')}}">
-<link rel="stylesheet" href="{{ asset('assets/css/smoothproducts.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/smoothproducts.css?v=1.001')}}">
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css')}}"/>
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=1.099')}}"/> 
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jssor.css')}}"/>    

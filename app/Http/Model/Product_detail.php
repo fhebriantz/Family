@@ -28,7 +28,7 @@ class Product_detail extends Model
             ->join('category_products', 'category_products.id', '=', 'product_details.id_category')
             ->join('category_subproducts', 'category_subproducts.id', '=', 'product_details.id_category_sub')
             ->select('product_details.*', 'category_products.category_product_name', 'category_products.id as id_catpro', 'category_subproducts.category_subproduct_name',  'category_subproducts.id as id_catsub')
-            ->paginate(4);
+            ->paginate(8);
 
 	     return $product_details;
 	    }  
@@ -48,7 +48,7 @@ class Product_detail extends Model
             ->join('category_subproducts', 'category_subproducts.id', '=', 'product_details.id_category_sub')
             ->select('product_details.*', 'category_products.category_product_name', 'category_products.id as id_catpro', 'category_subproducts.category_subproduct_name',  'category_subproducts.id as id_catsub')
             ->where('id_category_sub','=',$id)
-            ->paginate(4);
+            ->paginate(8);
 
 	     return $product_details;
 	    }
@@ -57,7 +57,7 @@ class Product_detail extends Model
     	$product_details = DB::table('product_details')
             ->select('*')
             ->where('id_category','=',$id)
-            ->paginate(4);
+            ->paginate(8);
 
 	     return $product_details;
 	    }

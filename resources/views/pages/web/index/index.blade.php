@@ -15,19 +15,19 @@ navbarabs @endsection
             <!-- Slides Container -->
             <div u="slides" class="heading-slide">
                 <div>
-                    <img data-u="image" src="{{ asset('assets/content/bg1.jpg')}}" alt="content1"/>
+                    <img data-u="image" src="{{asset('/asset/img/'.$slider1->namefile)}}" alt="content1"/>
                     <div class="title-slide"> 
                         <p>SEPEDA FAMILY <strong>We make kids SMILE, like it should be</strong></p>
                     </div>
                 </div>
                 <div>
-                    <img data-u="image" src="{{ asset('assets/content/bg2.jpg')}}" alt="content2"/>
+                    <img data-u="image" src="{{asset('/asset/img/'.$slider2->namefile)}}" alt="content2"/>
                     <div class="title-slide"> 
                         <p>SEPEDA FAMILY <strong>Direct Connections to you</strong></p>
                     </div>
                 </div>
                 <div>
-                    <img data-u="image" src="{{ asset('assets/content/bg3.jpg')}}" alt="content3"/>
+                    <img data-u="image" src="{{asset('/asset/img/'.$slider3->namefile)}}" alt="content3"/>
                     <div class="title-slide"> 
                         <p>SEPEDA FAMILY <strong>We treat our customer, just like WE ARE FAMILY</strong></p>
                     </div>
@@ -50,7 +50,7 @@ navbarabs @endsection
             <div class="container">
                     <div class="story-box">
                         <div class="col-sm-7 mobiledisplay story-box-right">
-                            <img src="{{ asset('assets/content/content1.jpg')}}" class="img-story">
+                            <img src="{{asset('/asset/img/'.$ourstory->namefile)}}" class="img-story">
                         </div>
                         <div class="col-sm-5 story-box-left">
                             <p style="color: #e4e41d">{{trans('content.ourstory')}}</p>
@@ -58,7 +58,7 @@ navbarabs @endsection
                             <a href="{{url('/about')}}" class="readmorelink">{{trans('content.readmore')}}</a>
                         </div>
                         <div class="col-sm-7 mobilehidden story-box-right">
-                            <img src="{{ asset('assets/content/content1.jpg')}}" class="img-story">
+                            <img src="{{asset('/asset/img/'.$ourstory->namefile)}}" class="img-story">
                         </div>
                     </div>
             </div>            

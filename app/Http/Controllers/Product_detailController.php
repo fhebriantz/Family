@@ -92,7 +92,6 @@ class Product_detailController extends Controller
             'id_sandaran' => 'required',
             'id_mainan' => 'required',
             'id_ban' => 'required',
-            'id' => 'required',
             'description' => 'required',
             'image1' => 'required',
         ]);
@@ -110,68 +109,93 @@ class Product_detailController extends Controller
             $product_detail->id_ban = $request->id_ban; 
             $product_detail->description = $request->description;
             // Gambar 1 =============================================
-            if($request->file('image1') == "")
+             if($request->file('image1') == "" || $request->file('image1') == null)
             {
                 $product_detail->image1 = $product_detail->image1;
             } 
              else
             {
-            $file1       = $request->file('image1');
-            $fileName1   = $file1->getClientOriginalName();
-            $request->file('image1')->move("C:/xampp/htdocs/family/public/asset/img", $fileName1);
-            $product_detail->image1 = $fileName1;
+                $this->validate($request, [
+                    'image1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $file1      = $request->file('image1');
+                $fileName1   = time().'a'.'.'.$file1->getClientOriginalExtension();
+                $destinationPath = public_path('/asset/img');
+                $file1->move($destinationPath, $fileName1);
+                $product_detail->image1 = $fileName1;
             }
 
             // Gambar 2 =============================================
-            if($request->file('image2') == "")
+             if($request->file('image2') == "" || $request->file('image2') == null)
             {
                 $product_detail->image2 = $product_detail->image2;
             } 
              else
             {
-            $file2       = $request->file('image2');
-            $fileName2   = $file2->getClientOriginalName();
-            $request->file('image2')->move("C:/xampp/htdocs/family/public/asset/img", $fileName2);
-            $product_detail->image2 = $fileName2;
+                $this->validate($request, [
+                    'image2' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $file2      = $request->file('image2');
+                $fileName2   = time().'b'.'.'.$file2->getClientOriginalExtension();
+                $destinationPath = public_path('/asset/img');
+                $file2->move($destinationPath, $fileName2);
+                $product_detail->image2 = $fileName2;
             }
 
             // Gambar 3 =============================================
-            if($request->file('image3') == "")
+             if($request->file('image3') == "" || $request->file('image3') == null)
             {
                 $product_detail->image3 = $product_detail->image3;
             } 
              else
             {
-            $file3       = $request->file('image3');
-            $fileName3   = $file3->getClientOriginalName();
-            $request->file('image3')->move("C:/xampp/htdocs/family/public/asset/img", $fileName3);
-            $product_detail->image3 = $fileName3;
+                $this->validate($request, [
+                    'image3' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $file3      = $request->file('image3');
+                $fileName3   = time().'c'.'.'.$file3->getClientOriginalExtension();
+                $destinationPath = public_path('/asset/img');
+                $file3->move($destinationPath, $fileName3);
+                $product_detail->image3 = $fileName3;
             }
 
             // Gambar 4 =============================================
-            if($request->file('image4') == "")
+             if($request->file('image4') == "" || $request->file('image4') == null)
             {
                 $product_detail->image4 = $product_detail->image4;
             } 
              else
             {
-            $file4       = $request->file('image4');
-            $fileName4   = $file4->getClientOriginalName();
-            $request->file('image4')->move("C:/xampp/htdocs/family/public/asset/img", $fileName4);
-            $product_detail->image4 = $fileName4;
+                $this->validate($request, [
+                    'image4' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $file4      = $request->file('image4');
+                $fileName4   = time().'d'.'.'.$file4->getClientOriginalExtension();
+                $destinationPath = public_path('/asset/img');
+                $file4->move($destinationPath, $fileName4);
+                $product_detail->image4 = $fileName4;
             }
 
             // Gambar 5 =============================================
-            if($request->file('image5') == "")
+             if($request->file('image5') == "" || $request->file('image5') == null)
             {
                 $product_detail->image5 = $product_detail->image5;
             } 
              else
             {
-            $file5       = $request->file('image5');
-            $fileName5   = $file5->getClientOriginalName();
-            $request->file('image5')->move("C:/xampp/htdocs/family/public/asset/img", $fileName5);
-            $product_detail->image5 = $fileName5;
+                $this->validate($request, [
+                    'image5' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $file5      = $request->file('image5');
+                $fileName5   = time().'e'.'.'.$file5->getClientOriginalExtension();
+                $destinationPath = public_path('/asset/img');
+                $file5->move($destinationPath, $fileName5);
+                $product_detail->image5 = $fileName5;
             }
             
             $product_detail->created_by = session()->get('session_name'); 
@@ -224,63 +248,86 @@ class Product_detailController extends Controller
                 ]);
 
                 $file1      = $request->file('image1');
-                $fileName1   = time().'.'.$file1->getClientOriginalExtension();
+                $fileName1   = time().'a'.'.'.$file1->getClientOriginalExtension();
                 $destinationPath = public_path('/asset/img');
                 $file1->move($destinationPath, $fileName1);
                 $product_detail->image1 = $fileName1;
             }
 
             // Gambar 2 =============================================
-            if($request->file('image2') == "")
+            if($request->file('image2') == "" || $request->file('image2') == null)
             {
                 $product_detail->image2 = $product_detail->image2;
             } 
              else
             {
-            $file2       = $request->file('image2');
-            $fileName2   = $file2->getClientOriginalName();
-            $request->file('image2')->move("C:/xampp/htdocs/family/public/asset/img", $fileName2);
-            $product_detail->image2 = $fileName2;
+                $this->validate($request, [
+                    'image2' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $file2      = $request->file('image2');
+                $fileName2   = time().'b'.'.'.$file2->getClientOriginalExtension();
+                $destinationPath = public_path('/asset/img');
+                $file2->move($destinationPath, $fileName2);
+                $product_detail->image2 = $fileName2;
             }
 
             // Gambar 3 =============================================
-            if($request->file('image3') == "")
+            if($request->file('image3') == "" || $request->file('image3') == null)
             {
                 $product_detail->image3 = $product_detail->image3;
             } 
              else
             {
-            $file3       = $request->file('image3');
-            $fileName3   = $file3->getClientOriginalName();
-            $request->file('image3')->move("C:/xampp/htdocs/family/public/asset/img", $fileName3);
-            $product_detail->image3 = $fileName3;
+                $this->validate($request, [
+                    'image3' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $file3      = $request->file('image3');
+                $fileName3   = time().'c'.'.'.$file3->getClientOriginalExtension();
+                $destinationPath = public_path('/asset/img');
+                $file3->move($destinationPath, $fileName3);
+                $product_detail->image3 = $fileName3;
             }
 
             // Gambar 4 =============================================
-            if($request->file('image4') == "")
+            if($request->file('image4') == "" || $request->file('image4') == null)
             {
                 $product_detail->image4 = $product_detail->image4;
             } 
              else
             {
-            $file4       = $request->file('image4');
-            $fileName4   = $file4->getClientOriginalName();
-            $request->file('image4')->move("C:/xampp/htdocs/family/public/asset/img", $fileName4);
-            $product_detail->image4 = $fileName4;
+                $this->validate($request, [
+                    'image4' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $file4      = $request->file('image4');
+                $fileName4   = time().'d'.'.'.$file4->getClientOriginalExtension();
+                $destinationPath = public_path('/asset/img');
+                $file4->move($destinationPath, $fileName4);
+                $product_detail->image4 = $fileName4;
             }
 
             // Gambar 5 =============================================
-            if($request->file('image5') == "")
+            if($request->file('image5') == "" || $request->file('image5') == null)
             {
                 $product_detail->image5 = $product_detail->image5;
             } 
              else
             {
-            $file5       = $request->file('image5');
-            $fileName5   = $file5->getClientOriginalName();
-            $request->file('image5')->move("C:/xampp/htdocs/family/public/asset/img", $fileName5);
-            $product_detail->image5 = $fileName5;
+                $this->validate($request, [
+                    'image5' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $file5      = $request->file('image5');
+                $fileName5   = time().'e'.'.'.$file5->getClientOriginalExtension();
+                $destinationPath = public_path('/asset/img');
+                $file5->move($destinationPath, $fileName5);
+                $product_detail->image5 = $fileName5;
             }
+
+
+
             $product_detail->updated_by = session()->get('session_name'); 
             // untuk mengsave
             $product_detail->save();
@@ -300,20 +347,6 @@ class Product_detailController extends Controller
             $product_detail->id_category_sub = $product_detail->id_category_sub;
             $product_detail->name_product = $product_detail->name_product;
             $product_detail->price = $product_detail->price; 
-            $product_detail->frame = $product_detail->frame;
-            $product_detail->fork = $product_detail->fork;
-            $product_detail->brakes_rear = $product_detail->brakes_rear;
-            $product_detail->brakes_levers = $product_detail->brakes_levers;
-            $product_detail->pedals = $product_detail->pedals;
-            $product_detail->crankset = $product_detail->crankset;
-            $product_detail->bottom_bracket = $product_detail->bottom_bracket;
-            $product_detail->chain = $product_detail->chain;
-            $product_detail->cassete = $product_detail->cassete;
-            $product_detail->rim = $product_detail->rim;
-            $product_detail->saddle = $product_detail->saddle;
-            $product_detail->seatpot = $product_detail->seatpot;
-            $product_detail->stem = $product_detail->stem;
-            $product_detail->handlebar = $product_detail->handlebar;
 
             $nol="";
             $product_detail->image1 = $nol;
@@ -347,21 +380,7 @@ class Product_detailController extends Controller
             $product_detail->id_category_sub = $product_detail->id_category_sub;
             $product_detail->name_product = $product_detail->name_product;
             $product_detail->price = $product_detail->price; 
-            $product_detail->frame = $product_detail->frame;
-            $product_detail->fork = $product_detail->fork;
-            $product_detail->brakes_rear = $product_detail->brakes_rear;
-            $product_detail->brakes_levers = $product_detail->brakes_levers;
-            $product_detail->pedals = $product_detail->pedals;
-            $product_detail->crankset = $product_detail->crankset;
-            $product_detail->bottom_bracket = $product_detail->bottom_bracket;
-            $product_detail->chain = $product_detail->chain;
-            $product_detail->cassete = $product_detail->cassete;
-            $product_detail->rim = $product_detail->rim;
-            $product_detail->saddle = $product_detail->saddle;
-            $product_detail->seatpot = $product_detail->seatpot;
-            $product_detail->stem = $product_detail->stem;
-            $product_detail->handlebar = $product_detail->handlebar;
-
+            
             $nol="";
             $product_detail->image1 = $product_detail->image1;
 
@@ -392,20 +411,6 @@ class Product_detailController extends Controller
             $product_detail->id_category_sub = $product_detail->id_category_sub;
             $product_detail->name_product = $product_detail->name_product;
             $product_detail->price = $product_detail->price; 
-            $product_detail->frame = $product_detail->frame;
-            $product_detail->fork = $product_detail->fork;
-            $product_detail->brakes_rear = $product_detail->brakes_rear;
-            $product_detail->brakes_levers = $product_detail->brakes_levers;
-            $product_detail->pedals = $product_detail->pedals;
-            $product_detail->crankset = $product_detail->crankset;
-            $product_detail->bottom_bracket = $product_detail->bottom_bracket;
-            $product_detail->chain = $product_detail->chain;
-            $product_detail->cassete = $product_detail->cassete;
-            $product_detail->rim = $product_detail->rim;
-            $product_detail->saddle = $product_detail->saddle;
-            $product_detail->seatpot = $product_detail->seatpot;
-            $product_detail->stem = $product_detail->stem;
-            $product_detail->handlebar = $product_detail->handlebar;
 
             $nol="";
             $product_detail->image1 = $product_detail->image1;
@@ -437,20 +442,6 @@ class Product_detailController extends Controller
             $product_detail->id_category_sub = $product_detail->id_category_sub;
             $product_detail->name_product = $product_detail->name_product;
             $product_detail->price = $product_detail->price; 
-            $product_detail->frame = $product_detail->frame;
-            $product_detail->fork = $product_detail->fork;
-            $product_detail->brakes_rear = $product_detail->brakes_rear;
-            $product_detail->brakes_levers = $product_detail->brakes_levers;
-            $product_detail->pedals = $product_detail->pedals;
-            $product_detail->crankset = $product_detail->crankset;
-            $product_detail->bottom_bracket = $product_detail->bottom_bracket;
-            $product_detail->chain = $product_detail->chain;
-            $product_detail->cassete = $product_detail->cassete;
-            $product_detail->rim = $product_detail->rim;
-            $product_detail->saddle = $product_detail->saddle;
-            $product_detail->seatpot = $product_detail->seatpot;
-            $product_detail->stem = $product_detail->stem;
-            $product_detail->handlebar = $product_detail->handlebar;
 
             $nol="";
             $product_detail->image1 = $product_detail->image1;
@@ -482,20 +473,6 @@ class Product_detailController extends Controller
             $product_detail->id_category_sub = $product_detail->id_category_sub;
             $product_detail->name_product = $product_detail->name_product;
             $product_detail->price = $product_detail->price; 
-            $product_detail->frame = $product_detail->frame;
-            $product_detail->fork = $product_detail->fork;
-            $product_detail->brakes_rear = $product_detail->brakes_rear;
-            $product_detail->brakes_levers = $product_detail->brakes_levers;
-            $product_detail->pedals = $product_detail->pedals;
-            $product_detail->crankset = $product_detail->crankset;
-            $product_detail->bottom_bracket = $product_detail->bottom_bracket;
-            $product_detail->chain = $product_detail->chain;
-            $product_detail->cassete = $product_detail->cassete;
-            $product_detail->rim = $product_detail->rim;
-            $product_detail->saddle = $product_detail->saddle;
-            $product_detail->seatpot = $product_detail->seatpot;
-            $product_detail->stem = $product_detail->stem;
-            $product_detail->handlebar = $product_detail->handlebar;
 
             $nol=NULL;
             $product_detail->image1 = $product_detail->image1;

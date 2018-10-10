@@ -5,15 +5,15 @@
     <div class="panel box-shadow-none content-header">
         <div class="panel-body">
             <div class="col-md-12">
-                <h3 class="animated fadeInLeft">Highlight</h3>
-                <p class="animated fadeInDown">CMS<span class="fa-angle-right fa"></span>Highlight<span class="fa-angle-right fa"></span>Edit</p>
+                <h3 class="animated fadeInLeft">Images</h3>
+                <p class="animated fadeInDown">CMS<span class="fa-angle-right fa"></span>Images<span class="fa-angle-right fa"></span>Edit</p>
             </div>
         </div>
     </div>
     <div class="col-md-12 top-20 padding-0">
         <div class="col-md-12">
             <div class="panel">
-                <div class="panel-heading"><h3>Data Highlight</h3></div>
+                <div class="panel-heading"><h3>Data Images</h3></div>
                 <div class="panel-body">
                     <div class="responsive-table">
                         @if ($errors->any())
@@ -37,11 +37,6 @@
                                     
                                     <input class="btn btn-danger" type="submit" name="deletes" value="Delete" onclick=" return confirm('Are you sure want to delete image?');"> <p style="color: red">{{ session('status')}}</p> 
                                     </td>
-                                </tr>
-
-                                <tr>
-                                    <td>Flag</td>
-                                    <td><input type="text" name="flag" placeholder="flag" value="{{ $highlight_data->flag }}" style="width: 100%"></td>
                                 </tr>
 
 								<tr>

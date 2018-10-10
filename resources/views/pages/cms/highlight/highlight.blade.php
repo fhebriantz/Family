@@ -5,23 +5,23 @@
     <div class="panel box-shadow-none content-header">
         <div class="panel-body">
             <div class="col-md-12">
-                <h3 class="animated fadeInLeft">Highlight</h3>
-                <p class="animated fadeInDown">CMS<span class="fa-angle-right fa"></span>Highlight</p>
+                <h3 class="animated fadeInLeft">Images</h3>
+                <p class="animated fadeInDown">CMS<span class="fa-angle-right fa"></span>Images</p>
             </div>
         </div>
     </div>
     <div class="col-md-12 top-20 padding-0">
         <div class="col-md-12">
             <div class="panel">
-                <div class="panel-heading"><h3>Data Highlight</h3></div>
+                <div class="panel-heading"><h3>Data Images</h3></div>
                 <div class="panel-body">
                     <div class="responsive-table">
                         <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">                        
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Name File</th>
-                                    <th>Flag</th>
+                                    <th>Images Category</th>
+                                    <th>Description</th>
                                     <th>Created Date</th>
                                     <th>Created By</th>
                                     <th>Modified Date</th>
@@ -34,8 +34,8 @@
                                 @foreach($highlight as $sorotan)
                                 <tr>    
                                     <td>{{ $no++ }}</td>
-                                    <td>{{$sorotan->namefile}}</td>
-                                    <td>{!!$sorotan->flag!!}</td>
+                                    <td>{{$sorotan->type}}</td>
+                                    <td>{{$sorotan->description}}</td>
                                     <td>{{$sorotan->created_at}}</td>
                                     <td>{{$sorotan->created_by}}</td>
                                     <td>{{$sorotan->updated_at}}</td>
