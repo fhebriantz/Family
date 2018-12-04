@@ -2,7 +2,24 @@
                 <div class="row">
                     <div class="col-sm-3 col-xs-3 marginbottomx">
                         <div class="brandambasador">
-                            <img src="{{ asset('assets/img/kakseto.png')}}" alt="kak seto">
+                            <?php 
+                            use Illuminate\Http\Request;
+                            use App\Http\Controllers\Controller;
+                            use App\Http\Model\About;
+                            use App\Http\Model\Images;
+                            use App\Http\Model\Widget;
+                            use Illuminate\Support\Facades\Redirect;
+                            use Illuminate\Foundation\Application;
+                            use vendor\autoload;
+
+                            $ambassador = Images::where('flag','=',8)->first();
+                            $sponsor1 = Images::where('flag','=',9)->first();
+                            $sponsor2 = Images::where('flag','=',10)->first();
+                            $sponsor3 = Images::where('flag','=',11)->first();
+                            $sponsor4 = Images::where('flag','=',12)->first();
+                            $sponsor5 = Images::where('flag','=',13)->first();
+                             ?>
+                            <img src="{{ asset('/asset/img/'.$ambassador->namefile)}}" alt="kak seto">
                         </div>
                     </div>
                     <div class="col-sm-5 col-xs-9 marginbottomx mobilepading">
@@ -33,33 +50,40 @@
                             </form>
                         </div>
                         <div class="social-media">
-                            <img src="{{ asset('assets/img/fb.png')}}">
-                            <img src="{{ asset('assets/img/in.png')}}">
-                            <img src="{{ asset('assets/img/ig.png')}}">
-                            <img src="{{ asset('assets/img/in.png')}}">
+                            <a href=""><img src="{{ asset('assets/img/fb.png')}}"></a>
+                            <a href=""><img src="{{ asset('assets/img/ig.png')}}"></a>
+                            <a href=""><img src="{{ asset('assets/img/in.png')}}"></a>
                         </div>
                     </div>
                     <div class="col-sm-4 col-xs-12">
+
+        <?php $instagram = App\Http\Model\Widget::all()->where('id','=',1)->first(); ?>
+        <?php $youtube = App\Http\Model\Widget::all()->where('id','=',2)->first(); ?>
                         <div class="widget">
-                            <p class="instamobile marginbottom">Instagram Feed</p>
-                            <!-- SnapWidget -->
-                            <script src="https://snapwidget.com/js/snapwidget.js"></script><iframe src="https://snapwidget.com/embed/492233" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; "></iframe>
+                            <p class="instamobile marginbottom"><strong>INSTAGRAM</strong></p>
+                            {!! $instagram->embed_text !!}
+                        </div>
+                        <div class="widget">
+                            <p class="instamobile marginbottom"><strong>YOUTUBE</strong></p>
+                            <div class="video-container">
+                                {!! $youtube->embed_text !!}
+                            </div>
                         </div>
                         <div class="sponsor">  
                             <div class="col-xs-2">
-                                <img src="{{ asset('assets/img/FT-03.png')}}" class="sponsor1" alt="">
+                                <img src="{{ asset('/asset/img/'.$sponsor1->namefile)}}" class="sponsor1" alt="">
                             </div>
                             <div class="col-xs-2">
-                                <img src="{{ asset('assets/img/FT-04.png')}}" class="sponsor2" alt="">
+                                <img src="{{ asset('/asset/img/'.$sponsor2->namefile)}}" class="sponsor2" alt="">
                             </div>
                             <div class="col-xs-2">
-                                <img src="{{ asset('assets/img/FT-05.png')}}" class="sponsor3" alt="">
+                                <img src="{{ asset('/asset/img/'.$sponsor3->namefile)}}" class="sponsor3" alt="">
                             </div>
                             <div class="col-xs-2">
-                                <img src="{{ asset('assets/img/FT-06.png')}}" class="sponsor4" alt="">
+                                <img src="{{ asset('/asset/img/'.$sponsor4->namefile)}}" class="sponsor4" alt="">
                             </div>
                             <div class="col-xs-3">
-                                <img src="{{ asset('assets/img/FT-07.png')}}" class="sponsor5" alt="">
+                                <img src="{{ asset('/asset/img/'.$sponsor5->namefile)}}" class="sponsor5" alt="">
                             </div>
                         </div>
                     </div>

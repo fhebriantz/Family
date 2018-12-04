@@ -35,7 +35,10 @@
 
 								<tr>
 									<td></td>
-									<td><input class="btn btn-info" name="submit" value="submit" type="submit"></td>
+									<td>
+                                        <input class="btn btn-info" name="submit" value="Submit" type="submit" style="padding: 5px;">
+                                        <a class="btn btn-danger" href="{{url('/cms/mainan')}}"  style="padding: 5px; text-decoration: none;">Back</a>
+                                    </td>
 								</tr>
 	                        </table>
 	                        <input type="hidden" name="_method" value="PUT">

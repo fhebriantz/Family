@@ -33,15 +33,16 @@
 									<td><input type="text" name="title" placeholder="Title" value="{{ $news_data->title }}" style="width: 100%"></td>
 								</tr>
 
-								<tr>
-									<td>Description</td>
-									<td> <textarea name="desc" class="ckeditor">{{ $news_data->desc }}</textarea></td>
-								</tr>
+                                <tr>
+                                    <td>Description</td>
+                                    <td><textarea id="summernote" name="desc">{!! $news_data->desc !!}</textarea></td>
+                                </tr>
                                 
                                 <tr>
                                     <td>Images</td>
                                     <td><input type="text" name="images" placeholder="Image" value="{{ $news_data->images }}" style="width: 100%" readonly>
                                     <input type="file" name="images" placeholder="Image" value="{{ $news_data->images }}" style="width: 100%">
+                                    <p style="color: red">{{trans('validation.flag1')}}  </p>
                                     <img src="/family/public/asset/img/{{ $news_data->images }}" style="max-height:200px;max-width:200px;margin-top:10px;">
                                     
                                     <input class="btn btn-danger" type="submit" name="deletes" value="Delete" onclick=" return confirm('Are you sure want to delete image?');"> <p style="color: red">{{ session('status')}}</p> 
@@ -50,7 +51,10 @@
 
 								<tr>
 									<td></td>
-									<td><input class="btn btn-info" name="submit" value="submit" type="submit"></td>
+									<td>
+                                        <input class="btn btn-info" name="submit" value="Submit" type="submit" style="padding: 5px;">
+                                        <a class="btn btn-danger" href="{{url('/cms/news')}}"  style="padding: 5px; text-decoration: none;">Back</a>
+                                    </td>
 								</tr>
 	                        </table>
 	                        <input type="hidden" name="_method" value="PUT">
@@ -61,4 +65,17 @@
         </div>  
     </div>
 </div>
+@endsection
+
+@section('header')
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+@endsection
+
+@section('scripts')
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+<script>
+    $(document).ready(function() {
+  $('#summernote').summernote();
+});
+</script>
 @endsection

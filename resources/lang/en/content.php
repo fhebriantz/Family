@@ -6,7 +6,7 @@ return [
     'contact' => 'CONTACT',
     'thispage' => 'in this page',
     'callme' => 'Contact Us',
-    'seeall' => 'See All Product',
+    'seeall' => 'Scroll to bottom',
     'about' => 'ABOUT',
     'readmore' => '...Read More',
     'ourstory' => 'Our Story',
@@ -15,7 +15,7 @@ return [
     'select' => 'Select',
     'category' => 'Category',
     'toy' => 'Toy',
-    'backrest' => 'HandGrip',
+    'backrest' => 'Armrest',
     'tire' => 'Tire',
 
 ];

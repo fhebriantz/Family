@@ -39,7 +39,7 @@
                                     <td>{{$product->updated_at}}</td>
                                     <td>{{$product->updated_by}}</td>
                                     <td style="float: left;">
-                                        <a href="{{url('/cms/product/'.$product->id.'/view')}}"><button type="button" class="btn btn-primary">View</button></a>
+                                       
                                         <a href="{{url('/cms/product/'.$product->id.'/edit')}}" style="padding-left: 10px;"><button type="button" class="btn btn-warning">Edit</button></a>
                                         <form method="POST" action="{{url('/cms/product/'.$product->id.'/delete')}}" class="text-center" style="float: right; padding-left: 10px;">
                                             <!-- csrf perlu ditambahakan di setiap post -->

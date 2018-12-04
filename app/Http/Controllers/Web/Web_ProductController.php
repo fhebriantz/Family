@@ -80,6 +80,12 @@ class Web_ProductController extends Controller
         $r_mainan = $request->mainan; 
         $r_ban = $request->ban; 
         $r_sandaran = $request->sandaran; 
+        
+
+        $catpro = Category_product::all();
+        $mainan = Mainan::all();
+        $sandaran = Sandaran::all();
+        $ban = Ban::all();
         $cat = null;
         $subcat = null;
         $allcat = null;
@@ -116,8 +122,8 @@ class Web_ProductController extends Controller
             if ($r_mainan == null || $r_mainan == "") {
                 if ($r_ban == null || $r_ban == "") {
                     if ($r_sandaran == null || $r_sandaran == "") {
-                        $product_detail = Product_detail::getTableFilter()
-                        ->paginate(1000);
+                        $product_detail = Product_detail::getTableDetailweb();
+                        return view('pages/web/product/product', compact('subcat','cat','allcat','product_detail','product_head','catpro','mainan','sandaran','ban'));
                     }else{
                         $product_detail = Product_detail::getTableFilter()
                         ->where('id_sandaran','=',$r_sandaran)
@@ -285,11 +291,6 @@ class Web_ProductController extends Controller
             }
         }
         
-
-        $catpro = Category_product::all();
-        $mainan = Mainan::all();
-        $sandaran = Sandaran::all();
-        $ban = Ban::all();
         return view('pages/web/product/product', compact('subcat','cat','allcat','product_detail','catpro','mainan','sandaran','ban'));
     }
 

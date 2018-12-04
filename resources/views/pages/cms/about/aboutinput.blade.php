@@ -36,10 +36,10 @@
 									<td>Title</td>
 									<td><input type="text"  class="form-control" name="title" placeholder="Title" style="width: 100%" value="{{ old('title') }}"></td>
 								</tr>
-								<tr>
-									<td>Description</td>
-									<td> <textarea name="desc" class="form-control"  class="ckeditor">{{ old('desc') }}</textarea></td>
-								</tr>
+                                <tr>
+                                    <td>Description</td>
+                                    <td><textarea id="summernote" name="desc">{{ old('desc') }}</textarea></td>
+                                </tr>
 
 								<tr>
 									<td></td>
@@ -53,4 +53,18 @@
         </div>  
     </div>
 </div>
+@endsection
+
+
+@section('header')
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+@endsection
+
+@section('scripts')
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+<script>
+    $(document).ready(function() {
+  $('#summernote').summernote();
+});
+</script>
 @endsection

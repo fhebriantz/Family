@@ -2,16 +2,20 @@
 
 return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Validation Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines contain the default error messages used by
-    | the validator class. Some of these rules have multiple versions such
-    | as the size rules. Feel free to tweak each of these messages here.
-    |
-    */
+    // Image Size Required Width 263 px x Height 128px 
+    'flag13'    => 'Image Size Required Width 263 px x Height 128px | Maximal 2Mb',
+    'flag12'    => 'Image Ratio Required 1 x 1 (Square) | Maximal 2Mb',
+    'flag11'    => 'Image Ratio Required 1 x 1 (Square) | Maximal 2Mb ',
+    'flag10'    => 'Image Ratio Required 1 x 1 (Square) | Maximal 2Mb ',
+    'flag9'    => 'Image Ratio Required 1 x 1 (Square) | Maximal 2Mb ',
+    'flag8'    => 'Image Size Required Width 326 px x Height 275 px | Maximal 2Mb',
+    'flag7'    => 'Image Size Required Width 631 px x Height 421 px | Maximal 2Mb',
+    'flag6'    => 'Image Size Required Width 1920 px x Height 1080 px | Maximal 2Mb',
+    'flag5'    => 'Image Size Required Width 1920 px x Height 1080 px | Maximal 2Mb',
+    'flag4'    => 'Image Size Required Width 1920 px x Height 1080 px | Maximal 2Mb',
+    'flag3'    => 'Image Size Required Width 1920 px x Height 1080 px | Maximal 2Mb',
+    'flag2'    => 'Image Size Required Width 1920 px x Height 1080 px | Maximal 2Mb',
+    'flag1'    => 'Image Size Required Width 1920 px x Height 1080 px | Maximal 2Mb',
 
     'accepted'             => 'The :attribute must be accepted.',
     'active_url'           => 'The :attribute is not a valid URL.',

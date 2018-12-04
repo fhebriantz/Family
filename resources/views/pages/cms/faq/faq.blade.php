@@ -41,7 +41,7 @@
                                     <td>{{$fa->updated_at}}</td>
                                     <td>{{$fa->updated_by}}</td>
                                     <td style="float: left;">
-                                        <a href="{{url('/cms/faq/'.$fa->id.'/view')}}"><button type="button" class="btn btn-primary">View</button></a>
+                                        
                                         <a href="{{url('/cms/faq/'.$fa->id.'/edit')}}" style="padding-left: 10px;"><button type="button" class="btn btn-warning">Edit</button></a>
                                         <form method="POST" action="{{url('/cms/faq/'.$fa->id.'/delete')}}" class="text-center" style="float: right; padding-left: 10px;">
                                             <!-- csrf perlu ditambahakan di setiap post -->

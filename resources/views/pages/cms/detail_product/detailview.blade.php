@@ -94,6 +94,10 @@
                                     <td>Modified By</td>
                                     <td><input type="text" name="updated_by" value="{{ $product_detail->updated_by }}" style="width: 100%" readonly></td>
                                 </tr>
+                                <tr>
+                                	<td></td>
+                                	<td><a class="btn btn-danger" href="{{url('/cms/product/subproduct/detail')}}"  style="padding: 5px; text-decoration: none;">Back</a></td>
+                                </tr>
 							</table>
 	                    </form>
                     </div>

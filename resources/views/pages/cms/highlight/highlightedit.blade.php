@@ -32,7 +32,46 @@
                                 <tr>
                                     <td>Name File</td>
                                     <td><input type="text" name="namefile" placeholder="Image" value="{{ $highlight_data->namefile }}" style="width: 100%" readonly>
-                                    <input type="file" name="namefile" placeholder="Image" value="{{ $highlight_data->namefile }}" style="width: 100%">
+                                    @if($highlight_data->flag == 13)
+                                        <p style="color: red">{{trans('validation.flag13')}} </p>
+                                    @endif
+                                    @if($highlight_data->flag == 12)
+                                        <p style="color: red">{{trans('validation.flag12')}}  </p>
+                                    @endif
+                                    @if($highlight_data->flag == 11)
+                                        <p style="color: red">{{trans('validation.flag11')}}   </p>
+                                    @endif
+                                    @if($highlight_data->flag == 10)
+                                        <p style="color: red">{{trans('validation.flag10')}}  </p>
+                                    @endif
+                                    @if($highlight_data->flag == 9)
+                                        <p style="color: red">{{trans('validation.flag9')}}  </p>
+                                    @endif
+                                    @if($highlight_data->flag == 8)
+                                        <p style="color: red">{{trans('validation.flag8')}} </p>
+                                    @endif
+                                    @if($highlight_data->flag == 7)
+                                        <p style="color: red">{{trans('validation.flag7')}}  </p>
+                                    @endif
+                                    @if($highlight_data->flag == 6)
+                                        <p style="color: red">{{trans('validation.flag6')}}  </p>
+                                    @endif
+                                    @if($highlight_data->flag == 5)
+                                        <p style="color: red">{{trans('validation.flag5')}}  </p>
+                                    @endif
+                                    @if($highlight_data->flag == 4)
+                                        <p style="color: red">{{trans('validation.flag4')}} </p> 
+                                    @endif
+                                    @if($highlight_data->flag == 3)
+                                        <p style="color: red">{{trans('validation.flag3')}} </p>
+                                    @endif
+                                    @if($highlight_data->flag == 2)
+                                        <p style="color: red">{{trans('validation.flag2')}} </p> 
+                                    @endif
+                                    @if($highlight_data->flag == 1)
+                                        <p style="color: red">{{trans('validation.flag1')}}  </p>
+                                    @endif
+                                    <input type="file" name="namefile" placeholder="Image" value="{{ $highlight_data->namefile }}" style="width: 100%; margin-top: 15px;">
                                     <img src="/family/public/asset/img/{{ $highlight_data->namefile }}" style="max-height:200px;max-width:200px;margin-top:10px;">
                                     
                                     <input class="btn btn-danger" type="submit" name="deletes" value="Delete" onclick=" return confirm('Are you sure want to delete image?');"> <p style="color: red">{{ session('status')}}</p> 
@@ -41,7 +80,10 @@
 
 								<tr>
 									<td></td>
-									<td><input class="btn btn-info" name="submit" value="submit" type="submit"></td>
+									<td>
+                                        <input class="btn btn-info" name="submit" value="Submit" type="submit" style="padding: 5px;">
+                                        <a class="btn btn-danger" href="{{url('/cms/highlight')}}"  style="padding: 5px; text-decoration: none;">Back</a>
+                                    </td>
 								</tr>
 	                        </table>
 	                        <input type="hidden" name="_method" value="PUT">

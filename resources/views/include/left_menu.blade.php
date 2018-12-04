@@ -11,6 +11,11 @@
                       </a>
                     </li>
                     <li class="ripple">
+                      <a href="{{url('/cms/slidertext')}}"> Text Slider 
+                        <span class="fa-angle-right fa right-arrow text-right"></span>
+                      </a>
+                    </li>
+                    <li class="ripple">
                       <a href="{{url('/cms/about')}}"> About 
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
@@ -36,9 +41,13 @@
                       </a>
                       <ul class="nav nav-list tree">
                         <li><a href="{{url('/cms/mainan')}}">Mainan</a></li>
-                        <li><a href="{{url('/cms/sandaran')}}">Sandaran Tangan</a></li>
                         <li><a href="{{url('/cms/ban')}}">Ban</a></li>
                       </ul>
+                    </li>
+                    <li class="ripple">
+                      <a href="{{url('/cms/contact')}}">Contact
+                        <span class="fa-angle-right fa right-arrow text-right"></span>
+                      </a>
                     </li>
                     <li class="ripple">
                       <a href="{{url('/cms/faq')}}">FAQ
@@ -47,7 +56,12 @@
                     </li>
                     <li class="ripple"><a href="{{url('/cms/question')}}"> Questions  <span class="fa-angle-right fa right-arrow text-right"></span> </a>                      
                     </li>
+                    <li class="ripple"><a href="{{url('/cms/widget')}}"> Instagram / Youtube  <span class="fa-angle-right fa right-arrow text-right"></span> </a>                      
+                    </li>
+                    @if(session()->get('session_id_group') == 1)
                     <li><a href="{{url('/cms/forgotpass')}}">Password</a></li>
+                    @else
+                    @endif
                   </ul>
                 </div>
             </div>

@@ -13,14 +13,18 @@ navbarx @endsection
             </div>            
         </section>
 
-        <section class="header-about mobilehide">
-            <div class="header" style="background: url({{asset('/asset/img/'.$highlight3->namefile)}}) no-repeat top center;"></div>
+        <section class="header-about mobilehide" style="margin-top: 30px;">
+            <div class="contaier">
+                    <div style="max-height: 800px; overflow: hidden;">
+                        <img  src="{{asset('/asset/img/'.$highlight3->namefile)}}" style="width: 100%; height: auto;" alt="">
+                    </div>
+            </div>
         </section>
 
         <section class="header-about mobileshow">
             <div class="contaier">
                 <div class="gambarhead">
-                    <img src="{{ asset('assets/content/bg3.jpg')}}" style="width: 100%; height: auto;" alt="">
+                    <img src="{{asset('/asset/img/'.$highlight3->namefile)}}" style="width: 100%; height: auto;" alt="">
                 </div>
             </div>
         </section>

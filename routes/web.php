@@ -40,7 +40,29 @@ Route::get('cms/question', 'QuestionController@show');
 
 Route::delete('cms/{id}/delete','QuestionController@delete');
 
+// ----------------------------------Widget
+
+Route::get('cms/widget', 'WidgetController@showcms');
+
+Route::get('cms/widget/{id}/edit','WidgetController@edit'); 
+
+Route::put('cms/widget/{id}/edit','WidgetController@update');
+
+//------------------------------------------------------------------ USER
+
 Route::get('cms/forgotpass', 'LoginController@list_user'); 
+
+Route::get('cms/forgotpass/input', 'LoginController@input');
+// menampilkan form edit di cms
+Route::get('cms/forgotpass/{id}/edit','LoginController@edit'); 
+
+// forgotpass CATEGORY ===========FUNGSI=======================
+// memanggil fungsi insert
+Route::post('/cms/forgotpass/input','LoginController@insert'); 
+// memanggil fungsi update
+Route::put('cms/forgotpass/{id}/edit','LoginController@update');  
+// memanggil fungsi delete
+Route::delete('cms/forgotpass/{id}/delete','LoginController@delete');
 
 // ------------------------------------------------------------------------------------------------ABOUT
 
@@ -165,6 +187,10 @@ Route::delete('cms/product/subproduct/{id}/delete','Category_subproductControlle
 Route::get('/product/subproduct/detail', 'Product_detailController@show');
 // menampilkan tabel di cms
 Route::get('cms/product/subproduct/detail', 'Product_detailController@showcms'); 
+// show price
+Route::get('cms/product/show_price', 'Product_detailController@show_price'); 
+// hide price
+Route::get('cms/product/hide_price', 'Product_detailController@hide_price'); 
 // menampilkan form input di cms
 Route::get('cms/product/subproduct/detail/input', 'Product_detailController@input');
 // menampilkan form edit di cms
@@ -240,6 +266,15 @@ Route::get('cms/faq/{id}/edit','FaqController@edit');
 // menampilkan form view di cms
 Route::get('cms/faq/{id}/view','FaqController@view');  
 
+
+// menampilkan tabel di cms
+Route::get('cms/contact', 'ContactController@showcms'); 
+// menampilkan form edit di cms
+Route::get('cms/contact/{id}/edit','ContactController@edit');  
+
+// memanggil fungsi update
+Route::put('cms/contact/{id}/edit','ContactController@update');  
+
 // ABOUT===========FUNGSI=======================
 // memanggil fungsi delete
 Route::delete('cms/faq/{id}/delete','FaqController@delete');
@@ -247,6 +282,19 @@ Route::delete('cms/faq/{id}/delete','FaqController@delete');
 Route::post('/cms/faq/input','FaqController@insert'); 
 // memanggil fungsi update
 Route::put('cms/faq/{id}/edit','FaqController@update');  
+
+
+// Images===========TAMPIL=======================
+// menampilkan tabel slidertext di cms
+Route::get('cms/slidertext', 'SlidertextController@show_slidertext'); 
+// menampilkan form edit di cms
+Route::get('cms/slidertext/{id}/edit','SlidertextController@edit_slidertext');  
+
+// Images===========FUNGSI=======================
+// memanggil fungsi update
+Route::put('cms/slidertext/{id}/edit','SlidertextController@update_slidertext');  
+
+// ---------------------------------------------------------------------------------PRODUCT CATEGORY
 
 
 

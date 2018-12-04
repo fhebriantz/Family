@@ -1,5 +1,21 @@
 <?php
 return [
+
+
+    'flag13'    => 'Ukuran Gambar Diperlukan Lebar 263 px x Tinggi 128px | Maksimal 2Mb',
+    'flag12'    => 'Rasio Gambar Diperlukan 1 x 1 (Persegi) | Maksimal 2Mb',
+    'flag11'    => 'Rasio Gambar Diperlukan 1 x 1 (Persegi) | Maksimal 2Mb ',
+    'flag10'    => 'Rasio Gambar Diperlukan 1 x 1 (Persegi) | Maksimal 2Mb ',
+    'flag9'    => 'Rasio Gambar Diperlukan 1 x 1 (Persegi) | Maksimal 2Mb ',
+    'flag8'    => 'Ukuran Gambar Diperlukan Lebar 326 px x Tinggi 275 px | Maksimal 2Mb',
+    'flag7'    => 'Ukuran Gambar Diperlukan Lebar 631 px x Tinggi 421 px | Maksimal 2Mb',
+    'flag6'    => 'Ukuran Gambar Diperlukan Lebar 1920 px x Tinggi 1080 px | Maksimal 2Mb',
+    'flag5'    => 'Ukuran Gambar Diperlukan Lebar 1920 px x Tinggi 1080 px | Maksimal 2Mb',
+    'flag4'    => 'Ukuran Gambar Diperlukan Lebar 1920 px x Tinggi 1080 px | Maksimal 2Mb',
+    'flag3'    => 'Ukuran Gambar Diperlukan Lebar 1920 px x Tinggi 1080 px | Maksimal 2Mb',
+    'flag2'    => 'Ukuran Gambar Diperlukan Lebar 1920 px x Tinggi 1080 px | Maksimal 2Mb',
+    'flag1'    => 'Ukuran Gambar Diperlukan Lebar 1920 px x Tinggi 1080 px | Maksimal 2Mb',
+
     'accepted'             => 'Isian :attribute harus diterima.',
     'active_url'           => 'Isian :attribute bukan URL yang sah.',
     'after'                => 'Isian :attribute harus tanggal setelah :date.',

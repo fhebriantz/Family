@@ -26,21 +26,14 @@
             @include('includeweb/footer')
         </section>
 
-        <footer class="mobilehide">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <section class="mobileshow" style="margin-top: 30px;">
+        <section class="" style="margin-top: 30px;">
             <div class="contaier">
                     <div>
-                        <img src="{{ asset('assets/img/footer-13.png')}}" style="width: 100%; height: auto;" alt="">
+                        <img src="{{ asset('assets/img/footer.jpg')}}" style="width: 100%; height: auto;" alt="">
                     </div>
             </div>
         </section>
+        @yield('marginbottom')
         @include('includeweb/scripts')
     </body>
 </html>

@@ -14,6 +14,7 @@ class Product_detail extends Model
             ->join('category_products', 'category_products.id', '=', 'product_details.id_category')
             ->join('category_subproducts', 'category_subproducts.id', '=', 'product_details.id_category_sub')
             ->select('product_details.*', 'category_products.category_product_name', 'category_products.id as id_catpro', 'category_subproducts.category_subproduct_name',  'category_subproducts.id as id_catsub')
+            ->orderBy('product_details.updated_at', 'DESC')
             ->get();
 
 	     return $product_details;
@@ -37,7 +38,8 @@ class Product_detail extends Model
         $product_details = DB::table('product_details')
             ->join('category_products', 'category_products.id', '=', 'product_details.id_category')
             ->join('category_subproducts', 'category_subproducts.id', '=', 'product_details.id_category_sub')
-            ->select('product_details.*', 'category_products.category_product_name', 'category_products.id as id_catpro', 'category_subproducts.category_subproduct_name',  'category_subproducts.id as id_catsub');
+            ->select('product_details.*', 'category_products.category_product_name', 'category_products.id as id_catpro', 'category_subproducts.category_subproduct_name',  'category_subproducts.id as id_catsub')
+            ->orderBy('product_details.updated_at', 'DESC');
 
          return $product_details;
         }    
@@ -48,6 +50,7 @@ class Product_detail extends Model
             ->join('category_subproducts', 'category_subproducts.id', '=', 'product_details.id_category_sub')
             ->select('product_details.*', 'category_products.category_product_name', 'category_products.id as id_catpro', 'category_subproducts.category_subproduct_name',  'category_subproducts.id as id_catsub')
             ->where('id_category_sub','=',$id)
+            ->orderBy('product_details.updated_at', 'DESC')
             ->paginate(8);
 
 	     return $product_details;
@@ -57,6 +60,7 @@ class Product_detail extends Model
     	$product_details = DB::table('product_details')
             ->select('*')
             ->where('id_category','=',$id)
+            ->orderBy('product_details.updated_at', 'DESC')
             ->paginate(8);
 
 	     return $product_details;

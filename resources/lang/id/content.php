@@ -6,7 +6,7 @@ return [
     'contact' => 'KONTAK',
     'thispage' => 'dalam halaman ini',
     'callme' => 'Hubungi Kami',
-    'seeall' => 'Lihat Semua Produk',
+    'seeall' => 'Gulir ke bawah',
     'about' => 'TENTANG',
     'readmore' => '... Baca lebih lanjut',
     'ourstory' => 'Tentang Kami',
@@ -15,6 +15,6 @@ return [
     'select' => 'Pilih',
     'category' => 'Kategori',
     'toy' => 'Mainan',
-    'backrest' => 'Pegangan Tangan',
+    'backrest' => 'Sandaran Tangan',
     'tire' => 'Ban',
 ];

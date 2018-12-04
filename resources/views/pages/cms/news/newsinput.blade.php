@@ -32,14 +32,14 @@
 									<td>Title</td>
 									<td><input type="text" name="title" placeholder="Title" style="width: 100%" value="{{ old('title') }}"></td>
 								</tr>
-								<tr>
-									<td>Description</td>
-									<td> <textarea name="desc" class="ckeditor">{{ old('desc') }}</textarea></td>
-								</tr>
+                                 <tr>
+                                    <td>Description</td>
+                                    <td><textarea id="summernote" name="desc">{{ old('desc') }}</textarea></td>
+                                </tr>
 
                                 <tr>
                                     <td>Images</td>
-                                    <td><input type="file" id="inputgambar" name="images"  style="width: 100%" placeholder="Image" ></td>
+                                    <td><input type="file" id="inputgambar" name="images"  style="width: 100%" placeholder="Image" ><p style="color: red">{{trans('validation.flag1')}}  </p></td>
                                 </tr>
 
 								<tr>
@@ -54,4 +54,17 @@
         </div>  
     </div>
 </div>
+@endsection
+
+@section('header')
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+@endsection
+
+@section('scripts')
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+<script>
+    $(document).ready(function() {
+  $('#summernote').summernote();
+});
+</script>
 @endsection

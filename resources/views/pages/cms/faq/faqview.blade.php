@@ -27,9 +27,9 @@
 									<td><input type="text" name="title" placeholder="Title" style="width: 100%"  value="{{ $faq_data->title }}" readonly ></td>
 								</tr>
 								<tr>
-									<td>Description</td>
-									<td> <textarea name="desc" class="ckeditor" readonly>{{ $faq_data->desc }}</textarea></td>
-								</tr>
+                                    <td>Description</td>
+                                    <td><textarea id="summernote" name="desc">{!! $faq_data->desc !!}</textarea></td>
+                                </tr>
                                 <tr>
                                     <td>Created Date</td>
                                     <td><input type="text" name="created_at" value="{{ $faq_data->created_at }}" style="width: 100%" readonly></td>
@@ -53,4 +53,17 @@
         </div>  
     </div>
 </div>
+@endsection
+
+@section('header')
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+@endsection
+
+@section('scripts')
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+<script>
+    $(document).ready(function() {
+  $('#summernote').summernote();
+});
+</script>
 @endsection

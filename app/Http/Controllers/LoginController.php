@@ -21,15 +21,97 @@ class LoginController extends Controller
 
     // ============================ DMS LOGIN ==============================
     public function list_user(){ 
-        $user = User_management::all();
-        $no = 1;
+        if (session()->get('session_id_group') == 1){
+            $user = User_management::all();
+            $no = 1;
 
-        return view('pages/cms/user/user', compact('user','no'));
+            return view('pages/cms/user/user', compact('user','no'));
+        }
+        else{
+            return redirect('/cms/about');
+        }
     }
 
     public function show(Request $request){
         $request->session()->forget('message');
         return view('pages/user/login');
+    } 
+
+    function input()
+    {
+        if (session()->get('session_id_group') == 1){
+            return  view('pages/cms/user/userinput');
+        }
+        else{
+            return redirect('/cms/about');
+        }
+    }
+
+    function edit($id)
+    {   
+        if (session()->get('session_id_group') == 1){
+            $user_management=User_management::where('id','=',$id)->first();
+            return  view('pages/cms/user/useredit', compact('user_management'));
+        }
+        else{
+            return redirect('/cms/about');
+        }
+    }
+
+    function insert (Request $request)  
+    {
+        $validatedData = $request->validate([
+                
+                'name' => 'required',
+                'username' => 'required|unique:user_management',
+                'password' => 'required|confirmed',
+                'id_usergroup' => 'required',
+            ]);
+
+        $user_management = new User_management;
+
+            $user_management->name = $request->name; 
+            $user_management->username = $request->username; 
+            $user_management->password = $request->password; 
+            $user_management->password = $request->password_confirmation; 
+            $user_management->id_usergroup = $request->id_usergroup; 
+            $user_management->created_by = session()->get('session_name'); 
+        // untuk mengsave
+        $user_management->save();
+
+        return  redirect('/cms/forgotpass');
+    }
+
+    function update (Request $request, $id)  
+    {
+        $validatedData = $request->validate([
+
+                'name' => 'required',
+                'username' => 'required',
+                'password' => 'required|confirmed',
+                'id_usergroup' => 'required',
+            ]);
+        
+        $user_management = User_management::find($id);
+
+            $user_management->name = $request->name; 
+            $user_management->username = $request->username; 
+            $user_management->password = $request->password; 
+            $user_management->password = $request->password_confirmation; 
+            $user_management->id_usergroup = $request->id_usergroup; 
+            $user_management->created_by = session()->get('session_name'); 
+        // untuk mengsave
+        $user_management->save();
+
+        return  redirect('/cms/forgotpass');
+    }
+
+    public function delete($id){
+
+        $user_management = User_management::find($id);
+        $user_management->delete();
+        
+        return  redirect('/cms/forgotpass');
     } 
 
     public function login(Request $request){
@@ -45,11 +127,13 @@ class LoginController extends Controller
                 $id_akun = $val->id;
                 $name = $val->name;
                 $username = $val->username;
+                $id_usergroup = $val->id_usergroup;
 
                 $request->session()->put('session_login', true);
                 $request->session()->put('session_id', $id_akun);
                 $request->session()->put('session_name', $name);
                 $request->session()->put('session_username', $username);
+                $request->session()->put('session_id_group', $id_usergroup);
                 return  redirect('/cms/about');
             }
         }
@@ -64,6 +148,7 @@ class LoginController extends Controller
                 $request->session()->forget('session_id');
                 $request->session()->forget('session_name');
                 $request->session()->forget('session_username');
+                $request->session()->forget('id_usergroup');
                 $request->session()->forget('message');
 
                 // $request->session()->flush();

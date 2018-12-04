@@ -21,6 +21,7 @@ navbarx @endsection
             </div>            
         </section>
 
+
         <section class="butonproduct mobileshow">
             <div class="container">
                 <div class="buttondrop">
@@ -28,6 +29,8 @@ navbarx @endsection
                 </div>
             </div>
         </section>
+
+
 
         <section>
             <div class="container">
@@ -48,7 +51,8 @@ navbarx @endsection
                                             @endforeach
                                         </ul>
                                     </li>
-                                @endforeach                          
+                                @endforeach    
+                                                  
                                 </ul>
                                 <?php use Illuminate\Support\Facades\Input; ?>
                                 <form method="GET" action="{{url('/product/filter')}}">
@@ -67,13 +71,15 @@ navbarx @endsection
                                                 <option value="{{$main->id}}">{{$main->nama_mainan}}</option>
                                             @endforeach
                                         </select>
-                                        <p>{{trans('content.backrest')}}</p>
-                                        <select name="sandaran" id="" class="form-control" style="margin-bottom: 5px;">
-                                            <option value="">{{trans('content.select')}} {{trans('content.backrest')}}</option>
-                                            @foreach($sandaran as $sandar)
-                                                <option value="{{$sandar->id}}">{{$sandar->nama_sandaran}}</option>
-                                            @endforeach
-                                        </select>
+                                        <div style="display: none;">
+	                                        <p>{{trans('content.backrest')}}</p>
+	                                        <select name="sandaran" id="" class="form-control" style="margin-bottom: 5px;">
+	                                            <option value="">{{trans('content.select')}} {{trans('content.backrest')}}</option>
+	                                            @foreach($sandaran as $sandar)
+	                                                <option value="{{$sandar->id}}">{{$sandar->nama_sandaran}}</option>
+	                                            @endforeach
+	                                        </select>
+                                        </div>
                                         <p>{{trans('content.tire')}}</p>
                                         <select name="ban" id="" class="form-control" style="margin-bottom: 5px;">
                                             <option value="">{{trans('content.select')}} {{trans('content.tire')}}</option>
@@ -82,7 +88,7 @@ navbarx @endsection
                                             @endforeach
                                         </select>
                                 </div>
-                                <input class="btn" name="submit" value="Filter" type="submit" style="padding: 5px; width: 100%" >
+                                <input class="btn filter-btn" name="submit" value="Filter" type="submit" style="padding: 5px; width: 100%" >
                                 </form>
                                 
                             </div>
@@ -91,7 +97,7 @@ navbarx @endsection
                                     <div class="box-wrapper"> 
                                         <div style="margin-left: 15px;">
                                         @if (Session::has('flash_category') || Session::has('flash_mainan') || Session::has('flash_ban') || Session::has('flash_sandaran'))
-                                        TAG : 
+                                        Filter : 
                                             @if (Session::has('flash_category'))
                                             {{ Session::get('flash_category') }},
                                             @endif
@@ -140,39 +146,93 @@ navbarx @endsection
                 </div>
             </div>
         </section>
-
-        <section class="mobileshow" style="margin-top: 20px;" id="allproduct" name="allproduct">
-            <div class="container" style="background: #1e846e">
+<!-- ================================================================== Button Fixed bottom -->
+        <section class="mobileshow sticky" id="fix-popup">
+            <div class="container">
                 <div class="row">
-                    <div class="col-xs-12">
-                        <div class="titlepro" style="margin-bottom: 20px; margin-top: 20px; color: white;"><p><strong>All Product</strong></p></div>
-                        <div class="row">
-                            <div class="col-xs-12 allpro">
-                                <div class="sidebar col-sm-3 col-md-2 mobileshow">
-                                <ul class="sidebarsub">
-                                @foreach($catpro as $cats)     
-                                    <li class="producttrc" style="color: #fed400; font-size: 16px;">{{$cats->category_product_name}} 
-                                        <ul class="producttrc-ex">
-
-        <?php $subpro = App\Http\Model\Category_subproduct::all()->where('id_category','=',$cats->id); ?>
-
-                                            @foreach($subpro as $listsub)
-                                                <li><a href="{{url('/product/category/'.$listsub->id)}}">{{$listsub->category_subproduct_name}}</a></li>
-                                            @endforeach
-                                        </ul>
-                                    </li>
-                                @endforeach                          
-                                </ul>
-                            </div> 
-                            </div>
-                        </div>
+                    <div class="col-xs-6">
+                        <a class="" data-fancybox data-src="#popup-product" href="javascript:;" style="color: #989898">
+                            <button class="btn" style="width: 100%; background: #dcdcdc;">Product</button>
+                        </a>
                     </div>
-
+                    <div class="col-xs-6">
+                         <a class="" data-fancybox data-src="#popup-filter" href="javascript:;" style="color: #989898">
+                            <button class="btn" style="width: 100%; background: #dcdcdc;">Filter</button>
+                        </a>
+                    </div>
                 </div>
-
             </div>
         </section>
-        <div class="buttondrop mobileshow" style="padding: 15px">
+<!-- ================================================================== Button Fixed End -->
+<!-- ===================================================================== Start Popup Product -->
+                                    <div class="div-expand"  id="popup-product">
+                                            <div style="width: 100%; height: auto; padding: 5px; font-size: 14px;">
+                                                <div class="titlepro" style="margin-bottom: 10px; color: white;"><p><strong>All Product</strong></p></div>
+                                                        <ul class="ul-pop">
+                                                        @foreach($catpro as $cats)     
+                                                            <li class="li-pop"> 
+                                                                <a class="collapsed" href="#expand-{{$cats->id}}" id="more" data-toggle="collapse"> <strong>{{$cats->category_product_name}}</strong>
+                                                                    
+                                                                </a>
+                                                                <ul id="expand-{{$cats->id}}" class="collapse">
+
+                                <?php $subpro = App\Http\Model\Category_subproduct::all()->where('id_category','=',$cats->id); ?>
+
+                                                                    @foreach($subpro as $listsub)
+                                                                        <li class="li-isi"><a href="{{url('/product/category/'.$listsub->id)}}">{{$listsub->category_subproduct_name}}</a></li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </li>
+                                                           
+                                                        @endforeach                             
+                                                        </ul>
+                                            </div>
+                                    </div>   
+<!-- ===================================================================== End Popup Product -->
+
+<!-- ====================================================================== Start Popup Filter -->
+                                     <div class="div-expand"  id="popup-filter">
+                                        <form method="GET" action="{{url('/product/filter')}}">
+                                            <div style="width: 100%; height: auto; padding: 5px; font-size: 14px; color: #fed400 !important;">
+                                                    <p>{{trans('content.category')}}</p>
+                                                    <select name="category" id="" class="form-control" style="margin-bottom: 5px;">
+                                                        <option value="">{{trans('content.select')}} {{trans('content.category')}}</option>
+                                                        @foreach($catpro as $cat)
+                                                            <option value="{{$cat->id}}" {{ (Input::old("category") == $cat->id ? "selected":"") }}>{{$cat->category_product_name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <p>{{trans('content.toy')}}</p>
+                                                    <select name="mainan" id="" class="form-control" style="margin-bottom: 5px;">
+                                                        <option value="">{{trans('content.select')}} {{trans('content.toy')}}</option>
+                                                        @foreach($mainan as $main)
+                                                            <option value="{{$main->id}}">{{$main->nama_mainan}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <p>{{trans('content.backrest')}}</p>
+                                                    <select name="sandaran" id="" class="form-control" style="margin-bottom: 5px;">
+                                                        <option value="">{{trans('content.select')}} {{trans('content.backrest')}}</option>
+                                                        @foreach($sandaran as $sandar)
+                                                            <option value="{{$sandar->id}}">{{$sandar->nama_sandaran}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <p>{{trans('content.tire')}}</p>
+                                                    <select name="ban" id="" class="form-control" style="margin-bottom: 5px;">
+                                                        <option value="">{{trans('content.select')}} {{trans('content.tire')}}</option>
+                                                        @foreach($ban as $ba)
+                                                            <option value="{{$ba->id}}">{{$ba->nama_ban}}</option>
+                                                        @endforeach
+                                                    </select>
+                                            </div>
+                                            <input class="btn" name="submit" value="Filter" type="submit" style="padding: 5px; width: 100%" >
+                                        </form>
+                                    </div>   
+<!-- ====================================================================== END Popup Filter -->
+
+        <div class="buttondrop mobileshow" id="allproduct" style="padding: 15px">
             <a name="allproduct" href="#ontop" style="color: white"><button type="button" class="btn" style="width: 100%; background: #1e846e;">{{trans('content.backtop')}}</button></a>
         </div>
+@endsection
+
+@section('marginbottom')
+<div class="mobileshow" style="margin-bottom: 24px">.</div>
 @endsection

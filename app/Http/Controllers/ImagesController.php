@@ -33,9 +33,8 @@ class ImagesController extends Controller
 
     function edit($id)
     {
-    	$highlight=Images::where('id','=',$id)->first();
-    	return  view('pages/cms/highlight/highlightedit')
-    	->with('highlight_data',$highlight);
+    	$highlight_data=Images::where('id','=',$id)->first();
+        return view('pages/cms/highlight/highlightedit', compact('highlight_data'));
     }
 
     function view($id)
@@ -67,15 +66,20 @@ class ImagesController extends Controller
 
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
     		$highlight->flag = $request->flag; 
-            if($request->file('namefile') == "")
+             if($request->file('namefile') == "" || $request->file('namefile') == null)
             {
                 $highlight->namefile = $highlight->namefile;
             } 
              else
             {
-                $files       = $request->file('namefile');
-                $fileNames   = $files->getClientOriginalName();
-                $request->file('namefile')->move("C:/xampp/htdocs/family/public/asset/img", $fileNames);
+                $this->validate($request, [
+                    'namefile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $files      = $request->file('namefile');
+                $fileNames   = 'c'.time().'.'.$files->getClientOriginalExtension();
+                $destinationPath = public_path('/asset/img');
+                $files->move($destinationPath, $fileNames);
                 $highlight->namefile = $fileNames;
             }
             $highlight->created_by = session()->get('session_name'); 

@@ -1,5 +1,9 @@
 @extends('layouts.cmsnew')
 
+@section('header')
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+@endsection
+
 @section('content')
 <div id="content">
     <div class="panel box-shadow-none content-header">
@@ -33,13 +37,16 @@
 									<td><input type="text" name="title" placeholder="Title" style="width: 100%"  value="{{ $faq_data->title }}"></td>
 								</tr>
 								<tr>
-									<td>Description</td>
-									<td> <textarea name="desc" class="ckeditor">{{ $faq_data->desc }}</textarea></td>
-								</tr>
+                                    <td>Description</td>
+                                    <td><textarea id="summernote" name="desc">{!! $faq_data->desc !!}</textarea></td>
+                                </tr>
 
 								<tr>
 									<td></td>
-									<td><input class="btn btn-info" name="submit" value="submit" type="submit"></td>
+									<td>
+                                        <input class="btn btn-info" name="submit" value="Submit" type="submit" style="padding: 5px;">
+                                        <a class="btn btn-danger" href="{{url('/cms/faq')}}"  style="padding: 5px; text-decoration: none;">Back</a>
+                                    </td>
 								</tr>
 	                        </table>
 	                        <input type="hidden" name="_method" value="PUT">
@@ -50,4 +57,13 @@
         </div>  
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+<script>
+    $(document).ready(function() {
+  $('#summernote').summernote();
+});
+</script>
 @endsection

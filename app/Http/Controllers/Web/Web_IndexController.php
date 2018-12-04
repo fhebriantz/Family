@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Model\About;
 use App\Http\Model\Images;
+use App\Http\Model\Category_product;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Foundation\Application;
 use vendor\autoload;
@@ -25,7 +26,10 @@ class Web_IndexController extends Controller
         $slider2 = Images::where('flag','=',5)->first();
         $slider3 = Images::where('flag','=',6)->first();
         $ourstory = Images::where('flag','=',7)->first();
-    	return view('pages/web/index/index', compact('slider1','slider2','slider3','abouts','highlight1','highlight2','highlight3','ourstory'));
+
+        $catpro = Category_product::all();
+        $ambassador = Images::where('flag','=',8)->first();
+    	return view('pages/web/index/index', compact('slider1','slider2','slider3','abouts','highlight1','highlight2','highlight3','ourstory','ambassador','catpro'));
     }
 
     public function bahasa(Request $request){

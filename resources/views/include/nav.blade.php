@@ -7,7 +7,7 @@
                 <span class="bottom"></span>
               </div>
                 <a href="{{url('/cms/about')}}" class="navbar-brand"> 
-                 <b>CMS FAMILY</b>
+                 <b>CMS FAMILY INDONESIA</b>
                 </a>
            
               <ul class="nav navbar-nav navbar-right user-nav">

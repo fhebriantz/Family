@@ -18,7 +18,7 @@ class Web_QuestionController extends Controller
         $validatedData = $request->validate([
 
                 'email' => 'required',
-                'question' => 'required|min:50',
+                'question' => 'required|min:10',
             ]);
 
         $questions = new Question;
@@ -28,7 +28,7 @@ class Web_QuestionController extends Controller
             $questions->question = $request->question;
         // untuk mengsave
         $questions->save();
-        $request->session()->flash('berhasil', 'The question is send!');
+        $request->session()->flash('berhasil', 'The message has been received');
         return  Redirect::back();
     }
 }

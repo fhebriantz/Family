@@ -31,6 +31,7 @@
                $(this).find('ul').toggle();
             });
         </script>
+
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
 
@@ -157,3 +158,6 @@
                 }
               });
         </script>
+        <script src="{{ asset('assets/js/jquery.fancybox.min.js')}}"></script>
+        
+       

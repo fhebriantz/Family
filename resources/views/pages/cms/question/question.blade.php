@@ -41,7 +41,7 @@
 
 
                                         </form>
-                                        <input class="btn btn-info" type="submit"  name="reply" value="Reply">
+                                        <a class="btn btn-info" href="mailto:{{$pertanyaan->email}}?Subject=We Are Family" target="_top">Reply</a>
 
                                     </td>
                                 </tr>

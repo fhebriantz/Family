@@ -13,7 +13,15 @@
     <div class="col-md-12 top-20 padding-0">
         <div class="col-md-12">
             <div class="panel">
-                <div class="panel-heading"><h3>Data Product Detail</h3>  <a href="{{url('/cms/product/subproduct/detail/input')}}"><button type="button" class="btn btn-success" style="margin-bottom: 10px;">Add Data</button></a></div>
+                <div class="panel-heading"><h3>Data Product Detail
+                    {{$is_hide->hide_price}}</h3>  
+                    <a href="{{url('/cms/product/subproduct/detail/input')}}"><button type="button" class="btn btn-success" style="margin-bottom: 10px;">Add Data</button></a>
+                    @if($is_hide->hide_price == 0)
+                    <a href="{{url('/cms/product/hide_price')}}"><button type="button" class="btn btn-default" style="margin-bottom: 10px; background-color: #bbb !important; color: #fff !important;">Hide Price</button></a>
+                    @else
+                    <a href="{{url('/cms/product/show_price')}}"><button type="button" class="btn btn-primary" style="margin-bottom: 10px;">Show Price</button></a>
+                    @endif
+                </div>
                 <div class="panel-body">
                     <div class="responsive-table">
                         <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">                        

@@ -3,7 +3,7 @@
 @section('nav')
 navbarabs @endsection
 
-@section('contents')
+@section('contents') 
         <!-- Header -->
         <section class="heading">
         	<div id="slider1_container" class="heading-cover">
@@ -17,19 +17,19 @@ navbarabs @endsection
                 <div>
                     <img data-u="image" src="{{asset('/asset/img/'.$slider1->namefile)}}" alt="content1"/>
                     <div class="title-slide"> 
-                        <p>SEPEDA FAMILY <strong>We make kids SMILE, like it should be</strong></p>
+                        <p><strong>{{$slider1->text}}</strong></p>
                     </div>
                 </div>
                 <div>
                     <img data-u="image" src="{{asset('/asset/img/'.$slider2->namefile)}}" alt="content2"/>
                     <div class="title-slide"> 
-                        <p>SEPEDA FAMILY <strong>Direct Connections to you</strong></p>
+                        <p><strong>{{$slider2->text}}</strong></p>
                     </div>
                 </div>
                 <div>
                     <img data-u="image" src="{{asset('/asset/img/'.$slider3->namefile)}}" alt="content3"/>
                     <div class="title-slide"> 
-                        <p>SEPEDA FAMILY <strong>We treat our customer, just like WE ARE FAMILY</strong></p>
+                        <p><strong>{{$slider3->text}}</strong></p>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@ navbarabs @endsection
                         </div>
                         <div class="col-sm-5 story-box-left">
                             <p style="color: #e4e41d">{{trans('content.ourstory')}}</p>
-                            <div   class="readmoreabout" style="color: white"><p>{!! $abouts->desc !!}</p></div>
+                            <div   class="readmoreabout" style="color: white"><p align="justify">{!! $abouts->desc !!}</p></div>
                             <a href="{{url('/about')}}" class="readmorelink">{{trans('content.readmore')}}</a>
                         </div>
                         <div class="col-sm-7 mobilehidden story-box-right">

@@ -69,17 +69,25 @@ class NewsController extends Controller
     		// nama = nama field di database, var_nama = var_nama di dalam form input_blade
     		$news->title = $request->title; 
     		$news->desc = $request->desc;
-            if($request->file('images') == "")
+
+
+             if($request->file('images') == "" || $request->file('images') == null)
             {
                 $news->images = $news->images;
             } 
              else
             {
-                $files       = $request->file('images');
-                $fileNames   = $files->getClientOriginalName();
-                $request->file('images')->move("C:/xampp/htdocs/family/public/asset/img", $fileNames);
+                $this->validate($request, [
+                    'images' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $files      = $request->file('images');
+                $fileNames   = 'n'.time().'.'.$files->getClientOriginalExtension();
+                $destinationPath = public_path('/asset/img');
+                $files->move($destinationPath, $fileNames);
                 $news->images = $fileNames;
             }
+
             $news->created_by = session()->get('session_name'); 
     	// untuk mengsave
     	$news->save();
@@ -105,17 +113,22 @@ class NewsController extends Controller
         		$news->title = $request->title; 
         		$news->desc = $request->desc;
 
-                if($request->file('images') == "")
-                {
-                    $news->images = $news->images;
-                } 
-                 else
-                {
-                $files       = $request->file('images');
-                $fileNames   = $files->getClientOriginalName();
-                $request->file('images')->move("C:/xampp/htdocs/family/public/asset/img", $fileNames);
+                if($request->file('images') == "" || $request->file('images') == null)
+            {
+                $news->images = $news->images;
+            } 
+             else
+            {
+                $this->validate($request, [
+                    'images' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $files      = $request->file('images');
+                $fileNames   = 'n'.time().'.'.$files->getClientOriginalExtension();
+                $destinationPath = public_path('/asset/img');
+                $files->move($destinationPath, $fileNames);
                 $news->images = $fileNames;
-                }
+            }
 
                 $news->updated_by = session()->get('session_name');
 

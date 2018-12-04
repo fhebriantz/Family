@@ -4,5 +4,5 @@ return [
     'product' => 'PRODUCT',
     'about' => 'ABOUT US',
     'contact' => 'CONTACT',
-    'language' => 'Select Language',
+    'language' => 'Select Region',
 ];

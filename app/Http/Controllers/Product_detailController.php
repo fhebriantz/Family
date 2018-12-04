@@ -40,9 +40,37 @@ class Product_detailController extends Controller
 
      public function showcms(){ 
      	$product_detail = Product_detail::getTableDetail();
+        $is_hide = Product_detail::getTableDetail()->first();
         $no = 1;	
 
-    	return view('pages/cms/detail_product/detail', compact('product_detail','no'));
+    	return view('pages/cms/detail_product/detail', compact('product_detail','no','is_hide'));
+    }
+
+    public function show_price(){
+        $show=Product_detail::getTableDetail();
+        //->where('created_by','=',session()->get('session_id'));
+        if (count($show) >0) {
+            foreach($show as $on){
+                $change_show = Product_detail::where('id','=',$on->id)->first();
+                $change_show->hide_price = 0;
+                $change_show->save();
+            }
+        }
+        else{ }
+        return  Redirect::back();
+    }
+    public function hide_price(){
+        $hide=Product_detail::getTableDetail();
+        //->where('created_by','=',session()->get('session_id'));
+        if (count($hide) >0) {
+            foreach($hide as $off){
+                $change_hide = Product_detail::where('id','=',$off->id)->first();
+                $change_hide->hide_price = 1;
+                $change_hide->save();
+            }
+        }
+        else{ }
+        return  Redirect::back();
     }
 
     function input()
@@ -87,13 +115,10 @@ class Product_detailController extends Controller
          $validatedData = $request->validate([
             'id_category' => 'required',
             'id_category_sub' => 'required',
-            'name_product' => 'required|unique:product_details',
-            'price' => 'required|numeric',
-            'id_sandaran' => 'required',
-            'id_mainan' => 'required',
-            'id_ban' => 'required',
-            'description' => 'required',
+            'name_product' => 'required',
             'image1' => 'required',
+            'hide_price' => 'required',
+
         ]);
 
     	$product_detail = new Product_detail;
@@ -104,6 +129,7 @@ class Product_detailController extends Controller
             $product_detail->id_category_sub = $request->id_category_sub;
             $product_detail->name_product = $request->name_product;
             $product_detail->price = $request->price; 
+            $product_detail->hide_price = $request->hide_price; 
             $product_detail->id_sandaran = $request->id_sandaran; 
             $product_detail->id_mainan = $request->id_mainan; 
             $product_detail->id_ban = $request->id_ban; 
@@ -213,12 +239,7 @@ class Product_detailController extends Controller
         $validatedData = $request->validate([
             'id_category' => 'required',
             'id_category_sub' => 'required',
-            'id_sandaran' => 'required',
-            'id_mainan' => 'required',
-            'id_ban' => 'required',
             'name_product' => 'required',
-            'price' => 'required|numeric',
-            'description' => 'required',
             'image1' => 'required',
         ]);
 

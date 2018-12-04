@@ -67,6 +67,17 @@
 								</tr>
 
 								<tr>
+									<td>Hide Price</td>
+									<td>
+										<select class="form-control"  name="hide_price" style="width: 100%">
+									    	<option value="">-- Pilih Kategori --</option>
+									    	<option value="1">Sembunyikan Harga</option>
+									    	<option value="0">Tampilkan Harga</option>
+									    </select>
+									</td>
+								</tr>
+
+								<tr>
 									<td>Description</td>
 									<td><textarea id="summernote" name="description">{{ old('description') }}</textarea></td>
 								</tr>
@@ -109,27 +120,32 @@
 
 								<tr>
 									<td>Image1</td>
-									<td><input type="file" id="inputgambar" name="image1"  style="width: 100%" placeholder="Image1" ></td>
+									<td><input type="file" id="inputgambar" name="image1"  style="width: 100%" placeholder="Image1" >
+									<p style="color: red">{{trans('validation.flag10')}}  </p></td>
 								</tr>
 
 								<tr>
 									<td>Image2</td>
-									<td><input type="file" id="inputgambar" name="image2"  style="width: 100%" placeholder="Image2" ></td>
+									<td><input type="file" id="inputgambar" name="image2"  style="width: 100%" placeholder="Image2" >
+									<p style="color: red">{{trans('validation.flag10')}}  </p></td>
 								</tr>
 
 								<tr>
 									<td>Image3</td>
-									<td><input type="file" id="inputgambar" name="image3"  style="width: 100%" placeholder="Image3"></td>
+									<td><input type="file" id="inputgambar" name="image3"  style="width: 100%" placeholder="Image3">
+									<p style="color: red">{{trans('validation.flag10')}}  </p></td>
 								</tr>
 
 								<tr>
 									<td>Image4</td>
-									<td><input type="file" id="inputgambar" name="image4"  style="width: 100%" placeholder="Image4"></td>
+									<td><input type="file" id="inputgambar" name="image4"  style="width: 100%" placeholder="Image4">
+									<p style="color: red">{{trans('validation.flag10')}}  </p></td>
 								</tr>
 
 								<tr>
 									<td>Image5</td>
-									<td><input type="file" id="inputgambar" name="image5"  style="width: 100%" placeholder="Image5"></td>
+									<td><input type="file" id="inputgambar" name="image5"  style="width: 100%" placeholder="Image5">
+									<p style="color: red">{{trans('validation.flag10')}}  </p></td>
 								</tr>
 
 								<tr>
