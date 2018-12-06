@@ -7,7 +7,7 @@ navbarx @endsection
        <section class="margintop marmin"  id="ontop">
             <div class="container">
                 <hr>
-                <p class="title-page"><strong>{{trans('content.product')}} / {{ $product_detail->category_product_name }} / {{ $product_detail->category_subproduct_name }} / {{ $product_detail->name_product }}</strong></p>               
+                <p class="title-page  fonttitle"><strong>{{trans('content.product')}} / {{ $product_detail->category_product_name }} / {{ $product_detail->category_subproduct_name }} / {{ $product_detail->name_product }}</strong></p>               
                 <hr>
             </div>            
         </section>
@@ -51,13 +51,15 @@ navbarx @endsection
                                                 <option value="{{$main->id}}">{{$main->nama_mainan}}</option>
                                             @endforeach
                                         </select>
-                                        <p>{{trans('content.backrest')}}</p>
-                                        <select name="sandaran" id="" class="form-control" style="margin-bottom: 5px;">
-                                            <option value="">{{trans('content.select')}} {{trans('content.backrest')}}</option>
-                                            @foreach($sandaran as $sandar)
-                                                <option value="{{$sandar->id}}">{{$sandar->nama_sandaran}}</option>
-                                            @endforeach
-                                        </select>
+                                        <div style="display: none;">
+                                            <p>{{trans('content.backrest')}}</p>
+                                            <select name="sandaran" id="" class="form-control" style="margin-bottom: 5px;">
+                                                <option value="">{{trans('content.select')}} {{trans('content.backrest')}}</option>
+                                                @foreach($sandaran as $sandar)
+                                                    <option value="{{$sandar->id}}">{{$sandar->nama_sandaran}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                         <p>{{trans('content.tire')}}</p>
                                         <select name="ban" id="" class="form-control" style="margin-bottom: 5px;">
                                             <option value="">{{trans('content.select')}} {{trans('content.tire')}}</option>
@@ -82,7 +84,7 @@ navbarx @endsection
                                 </div>
                             </div>
                             <div class="detailproduct col-sm-4 col-xs-12">
-                                <h3>{{ $product_detail->name_product }}</h3>
+                                <h3 class="  fonttitle">{{ $product_detail->name_product }}</h3>
                                 @if ($product_detail->hide_price == 1)
                                 @else
                                 <p> <strong>{{trans('content.price')}}: </strong>Rp. {{ $product_detail->price }}</p>
@@ -115,7 +117,7 @@ navbarx @endsection
 <!-- ===================================================================== Start Popup Product -->
                                     <div class="div-expand"  id="popup-product">
                                             <div style="width: 100%; height: auto; padding: 5px; font-size: 14px;">
-                                                <div class="titlepro" style="margin-bottom: 10px; color: white;"><p><strong>All Product</strong></p></div>
+                                                <div class="titlepro" style="margin-bottom: 10px; color: white;"><p class=" fonttitle"><strong>All Product</strong></p></div>
                                                         <ul class="ul-pop">
                                                         @foreach($catpro as $cats)     
                                                             <li class="li-pop"> 
@@ -156,6 +158,7 @@ navbarx @endsection
                                                             <option value="{{$main->id}}">{{$main->nama_mainan}}</option>
                                                         @endforeach
                                                     </select>
+                                                    <div style="display: none;">
                                                     <p>{{trans('content.backrest')}}</p>
                                                     <select name="sandaran" id="" class="form-control" style="margin-bottom: 5px;">
                                                         <option value="">{{trans('content.select')}} {{trans('content.backrest')}}</option>
@@ -163,12 +166,21 @@ navbarx @endsection
                                                             <option value="{{$sandar->id}}">{{$sandar->nama_sandaran}}</option>
                                                         @endforeach
                                                     </select>
+                                                    </div>
                                                     <p>{{trans('content.tire')}}</p>
                                                     <select name="ban" id="" class="form-control" style="margin-bottom: 5px;">
                                                         <option value="">{{trans('content.select')}} {{trans('content.tire')}}</option>
                                                         @foreach($ban as $ba)
                                                             <option value="{{$ba->id}}">{{$ba->nama_ban}}</option>
                                                         @endforeach
+                                                    </select>
+                                                    <p>{{trans('content.sortby')}}</p>
+                                                    <select name="sortby" id="" class="form-control" style="margin-bottom: 5px;">
+                                                        <option value="">{{trans('content.select')}} {{trans('content.category')}}</option>
+                                                        <option value="1">Name A-Z</option>
+                                                        <option value="2">Name Z-A</option>
+                                                        <option value="3">Date A-Z</option>
+                                                        <option value="4">Date Z-A</option>
                                                     </select>
                                             </div>
                                             <input class="btn" name="submit" value="Filter" type="submit" style="padding: 5px; width: 100%" >

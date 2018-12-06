@@ -7,7 +7,7 @@ navbarx @endsection
        <section class="margintop marmin">
             <div class="container">
                 <hr>
-                <p class="title-page"><strong>{{trans('content.news')}} / {{$news->title}}</strong></p>               
+                <p class="title-page fonttitle"><strong>{{trans('content.news')}} / {{$news->title}}</strong></p>               
                 <hr>
             </div>            
         </section>
@@ -32,7 +32,7 @@ navbarx @endsection
             <div class="container">
                 <div class="row">
                     <div class="description col-sm-12">
-                        <h1 class="titlenews">{{$news->title}}</h1>
+                        <h1 class="titlenews fonttitle">{{$news->title}}</h1>
                         <p>{!!$news->desc!!}</p>
                     </div>
                 </div>

@@ -17,5 +17,6 @@ return [
     'toy' => 'Toy',
     'backrest' => 'Armrest',
     'tire' => 'Tire',
+    'sortby' => 'Sort By',
 
 ];

@@ -21,7 +21,7 @@
             }</script>
             <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
 
-              <ul class=" center-nav nav navbar-nav navbar-right">
+              <ul class=" center-nav nav navbar-nav navbar-right fonttitle">
                 <li class="active"><a href="{{url('/index')}}"><strong class="font16">{{trans('header.home')}}</strong></a></li>
                 <li class="dropdown ">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong class="font16">{{trans('header.product')}}</strong><span class="caret"></span></a>
@@ -48,7 +48,7 @@
               </ul>
             </div>
              <div  class=" navbar-right" style=" background-color: #0db14b !important; padding: 2px 5px ;">
-              <a style="color: #ffd826; text-decoration: none;"><strong class="font16">{{trans('header.language')}}</strong></a>
+              <a style="color: #ffd826; text-decoration: none;"><strong class="font16 fonttitle">{{trans('header.language')}}</strong></a>
               <a href="{{url('/../family_en')}}"><img src="{{ asset('assets/img/eng.png')}}" style="height: 15px; width: 20px;" alt=""></a>
               <a href="{{url('/../family')}}"><img src="{{ asset('assets/img/ina.png')}}" style="height: 15px; width: 20px;" alt=""></a>
              </div>

@@ -13,7 +13,7 @@ navbarabs @endsection
             </div>
 
             <!-- Slides Container -->
-            <div u="slides" class="heading-slide">
+            <div u="slides" class="heading-slide fonttitle">
                 <div>
                     <img data-u="image" src="{{asset('/asset/img/'.$slider1->namefile)}}" alt="content1"/>
                     <div class="title-slide"> 
@@ -53,7 +53,7 @@ navbarabs @endsection
                             <img src="{{asset('/asset/img/'.$ourstory->namefile)}}" class="img-story">
                         </div>
                         <div class="col-sm-5 story-box-left">
-                            <p style="color: #e4e41d">{{trans('content.ourstory')}}</p>
+                            <p class="fonttitle" style="color: #e4e41d">{{trans('content.ourstory')}}</p>
                             <div   class="readmoreabout" style="color: white"><p align="justify">{!! $abouts->desc !!}</p></div>
                             <a href="{{url('/about')}}" class="readmorelink">{{trans('content.readmore')}}</a>
                         </div>
@@ -75,7 +75,7 @@ navbarabs @endsection
                                     <div style="height: 200px; overflow: hidden;">
 	        					        <img style="min-height: 200px;" src="{{asset('/asset/img/'.$highlight1->namefile)}}" alt="news picture">
                                     </div>
-	        						<div class="title-box"><h3>{{trans('content.news')}}</h3></div>
+	        						<div class="title-box fonttitle"><h3>{{trans('content.news')}}</h3></div>
 	        					</div>
         					</a>
         				</div>
@@ -86,7 +86,7 @@ navbarabs @endsection
                                         <div style="height: 200px; overflow: hidden;">
 		        						    <img style="min-height: 200px;" src="{{asset('/asset/img/'.$highlight2->namefile)}}" alt="product picture">
                                         </div>
-		        						<div class="title-box"><h3>{{trans('content.product')}}</h3></div>
+		        						<div class="title-box fonttitle"><h3>{{trans('content.product')}}</h3></div>
 		        					</div>
 	        					</div>
         					</a>
@@ -98,7 +98,7 @@ navbarabs @endsection
                                         <div style="height: 200px; overflow: hidden;">
 		        						    <img style="min-height: 200px;" src="{{asset('/asset/img/'.$highlight3->namefile)}}" alt="about picture">
                                         </div>
-		        						<div class="title-box"><h3>{{trans('content.about')}}</h3></div>
+		        						<div class="title-box fonttitle"><h3>{{trans('content.about')}}</h3></div>
 		        					</div>
 	        					</div>
 	        				</a>

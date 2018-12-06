@@ -1,8 +1,16 @@
 <?php
+use App\Http\Model\Category_subproduct;
+use App\Http\Model\Category_product;
 
 Route::get('/', 'Controller@method')
     ->name('my_route_name');
     
+
+Route::get('/tes_category', 'Category_subproductController@tes');
+Route::get('/ajax-mainan', 'Category_subproductController@mainan_ajax');
+Route::get('/ajax-ban', 'Category_subproductController@ban_ajax');
+
+
 Route::get('product/category/{id}','Web\Web_ProductController@show_list_category_prod'); 
 Route::get('product/main/{id}','Web\Web_ProductController@show_list_main_prod'); 
 

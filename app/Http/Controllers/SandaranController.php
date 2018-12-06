@@ -67,7 +67,7 @@ class SandaranController extends Controller
     function update (Request $request, $id)  
     {
         $validatedData = $request->validate([
-                'nama_sandaran' => 'required|unique:master_sandaran',
+                'nama_sandaran' => 'required',
             ]);
         
         $sandaran = Sandaran::find($id);

@@ -32,6 +32,25 @@
 									<td>Title</td>
 									<td><input type="text" name="nama_mainan" placeholder="Title" style="width: 100%"  value="{{ $mainan_data->nama_mainan }}"></td>
 								</tr>
+                                <tr>
+                                    <td>Category Product</td>
+                                    <td> <!-- select class form control untuk membuat combo box -->
+                                        <select name="id_category"  class="form-control" style="width: 100%">
+                                            <option>-- Pilih Kategori --</option>
+                                            @foreach($category_product as $product)
+                                            <option value="{{$product->id}}"
+
+                                                <?php if ($product->id == $mainan_data->id_category): ?>
+
+                                                    <?php echo "selected" ?>
+                                                    
+                                                <?php endif ?> 
+
+                                                >{{$product->category_product_name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </td>
+                                </tr>
 
 								<tr>
 									<td></td>

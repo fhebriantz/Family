@@ -241,6 +241,7 @@ class Product_detailController extends Controller
             'id_category_sub' => 'required',
             'name_product' => 'required',
             'image1' => 'required',
+            'hide_price' => 'required',
         ]);
 
         //check which submit was clicked on
@@ -253,6 +254,7 @@ class Product_detailController extends Controller
             $product_detail->price = $request->price;
             $product_detail->id_sandaran = $request->id_sandaran; 
             $product_detail->id_mainan = $request->id_mainan; 
+            $product_detail->hide_price = $request->hide_price; 
             $product_detail->id_ban = $request->id_ban; 
             $product_detail->name_product = $request->name_product;
             $product_detail->description = $request->description;

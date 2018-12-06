@@ -7,7 +7,7 @@ navbarx @endsection
        <section class="margintop marmin">
             <div class="container">
                 <hr>
-                <p class="title-page"><strong>{{trans('content.contact')}}</strong></p>               
+                <p class="title-page fonttitle"><strong>{{trans('content.contact')}}</strong></p>               
                 <hr>
             </div>            
         </section>
@@ -16,7 +16,7 @@ navbarx @endsection
             <div class="container">
                 <div class="row">
                     <div class="contactus-desc col-sm-6">
-                    <h3 class="faqtitle">{{trans('content.callme')}}</h3>
+                    <h3 class="faqtitle fonttitle">{{trans('content.callme')}}</h3>
                     @foreach($contact as $kontak)
                     <div class="contactdesc">   
                         <p><strong>{{$kontak->title}}</strong></p>
@@ -26,7 +26,7 @@ navbarx @endsection
                     </div>
 
                     <div class="contactus-desc col-sm-6">
-                    <h3 class="faqtitle">Tanya Jawab</h3>
+                    <h3 class="faqtitle fonttitle">Tanya Jawab</h3>
                     @foreach($faq as $fa)
                         <div class="faqdesc">   
                             <p><strong>{{$fa->title}}</strong></p>

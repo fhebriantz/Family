@@ -7,7 +7,7 @@ navbarx @endsection
        <section class="margintop marmin">
             <div class="container">
                 <hr>
-                <p class="title-page"><strong>{{trans('header.about')}}</strong></p>               
+                <p class="title-page fonttitle"><strong>{{trans('header.about')}}</strong></p>               
                 <hr>
                 
             </div>            
@@ -34,7 +34,7 @@ navbarx @endsection
                 <div class="row">
                     <div class="description col-sm-12">
                         @foreach($abouts as $about)
-                        <h1 class="titlenews">{{$about->caption}}:</h1>
+                        <h1 class="titlenews fonttitle">{{$about->caption}}:</h1>
                         <p><strong>{{$about->title}}</strong></p>
                         <p>{!!$about->desc!!}</p>
                         @endforeach

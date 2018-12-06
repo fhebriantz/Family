@@ -29,17 +29,30 @@ class Product_detail extends Model
             ->join('category_products', 'category_products.id', '=', 'product_details.id_category')
             ->join('category_subproducts', 'category_subproducts.id', '=', 'product_details.id_category_sub')
             ->select('product_details.*', 'category_products.category_product_name', 'category_products.id as id_catpro', 'category_subproducts.category_subproduct_name',  'category_subproducts.id as id_catsub')
+            ->orderBy('product_details.updated_at', 'DESC')
             ->paginate(8);
 
 	     return $product_details;
 	    }  
 
-        public static function getTableFilter(){
+
+        public static function getTableFilterAll($x, $y){
         $product_details = DB::table('product_details')
             ->join('category_products', 'category_products.id', '=', 'product_details.id_category')
             ->join('category_subproducts', 'category_subproducts.id', '=', 'product_details.id_category_sub')
             ->select('product_details.*', 'category_products.category_product_name', 'category_products.id as id_catpro', 'category_subproducts.category_subproduct_name',  'category_subproducts.id as id_catsub')
-            ->orderBy('product_details.updated_at', 'DESC');
+            ->orderBy($x, $y)
+            ->paginate(8);
+
+         return $product_details;
+        }  
+
+        public static function getTableFilter($x, $y){
+        $product_details = DB::table('product_details')
+            ->join('category_products', 'category_products.id', '=', 'product_details.id_category')
+            ->join('category_subproducts', 'category_subproducts.id', '=', 'product_details.id_category_sub')
+            ->select('product_details.*', 'category_products.category_product_name', 'category_products.id as id_catpro', 'category_subproducts.category_subproduct_name',  'category_subproducts.id as id_catsub')
+            ->orderBy($x, $y);
 
          return $product_details;
         }    

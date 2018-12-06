@@ -37,15 +37,15 @@
                             <p style="color: blue">{{ session('berhasil')}}</p>
                             <form method="POST" action="{{url('/question/input')}}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
-                                <div class="form-group">
-                                    <label>{{trans('footer.question')}}</label>
+                                <div class="form-group  fonttitle">
+                                    <label c>{{trans('footer.question')}}</label>
                                     <input type="text" id="email" name="email" class="form-control" placeholder="Email">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" id="question" name="question" class="form-control" placeholder="question">
+                                    <input type="text" id="question" name="question" class="form-control" placeholder="Pertanyaan">
                                 </div>
                                 <div class="form-group">
-                                    <input class="btn btn-info" name="submit" value="submit" style="float: right" type="submit">
+                                    <input class="btn btn-info" name="submit" value="Kirim" style="float: right" type="submit">
                                 </div>                                
                             </form>
                         </div>
@@ -60,29 +60,35 @@
         <?php $instagram = App\Http\Model\Widget::all()->where('id','=',1)->first(); ?>
         <?php $youtube = App\Http\Model\Widget::all()->where('id','=',2)->first(); ?>
                         <div class="widget">
-                            <p class="instamobile marginbottom"><strong>INSTAGRAM</strong></p>
+                            <p class="instamobile marginbottom fonttitle"><strong>INSTAGRAM</strong></p>
                             {!! $instagram->embed_text !!}
                         </div>
                         <div class="widget">
-                            <p class="instamobile marginbottom"><strong>YOUTUBE</strong></p>
+                            <p class="instamobile marginbottom fonttitle"><strong>YOUTUBE</strong></p>
                             <div class="video-container">
                                 {!! $youtube->embed_text !!}
                             </div>
                         </div>
-                        <div class="sponsor">  
-                            <div class="col-xs-2">
-                                <img src="{{ asset('/asset/img/'.$sponsor1->namefile)}}" class="sponsor1" alt="">
-                            </div>
-                            <div class="col-xs-2">
-                                <img src="{{ asset('/asset/img/'.$sponsor2->namefile)}}" class="sponsor2" alt="">
-                            </div>
-                            <div class="col-xs-2">
+                        <div class="row sponsor" style="margin-top: 30px">
+                            <div class="col-xs-3">
                                 <img src="{{ asset('/asset/img/'.$sponsor3->namefile)}}" class="sponsor3" alt="">
                             </div>
-                            <div class="col-xs-2">
+                            <div class="col-xs-3 col-xs-offset-1">
                                 <img src="{{ asset('/asset/img/'.$sponsor4->namefile)}}" class="sponsor4" alt="">
                             </div>
+                            <div class="col-xs-3 col-xs-offset-1">
+                                <img src="{{ asset('/asset/img/'.$sponsor1->namefile)}}" class="sponsor1" alt="">
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-8 col-xs-12 sponsor"  style="margin-top: 30px">
+                        <div class="row">
                             <div class="col-xs-3">
+                                 <img src="{{ asset('/asset/img/'.$sponsor2->namefile)}}" class="sponsor2" alt="">
+                            </div>
+                            <div class="col-xs-5 col-xs-offset-2">
                                 <img src="{{ asset('/asset/img/'.$sponsor5->namefile)}}" class="sponsor5" alt="">
                             </div>
                         </div>

@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 // untuk menyingkat materi gak usah pake APP
 use App\Http\Model\Category_subproduct;
 use App\Http\Model\Category_product;
+use App\Http\Model\Mainan;
+use App\Http\Model\Ban;
 use Illuminate\Routing\Middleware\LoginCheck;
 use vendor\autoload;
+use Response;
+use Illuminate\Support\Facades\Input;
 use Auth;
 
 class Category_subproductController extends Controller
@@ -22,6 +26,28 @@ class Category_subproductController extends Controller
     	$category_subproduct = Category_subproduct::all();
 
     	return view('pages/frontend/cat_subproduct/subproduct', compact('category_subproduct'));
+    }
+
+    public function tes(){ 
+
+        $category_product=Category_product::all();
+
+        return view('pages/dashboard/index', compact('category_product'));
+    }
+
+
+    public function mainan_ajax(){ 
+
+        $cat_id = Input::get('cat_id');
+        $subcategories = Mainan::where('id_category','=',$cat_id)->get();
+        return Response::json($subcategories);
+    }
+
+    public function ban_ajax(){ 
+
+        $cat_id = Input::get('cat_id');
+        $ban = Ban::where('id_category','=',$cat_id)->get();
+        return Response::json($ban);
     }
 
     //  public function show(){ 

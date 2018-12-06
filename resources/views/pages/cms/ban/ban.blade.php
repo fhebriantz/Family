@@ -21,6 +21,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Ban</th>
+                                    <th>Category</th>
                                     <th>Created Date</th>
                                     <th>Created By</th>
                                     <th>Modified Date</th>
@@ -34,6 +35,7 @@
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>{{$main->nama_ban}}</td>
+                                    <td>{{$main->category_product_name}}</td>
                                     <td>{{$main->created_at}}</td>
                                     <td>{{$main->created_by}}</td>
                                     <td>{{$main->updated_at}}</td>
@@ -43,7 +45,7 @@
                                         <form method="POST" action="{{url('/cms/ban/'.$main->id.'/delete')}}" class="text-center" style="float: right; padding-left: 10px;">
                                             <!-- csrf perlu ditambahakan di setiap post -->
                                             {{ csrf_field() }}
-                                            <input class="btn btn-danger" type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure want to delete question {{$main->title}}?');"> 
+                                            <input class="btn btn-danger" type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure want to delete question {{$main->nama_ban}}?');"> 
                                             <input type="hidden" name="_method" value="DELETE">
                                         </form>
                                     </td>

@@ -13,7 +13,7 @@
   </div>
 
   <div id="navbar" style="overflow: auto; height: 100%" class="navbar-collapse collapse">
-    <ul class=" center-nav nav navbar-nav navbar-right">
+    <ul class=" center-nav nav navbar-nav navbar-right fonttitle">
       <li class="active"><a href="{{url('/index')}}"><strong class="font16">{{trans('header.home')}}</strong></a></li> 
       <li><a href="{{url('/product')}}"><strong class="font16">{{trans('header.product')}}</strong></a></li>
       <li><a href="{{url('/about')}}"><strong class="font16">{{trans('header.about')}}</strong></a></li>
@@ -24,7 +24,7 @@
   
 </div><!-- /.container-fluid -->
 <div   style="float: right;">
-              <a style="color: #ffd826; text-decoration: none;"><strong class="font16">{{trans('header.language')}}</strong></a>
+              <a style="color: #ffd826; text-decoration: none;"><strong class="font16 fonttitle">{{trans('header.language')}}</strong></a>
               <a href="{{url('/../family_en')}}"><img src="{{ asset('assets/img/eng.png')}}" style="height: 15px; width: 20px;" alt=""></a>
               <a href="{{url('/../family')}}"><img src="{{ asset('assets/img/ina.png')}}" style="height: 15px; width: 20px;" alt=""></a>
              </div>

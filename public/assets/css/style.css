@@ -1,4 +1,6 @@
-
+.fonttitle{
+	font-family: 'Montserrat', sans-serif;
+}
 /*========================================================================================================*/
 .video-container {
 position: relative;
@@ -787,11 +789,11 @@ footer
 		color: #0cb14b;
 	}
 
-	.sponsor1{width: 180%; height: auto;}
-	.sponsor2{width: 200%; height: auto;}
-	.sponsor3{width: 200%; height: auto;}
-	.sponsor4{width: 160%; height: auto;}
-	.sponsor5{width: 180%; height: auto;}
+	.sponsor1{width: 150%; height: auto;}
+	.sponsor2{width: 180%; height: auto;}
+	.sponsor3{width: 180%; height: auto;}
+	.sponsor4{width: 135%; height: auto;}
+	.sponsor5{width: 150%; height: auto;}
 	}
 
 	.jssorb031{
@@ -899,11 +901,11 @@ footer
 		text-align: center;
 	}
 
-	.sponsor1{width: 400%; height: auto;}
-	.sponsor2{width: 450%; height: auto;}
-	.sponsor3{width: 450%; height: auto;}
-	.sponsor4{width: 380%; height: auto;}
-	.sponsor5{width: 250%; height: auto;}
+	.sponsor1{width: 170%; height: auto;}
+	.sponsor2{width: 200%; height: auto;}
+	.sponsor3{width: 200%; height: auto;}
+	.sponsor4{width: 150%; height: auto;}
+	.sponsor5{width: 170%; height: auto;}
 
 	.jssorb031{
 		margin-top: 1px;

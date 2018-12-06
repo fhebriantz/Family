@@ -9,7 +9,9 @@
 <link rel="icon" href="{{ asset('assets/favicon.ico')}}">
 <link rel="stylesheet" href="{{ asset('assets/css/smoothproducts.css?v=1.001')}}">
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css')}}"/>
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=1.144')}}"/> 
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=1.148')}}"/> 
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jssor.css')}}"/>    
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.min.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.fancybox.min.css')}}">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // untuk menyingkat materi gak usah pake APP
 use App\Http\Model\Mainan;
+use App\Http\Model\Category_product;
 use vendor\autoload;
 use Illuminate\Routing\Middleware\LoginCheck;
 use Auth;
@@ -17,26 +18,28 @@ class MainanController extends Controller
     }
     
     public function show(){ 
-        $mainan = Mainan::all();
+        $mainan = Mainan::getMainan();
 
         return view('pages/frontend/mainan/mainan', compact('mainan'));
     }
 
     function input()
     {
-        return  view('pages/cms/mainan/mainaninput');
+        $category_product = Category_product::all();
+
+        return  view('pages/cms/mainan/mainaninput', compact('category_product'));
     }
 
     function edit($id)
     {
-        $mainan=Mainan::where('id','=',$id)->first();
+        $category_product = Category_product::all();
+        $mainan_data=Mainan::where('id','=',$id)->first();
 
-        return  view('pages/cms/mainan/mainanedit')
-        ->with('mainan_data',$mainan);
+        return  view('pages/cms/mainan/mainanedit', compact('category_product','mainan_data'));
     }
 
     public function showcms(){ 
-        $mainan = Mainan::all();
+        $mainan = Mainan::getMainan();
          $no = 1;
 
         return view('pages/cms/mainan/mainan', compact('mainan','no'));
@@ -48,12 +51,15 @@ class MainanController extends Controller
           $validatedData = $request->validate([
 
                 'nama_mainan' => 'required|unique:master_mainan',
+                'id_category' => 'required',
+                
             ]);
 
         $mainan = new Mainan;
 
             // nama = nama field di database, var_nama = var_nama di dalam form input_blade
             $mainan->nama_mainan = $request->nama_mainan; 
+            $mainan->id_category = $request->id_category; 
             $mainan->created_by = session()->get('session_name'); 
         // untuk mengsave
         $mainan->save();
@@ -67,13 +73,15 @@ class MainanController extends Controller
     function update (Request $request, $id)  
     {
         $validatedData = $request->validate([
-                'nama_mainan' => 'required|unique:master_mainan',
+                'nama_mainan' => 'required',
+                'id_category' => 'required',
             ]);
         
         $mainan = Mainan::find($id);
 
             // nama = nama field di database, var_nama = var_nama di dalam form input_blade
             $mainan->nama_mainan = $request->nama_mainan; 
+            $mainan->id_category = $request->id_category; 
             $mainan->updated_by = session()->get('session_name'); 
         // untuk mengsave
         $mainan->save();

@@ -35,5 +35,7 @@
         </section>
         @yield('marginbottom')
         @include('includeweb/scripts')
+
+        @yield('scripts')
     </body>
 </html>

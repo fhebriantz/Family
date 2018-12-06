@@ -17,4 +17,5 @@ return [
     'toy' => 'Mainan',
     'backrest' => 'Sandaran Tangan',
     'tire' => 'Ban',
+    'sortby' => 'Urut Berdasarkan',
 ];

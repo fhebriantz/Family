@@ -7,7 +7,7 @@ navbarx @endsection
        <section class="margintop marmin">
             <div class="container">
                 <hr>
-                <p class="title-page"><strong>{{trans('content.news')}}</strong></p>               
+                <p class="title-page fonttitle"><strong>{{trans('content.news')}}</strong></p>               
                 <hr>
             </div>            
         </section>
@@ -20,7 +20,7 @@ navbarx @endsection
                             <img src="{{asset('/asset/img/'.$ourstory->namefile)}}" class="img-story">
                         </div>
                         <div class="col-sm-5 story-box-left">
-                            <p style="color: #e4e41d">{{trans('content.ourstory')}}</p>
+                            <p class=" fonttitle" style="color: #e4e41d">{{trans('content.ourstory')}}</p>
                             <div   class="readmoreabout" style="color: white"><p align="justify">{!! $abouts->desc !!}</p></div>
                             <a href="{{url('/about')}}" class="readmorelink">{{trans('content.readmore')}}</a>
                         </div>
@@ -46,7 +46,7 @@ navbarx @endsection
                                     </div>
                                     <div class="descproduct">
                                         <div class="descoverflow">
-                                            <h4>{{$berita->title}}</h4>
+                                            <h4 class=" fonttitle">{{$berita->title}}</h4>
                                             <hr>
                                             <p>{!!$berita->desc!!}</p>
                                         </div>

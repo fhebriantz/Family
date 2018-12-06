@@ -84,6 +84,33 @@
 								</tr>
 
 								<tr>
+									<td>Hide Price</td>
+									<td>
+										<select class="form-control"  name="hide_price" style="width: 100%">
+									    	<option value="">-- Pilih Kategori --</option>
+									    	<option value="1"
+
+									        	<?php if (1 == $product_detail->hide_price): ?>
+
+										        	<?php echo "selected" ?>
+										        	
+										        <?php endif ?> 
+
+										        >Sembunyikan Harga</option>
+									    	<option value="0"
+
+									        	<?php if (0 == $product_detail->hide_price): ?>
+
+										        	<?php echo "selected" ?>
+										        	
+										        <?php endif ?> 
+
+										        >Tampilkan Harga</option>
+									    </select>
+									</td>
+								</tr>
+
+								<tr>
 									<td>Description</td>
 									<td><textarea id="summernote" name="description">{!! $product_detail->description !!}</textarea></td>
 								</tr>
