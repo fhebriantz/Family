@@ -6,7 +6,7 @@ return [
     'contact' => 'KONTAK',
     'thispage' => 'dalam halaman ini',
     'callme' => 'Hubungi Kami',
-    'seeall' => 'Gulir ke bawah',
+    'seeall' => 'Lihat Semua Produk',
     'about' => 'TENTANG',
     'readmore' => '... Baca lebih lanjut',
     'ourstory' => 'Tentang Kami',

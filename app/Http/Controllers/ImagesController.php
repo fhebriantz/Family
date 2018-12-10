@@ -37,6 +37,21 @@ class ImagesController extends Controller
         return view('pages/cms/highlight/highlightedit', compact('highlight_data'));
     }
 
+    public function show_ambasador(){
+        
+                $change_show = Images::where('flag','=',8)->first();
+                $change_show->is_hide = 0;
+                $change_show->save();
+
+        return  Redirect::back();
+    }
+    public function hide_ambasador(){
+                $change_show = Images::where('flag','=',8)->first();
+                $change_show->is_hide = 1;
+                $change_show->save();
+        return  Redirect::back();
+    }
+
     function view($id)
     {
         $highlight=Images::where('id','=',$id)->first();
@@ -47,9 +62,10 @@ class ImagesController extends Controller
 
     public function showcms(){ 
     	$highlight = Images::all();
+        $is_hide = Images::where('flag','=',8)->first();
         $no = 1;
 
-    	return view('pages/cms/highlight/highlight', compact('highlight','no'));
+    	return view('pages/cms/highlight/highlight', compact('highlight','no','is_hide'));
     }
 
     // menampilkan fungsi input

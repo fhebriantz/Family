@@ -27,11 +27,7 @@
                         @endif
                     	<form method="POST" action="{{url('/cms/mainan/input')}}">
 						{{ csrf_field() }}
-	                        <table class="table">                        
-	                            <tr>
-									<td>Title</td>
-									<td><input type="text" name="nama_mainan" placeholder="Title" style="width: 100%" value="{{ old('nama_mainan') }}"></td>
-								</tr>
+	                        <table class="table">       
 
                                 <tr>
                                     <td>Category Product</td>
@@ -43,6 +39,10 @@
                                             @endforeach
                                         </select>
                                     </td>
+                                </tr>                 
+                                <tr>
+                                    <td>Title</td>
+                                    <td><input type="text" name="nama_mainan" placeholder="Title" style="width: 100%" value="{{ old('nama_mainan') }}"></td>
                                 </tr>
 
 								<tr>

@@ -1,6 +1,7 @@
 .fonttitle{
 	font-family: 'Montserrat', sans-serif;
 }
+
 /*========================================================================================================*/
 .video-container {
 position: relative;
@@ -16,6 +17,15 @@ top: 0;
 left: 0;
 width: 100%;
 height: 100%;
+}
+
+.btn-product{
+	width: 100%; 
+	background: #dcdcdc;
+}
+.btn-product:hover{
+	color: #000 !important;
+    text-decoration: none;
 }
 
 .instamobile{
@@ -150,7 +160,7 @@ body {top:0 !important;}
 }
 
 .margintop{
-	margin-top: 90px;
+	margin-top: 110px;
 }
 
 .div-expand{
@@ -545,6 +555,11 @@ footer
 	text-decoration: none;
 }
 
+.sidebarsub a:focus{
+	color: #eac000;
+	text-decoration: none;
+}
+
 .productbs:before,.productbw:before,.productbc:before,.productroc:before,.producttrc:before {
 	content: "+";
 	margin-right: 4px;
@@ -773,7 +788,7 @@ footer
 
 	.sante{
 		padding: 0px !important;
-		font-size: 15px !important;
+		font-size: 13px !important;
 		background-color: inherit !important;
 		color: #ffd826 !important;
 		text-decoration: none !important;
@@ -875,7 +890,7 @@ footer
 
 	.sante{
 		padding: 0px !important;
-		font-size: 13px !important;
+		font-size: 12px !important;
 		background-color: inherit !important;
 		color: #ffd826 !important;
 		text-decoration: none !important;
@@ -1187,7 +1202,7 @@ footer
 	}
 
 	.marmin{
-		margin-top: 130px !important;
+		margin-top: 110px !important;
 		margin-bottom: 20px;
 	}
 

@@ -13,7 +13,13 @@
     <div class="col-md-12 top-20 padding-0">
         <div class="col-md-12">
             <div class="panel">
-                <div class="panel-heading"><h3>Data Images</h3></div>
+                <div class="panel-heading"><h3>Data Images</h3> 
+                    @if($is_hide->is_hide == 0)
+                    <a href="{{url('/cms/highlight/hide_ambasador')}}"><button type="button" class="btn btn-default" style="margin-bottom: 10px; background-color: #bbb !important; color: #fff !important;">Hide Brand Ambassador</button></a>
+                    @else
+                    <a href="{{url('/cms/highlight/show_ambasador')}}"><button type="button" class="btn btn-primary" style="margin-bottom: 10px;">Show Brand Ambassador</button></a>
+                    @endif</h3>
+                </div>
                 <div class="panel-body">
                     <div class="responsive-table">
                         <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">                        

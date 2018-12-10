@@ -8,6 +8,8 @@ use App\Http\Model\Product_detail;
 use App\Http\Model\Category_subproduct;
 use App\Http\Model\Category_product;
 use App\Http\Model\Mainan;
+use Response;
+use Illuminate\Support\Facades\Input;
 use Session;
 
 use App\Http\Model\Sandaran;
@@ -17,6 +19,27 @@ use App;
 
 class Web_ProductController extends Controller
 {
+
+    
+    public function tes(){ 
+
+        $category_product=Category_product::all();
+
+        return view('pages/dashboard/index', compact('category_product'));
+    }
+    public function mainan_ajax(){ 
+
+        $cat_id = Input::get('cat_id');
+        $subcategories = Mainan::where('id_category','=',$cat_id)->get();
+        return Response::json($subcategories);
+    }
+
+    public function ban_ajax(){ 
+
+        $cat_id = Input::get('cat_id');
+        $ban = Ban::where('id_category','=',$cat_id)->get();
+        return Response::json($ban);
+    }
   
     function view($id)
     {
@@ -34,7 +57,7 @@ class Web_ProductController extends Controller
         $product_detail = Product_detail::getTableDetailweb();
         $product_head = Product_detail::getTableDetailweb()->first();
         $catpro = Category_product::all();
-        $subcat = null;
+        $subcat = Category_subproduct::getTableSub()->where('id','=',3)->first();
         $cat = null;
         $allcat = "1";
         $mainan = Mainan::all();
@@ -54,7 +77,7 @@ class Web_ProductController extends Controller
         $mainan = Mainan::all();
         $sandaran = Sandaran::all();
         $ban = Ban::all();
-        return view('pages/web/product/product', compact('subcat','cat','allcat','product_detail','product_head','tricycle','catpro','mainan','sandaran','ban'));
+        return view('pages/web/product/productcat', compact('subcat','cat','allcat','product_detail','product_head','tricycle','catpro','mainan','sandaran','ban'));
     }
     // Main List ============= Main List =========== Main List ============= Main List
     public function show_list_main_prod($id){

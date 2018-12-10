@@ -27,12 +27,7 @@
                         @endif
                     	<form method="POST" action="{{url('/cms/mainan/'.$mainan_data->id.'/edit')}}">
 						{{ csrf_field() }}
-	                        <table class="table">                        
-	                            <tr>
-									<td>Title</td>
-									<td><input type="text" name="nama_mainan" placeholder="Title" style="width: 100%"  value="{{ $mainan_data->nama_mainan }}"></td>
-								</tr>
-                                <tr>
+	                        <table class="table">                                 <tr>
                                     <td>Category Product</td>
                                     <td> <!-- select class form control untuk membuat combo box -->
                                         <select name="id_category"  class="form-control" style="width: 100%">
@@ -50,7 +45,12 @@
                                             @endforeach
                                         </select>
                                     </td>
+                                </tr>                       
+                                <tr>
+                                    <td>Title</td>
+                                    <td><input type="text" name="nama_mainan" placeholder="Title" style="width: 100%"  value="{{ $mainan_data->nama_mainan }}"></td>
                                 </tr>
+
 
 								<tr>
 									<td></td>

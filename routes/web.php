@@ -5,10 +5,20 @@ use App\Http\Model\Category_product;
 Route::get('/', 'Controller@method')
     ->name('my_route_name');
     
+// Ajax WEB
+Route::get('/tes_category', 'Web\Web_ProductController@tes');
+Route::get('/ajax-mainan', 'Web\Web_ProductController@mainan_ajax');
+Route::get('/ajax-ban', 'Web\Web_ProductController@ban_ajax');
+Route::get('product/ajax-mainan', 'Web\Web_ProductController@mainan_ajax');
+Route::get('product/ajax-ban', 'Web\Web_ProductController@ban_ajax');
+Route::get('product/category/ajax-mainan', 'Web\Web_ProductController@mainan_ajax');
+Route::get('product/category/ajax-ban', 'Web\Web_ProductController@ban_ajax');
 
-Route::get('/tes_category', 'Category_subproductController@tes');
-Route::get('/ajax-mainan', 'Category_subproductController@mainan_ajax');
-Route::get('/ajax-ban', 'Category_subproductController@ban_ajax');
+
+// Ajax CMS
+Route::get('/cms/product/subproduct/detail/ajax-catpro', 'Product_detailController@catpro_ajax');
+Route::get('/cms/product/subproduct/detail/ajax-mainan', 'Product_detailController@mainan_ajax');
+Route::get('/cms/product/subproduct/detail/ajax-ban', 'Product_detailController@ban_ajax');
 
 
 Route::get('product/category/{id}','Web\Web_ProductController@show_list_category_prod'); 
@@ -24,6 +34,7 @@ Route::get('/bahasa', 'Web\Web_IndexController@bahasa');
 Route::get('/logout', 'LogoutController@index');
 
 Route::get('/product/filter','Web\Web_ProductController@filter');
+Route::get('/product/search','Web\Web_ProductController@search');
 
 Auth::routes();
 
@@ -133,6 +144,10 @@ Route::get('/highlights', 'ImagesController@show');
 Route::get('cms/highlight', 'ImagesController@showcms'); 
 // menampilkan form input di cms
 Route::get('cms/highlight/input', 'ImagesController@input');
+// show image
+Route::get('cms/highlight/show_ambasador', 'ImagesController@show_ambasador');
+// hide image
+Route::get('cms/highlight/hide_ambasador', 'ImagesController@hide_ambasador');
 // menampilkan form edit di cms
 Route::get('cms/highlight/{id}/edit','ImagesController@edit');  
 // menampilkan form view di cms
@@ -199,6 +214,7 @@ Route::get('cms/product/subproduct/detail', 'Product_detailController@showcms');
 Route::get('cms/product/show_price', 'Product_detailController@show_price'); 
 // hide price
 Route::get('cms/product/hide_price', 'Product_detailController@hide_price'); 
+
 // menampilkan form input di cms
 Route::get('cms/product/subproduct/detail/input', 'Product_detailController@input');
 // menampilkan form edit di cms
@@ -296,7 +312,7 @@ Route::put('cms/faq/{id}/edit','FaqController@update');
 // menampilkan tabel slidertext di cms
 Route::get('cms/slidertext', 'SlidertextController@show_slidertext'); 
 // menampilkan form edit di cms
-Route::get('cms/slidertext/{id}/edit','SlidertextController@edit_slidertext');  
+Route::get('cms/slidertext/{id}/edit','SlidertextController@edit_slidertext');   
 
 // Images===========FUNGSI=======================
 // memanggil fungsi update

@@ -21,35 +21,44 @@ navbarx @endsection
                                 <p><strong>{{trans('content.product')}}</strong></p>
                                 <ul class="sidebarsub">
                                      @foreach($catpro as $cats)     
-                                        <li class="producttrc">{{$cats->category_product_name}}
-                                            <ul class="producttrc-ex">
+                                    <li class="producttrc">{{$cats->category_product_name}}
+                                        <ul class="producttrc-ex"
+    
+    @if($product_detail->id_category == $cats->id)
+    style="display: block;"
+    @else
+    @endif>
 
         <?php $subpro = App\Http\Model\Category_subproduct::all()->where('id_category','=',$cats->id); ?>
 
-                                                @foreach($subpro as $listsub)
-                                                    <li><a href="{{url('/product/category/'.$listsub->id)}}">{{$listsub->category_subproduct_name}}</a></li>
-                                                @endforeach
-                                            </ul>
-                                        </li>
-                                    @endforeach                        
+                                            @foreach($subpro as $listsub)
+                                                <li><a href="{{url('/product/category/'.$listsub->id)}}" 
+
+    @if($product_detail->id_category_sub == $listsub->id)
+    style="color: #eac000"
+    @else
+    @endif
+
+                                                    >{{$listsub->category_subproduct_name}}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @endforeach                       
                                 </ul>
                                 
                                 <?php use Illuminate\Support\Facades\Input; ?>
                                 <form method="GET" action="{{url('/product/filter')}}">
                                 <div style="width: 100%; height: auto; padding: 5px; font-size: 11px; color: black !important;">
                                         <p>{{trans('content.category')}}</p>
-                                        <select name="category" id="" class="form-control" style="margin-bottom: 5px;">
+                                        <select name="category" id="category" class="form-control" style="margin-bottom: 5px;">
                                             <option value="">{{trans('content.select')}} {{trans('content.category')}}</option>
                                             @foreach($catpro as $cat)
                                                 <option value="{{$cat->id}}" {{ (Input::old("category") == $cat->id ? "selected":"") }}>{{$cat->category_product_name}}</option>
                                             @endforeach
                                         </select>
                                         <p>{{trans('content.toy')}}</p>
-                                        <select name="mainan" id="" class="form-control" style="margin-bottom: 5px;">
+                                        <select name="mainan" id="mainan" class="form-control" style="margin-bottom: 5px;">
                                             <option value="">{{trans('content.select')}} {{trans('content.toy')}}</option>
-                                            @foreach($mainan as $main)
-                                                <option value="{{$main->id}}">{{$main->nama_mainan}}</option>
-                                            @endforeach
                                         </select>
                                         <div style="display: none;">
                                             <p>{{trans('content.backrest')}}</p>
@@ -61,12 +70,20 @@ navbarx @endsection
                                             </select>
                                         </div>
                                         <p>{{trans('content.tire')}}</p>
-                                        <select name="ban" id="" class="form-control" style="margin-bottom: 5px;">
+                                        <select name="ban" id="ban" class="form-control" style="margin-bottom: 5px;">
                                             <option value="">{{trans('content.select')}} {{trans('content.tire')}}</option>
-                                            @foreach($ban as $ba)
-                                                <option value="{{$ba->id}}">{{$ba->nama_ban}}</option>
-                                            @endforeach
                                         </select>
+
+                                        <p>{{trans('content.sortby')}}</p>
+                                        <select name="sortby" id="" class="form-control" style="margin-bottom: 5px;">
+                                            <option value="">{{trans('content.select')}} {{trans('content.category')}}</option>
+                                            <option value="1">Name A-Z</option>
+                                            <option value="2">Name Z-A</option>
+                                            <option value="3">Date A-Z</option>
+                                            <option value="4">Date Z-A</option>
+                                        </select>
+
+                                {{csrf_field()}}
                                 </div>
                                 <input class="btn" name="submit" value="Filter" type="submit" style="padding: 5px; width: 100%" >
                                 </form>
@@ -101,13 +118,13 @@ navbarx @endsection
             <div class="container">
                 <div class="row">
                     <div class="col-xs-6">
-                        <a class="" data-fancybox data-src="#popup-product" href="javascript:;" style="color: #989898">
-                            <button class="btn" style="width: 100%; background: #dcdcdc;">Product</button>
+                        <a class="" data-fancybox data-src="#popup-product" href="javascript:;" style="color: #000">
+                            <button class="btn btn-product" >Product</button>
                         </a>
                     </div>
                     <div class="col-xs-6">
-                         <a class="" data-fancybox data-src="#popup-filter" href="javascript:;" style="color: #989898">
-                            <button class="btn" style="width: 100%; background: #dcdcdc;">Filter</button>
+                         <a class="" data-fancybox data-src="#popup-filter" href="javascript:;" style="color: #000">
+                            <button class="btn btn-product">Filter</button>
                         </a>
                     </div>
                 </div>
@@ -124,39 +141,48 @@ navbarx @endsection
                                                                 <a class="collapsed" href="#expand-{{$cats->id}}" id="more" data-toggle="collapse"> <strong>{{$cats->category_product_name}}</strong>
                                                                     
                                                                 </a>
-                                                                <ul id="expand-{{$cats->id}}" class="collapse">
+                                                                <ul id="expand-{{$cats->id}} " class="collapse"
+    @if($product_detail->id_category == $cats->id)
+    style="display: block;"
+    @else
+    @endif
+                                                                    >
 
                                 <?php $subpro = App\Http\Model\Category_subproduct::all()->where('id_category','=',$cats->id); ?>
 
                                                                     @foreach($subpro as $listsub)
-                                                                        <li class="li-isi"><a href="{{url('/product/category/'.$listsub->id)}}">{{$listsub->category_subproduct_name}}</a></li>
+                                                                        <li class="li-isi"><a href="{{url('/product/category/'.$listsub->id)}}"
+
+    @if($product_detail->id_category_sub == $listsub->id)
+    style="color: #00ffde !important;
+    font-weight: bold;"
+    @else
+    @endif
+                                                                    >{{$listsub->category_subproduct_name}}</a></li>
                                                                     @endforeach
                                                                 </ul>
                                                             </li>
                                                            
-                                                        @endforeach                             
+                                                        @endforeach                               
                                                         </ul>
                                             </div>
                                     </div>   
 <!-- ===================================================================== End Popup Product -->
 
 <!-- ====================================================================== Start Popup Filter -->
-                                     <div class="div-expand"  id="popup-filter">
+                                    <div class="div-expand"  id="popup-filter">
                                         <form method="GET" action="{{url('/product/filter')}}">
                                             <div style="width: 100%; height: auto; padding: 5px; font-size: 14px; color: #fed400 !important;">
                                                     <p>{{trans('content.category')}}</p>
-                                                    <select name="category" id="" class="form-control" style="margin-bottom: 5px;">
+                                                    <select name="category" id="categorys" class="form-control" style="margin-bottom: 5px;">
                                                         <option value="">{{trans('content.select')}} {{trans('content.category')}}</option>
                                                         @foreach($catpro as $cat)
                                                             <option value="{{$cat->id}}" {{ (Input::old("category") == $cat->id ? "selected":"") }}>{{$cat->category_product_name}}</option>
                                                         @endforeach
                                                     </select>
                                                     <p>{{trans('content.toy')}}</p>
-                                                    <select name="mainan" id="" class="form-control" style="margin-bottom: 5px;">
+                                                    <select name="mainan" id="mainans" class="form-control" style="margin-bottom: 5px;">
                                                         <option value="">{{trans('content.select')}} {{trans('content.toy')}}</option>
-                                                        @foreach($mainan as $main)
-                                                            <option value="{{$main->id}}">{{$main->nama_mainan}}</option>
-                                                        @endforeach
                                                     </select>
                                                     <div style="display: none;">
                                                     <p>{{trans('content.backrest')}}</p>
@@ -168,11 +194,8 @@ navbarx @endsection
                                                     </select>
                                                     </div>
                                                     <p>{{trans('content.tire')}}</p>
-                                                    <select name="ban" id="" class="form-control" style="margin-bottom: 5px;">
+                                                    <select name="ban" id="bans" class="form-control" style="margin-bottom: 5px;">
                                                         <option value="">{{trans('content.select')}} {{trans('content.tire')}}</option>
-                                                        @foreach($ban as $ba)
-                                                            <option value="{{$ba->id}}">{{$ba->nama_ban}}</option>
-                                                        @endforeach
                                                     </select>
                                                     <p>{{trans('content.sortby')}}</p>
                                                     <select name="sortby" id="" class="form-control" style="margin-bottom: 5px;">
@@ -187,4 +210,100 @@ navbarx @endsection
                                         </form>
                                     </div>   
 <!-- ====================================================================== END Popup Filter -->
+@endsection
+@section('scripts')
+<script type="text/javascript">
+            $('li.producttrc').click(function() {
+               $('li.producttrc').not(this).find('ul').hide();
+               $(this).find('ul').toggle();
+            });
+</script>
+<script type="text/javascript">
+            $('.li-pop').click(function() {
+               $('.li-pop').not(this).find('ul').hide();
+               $(this).find('ul').toggle();
+            });
+</script>
+
+<script>
+    $('#category').on('change',function(e){
+      console.log(e);
+
+      var cat_id = e.target.value;
+
+      // ajax
+      $.get('ajax-mainan?cat_id=' + cat_id, function(data){
+        // success data
+        $('#mainan').empty();
+        $('#mainan').append('<option value="">{{trans('content.select')}} {{trans('content.toy')}}</option>');
+        $.each(data, function(index, mainanObj){
+
+          $('#mainan').append('<option value="'+mainanObj.id+'">'+mainanObj.nama_mainan+'</option>');
+
+        });
+
+      });
+
+    });
+
+    $('#category').on('change',function(e){
+      console.log(e);
+
+      var cat_id = e.target.value;
+
+      // ajax
+      $.get('ajax-ban?cat_id=' + cat_id, function(data){
+        // success data
+        $('#ban').empty();
+        $('#ban').append('<option value="">{{trans('content.select')}} {{trans('content.tire')}}</option>');
+        $.each(data, function(index, banObj){
+
+          $('#ban').append('<option value="'+banObj.id+'">'+banObj.nama_ban+'</option>');
+
+        });
+
+      });
+
+    });
+
+    $('#categorys').on('change',function(e){
+      console.log(e);
+
+      var cat_id = e.target.value;
+
+      // ajax
+      $.get('ajax-mainan?cat_id=' + cat_id, function(data){
+        // success data
+        $('#mainans').empty();
+        $('#mainans').append('<option value="">{{trans('content.select')}} {{trans('content.toy')}}</option>');
+        $.each(data, function(index, mainanObj){
+
+          $('#mainans').append('<option value="'+mainanObj.id+'">'+mainanObj.nama_mainan+'</option>');
+
+        });
+
+      });
+
+    });
+
+     $('#categorys').on('change',function(e){
+      console.log(e);
+
+      var cat_id = e.target.value;
+
+      // ajax
+      $.get('ajax-ban?cat_id=' + cat_id, function(data){
+        // success data
+        $('#bans').empty();
+        $('#bans').append('<option value="">{{trans('content.select')}} {{trans('content.tire')}}</option>');
+        $.each(data, function(index, banObj){
+
+          $('#bans').append('<option value="'+banObj.id+'">'+banObj.nama_ban+'</option>');
+
+        });
+
+      });
+
+    });
+  </script>
 @endsection

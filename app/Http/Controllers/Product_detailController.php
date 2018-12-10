@@ -31,6 +31,26 @@ class Product_detailController extends Controller
         $this->middleware('logincheck');
     }
 
+    public function catpro_ajax(){ 
+
+        $cat_id = Input::get('cat_id');
+        $sub = Category_subproduct::where('id_category','=',$cat_id)->get();
+        return Response::json($sub);
+    }
+    public function mainan_ajax(){ 
+
+        $cat_id = Input::get('cat_id');
+        $subcategories = Mainan::where('id_category','=',$cat_id)->get();
+        return Response::json($subcategories);
+    }
+
+    public function ban_ajax(){ 
+
+        $cat_id = Input::get('cat_id');
+        $ban = Ban::where('id_category','=',$cat_id)->get();
+        return Response::json($ban);
+    }
+
 
     public function show(){ 
     	$product_detail = Product_detail::all();
@@ -88,11 +108,12 @@ class Product_detailController extends Controller
     function edit($id)
     {
     	$product_detail=Product_detail::where('id','=',$id)->first();
+        $cat_id = $product_detail->id_category;
         $category_product=Category_product::all();
-        $category_subproduct=Category_subproduct::getTableSub();
-        $mainan = Mainan::all();
+        $category_subproduct=Category_subproduct::getTableSub()->where('id_category','=',$cat_id);
+        $mainan = Mainan::all()->where('id_category','=',$cat_id);
         $sandaran = Sandaran::all();
-        $ban = Ban::all();
+        $ban = Ban::all()->where('id_category','=',$cat_id);
         $no = 1;
         $nos = 1;
     	return view('pages/cms/detail_product/detailedit', compact('product_detail','category_product','category_subproduct','no','nos','mainan','sandaran','ban'));

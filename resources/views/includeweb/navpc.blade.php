@@ -47,9 +47,9 @@
 
               </ul>
             </div>
-             <div  class=" navbar-right" style=" background-color: #0db14b !important; padding: 2px 5px ;">
+             <!-- <div  class=" navbar-right" style=" background-color: #0db14b !important; padding: 2px 5px ;">
               <a style="color: #ffd826; text-decoration: none;"><strong class="font16 fonttitle">{{trans('header.language')}}</strong></a>
               <a href="{{url('/../family_en')}}"><img src="{{ asset('assets/img/eng.png')}}" style="height: 15px; width: 20px;" alt=""></a>
               <a href="{{url('/../family')}}"><img src="{{ asset('assets/img/ina.png')}}" style="height: 15px; width: 20px;" alt=""></a>
-             </div>
+             </div> -->
           </div><!-- /.container-fluid -->

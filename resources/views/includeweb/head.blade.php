@@ -7,9 +7,10 @@
 <meta name="keywords"  content="family" />
 <meta name="Resource-type" content="Document" />
 <link rel="icon" href="{{ asset('assets/favicon.ico')}}">
+<link rel="shortcut icon" href="{{ asset('assets/img/logo.png')}}">
 <link rel="stylesheet" href="{{ asset('assets/css/smoothproducts.css?v=1.001')}}">
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css')}}"/>
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=1.148')}}"/> 
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css?v=1.156')}}"/> 
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jssor.css')}}"/>    
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.min.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.fancybox.min.css')}}">

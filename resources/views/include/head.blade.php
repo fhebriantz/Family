@@ -12,10 +12,10 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('asset/css/plugins/font-awesome.min.css')}}"/>
   <link rel="stylesheet" type="text/css" href="{{ asset('asset/css/plugins/datatables.bootstrap.min.css')}}"/>
   <link rel="stylesheet" type="text/css" href="{{ asset('asset/css/plugins/animate.min.css')}}"/>
-  <link href="{{ asset('asset/css/style.css?v=1.007')}}" rel="stylesheet">
+  <link href="{{ asset('asset/css/style.css?v=1.009')}}" rel="stylesheet">
   <!-- end: Css -->
 
-  <link rel="shortcut icon" href="{{ asset('asset/img/logomi.png')}}">
+<link rel="shortcut icon" href="{{ asset('assets/img/logo.png')}}">
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

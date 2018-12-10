@@ -1,7 +1,3 @@
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3 col-xs-3 marginbottomx">
-                        <div class="brandambasador">
                             <?php 
                             use Illuminate\Http\Request;
                             use App\Http\Controllers\Controller;
@@ -19,8 +15,17 @@
                             $sponsor4 = Images::where('flag','=',12)->first();
                             $sponsor5 = Images::where('flag','=',13)->first();
                              ?>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 col-xs-3 marginbottomx">
+                        @if($ambassador->is_hide == 0)
+                        <div class="brandambasador">
+                            
                             <img src="{{ asset('/asset/img/'.$ambassador->namefile)}}" alt="kak seto">
                         </div>
+                        @else
+                        @endif
+                        
                     </div>
                     <div class="col-sm-5 col-xs-9 marginbottomx mobilepading">
                         <div class="form-question">
@@ -50,9 +55,9 @@
                             </form>
                         </div>
                         <div class="social-media">
-                            <a href=""><img src="{{ asset('assets/img/fb.png')}}"></a>
-                            <a href=""><img src="{{ asset('assets/img/ig.png')}}"></a>
-                            <a href=""><img src="{{ asset('assets/img/in.png')}}"></a>
+                            <a href="https://facebook.com/"><img src="{{ asset('assets/img/fb.png')}}"></a>
+                            <a href="https://instagram.com/"><img src="{{ asset('assets/img/ig.png')}}"></a>
+                            <a href="https://twitter.com/"><img src="{{ asset('assets/img/tw.png')}}"></a>
                         </div>
                     </div>
                     <div class="col-sm-4 col-xs-12">

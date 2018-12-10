@@ -27,11 +27,7 @@
                         @endif
                         <form method="POST" action="{{url('/cms/ban/'.$ban_data->id.'/edit')}}">
                         {{ csrf_field() }}
-                            <table class="table">                        
-                                <tr>
-                                    <td>Title</td>
-                                    <td><input type="text" name="nama_ban" placeholder="Title" style="width: 100%"  value="{{ $ban_data->nama_ban }}"></td>
-                                </tr>
+                            <table class="table">    
 
                                 <tr>
                                     <td>Category Product</td>
@@ -51,6 +47,10 @@
                                             @endforeach
                                         </select>
                                     </td>
+                                </tr>                    
+                                <tr>
+                                    <td>Title</td>
+                                    <td><input type="text" name="nama_ban" placeholder="Title" style="width: 100%"  value="{{ $ban_data->nama_ban }}"></td>
                                 </tr>
 
                                 <tr>

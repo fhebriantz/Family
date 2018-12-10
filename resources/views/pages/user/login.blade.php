@@ -1,4 +1,21 @@
 @extends('layouts.cmslogin')
+@section('header')
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<style>
+  .rc-anchor-normal{
+  width: 278px !important
+}
+.rc-anchor-normal .rc-anchor-checkbox-label{
+  width: 100px !important
+}
+.rc-anchor-normal .rc-anchor-content{
+  width: 155px !important
+}
+.rc-anchor-normal .rc-anchor-pt{
+  margin: 2px 64px 0 0 !important;
+}
+</style>
+@endsection
 
 @section('content')
 
@@ -25,11 +42,15 @@
                     <span class="bar"></span>
                     <p style="padding-top: 10px; color: #fff"><strong>{{session()->get('message')}}</strong></p>
                   </div>
-                  <input type="submit" name="login" class="btn col-md-12" value="LOGIN"/>
+                    <div class="g-recaptcha" data-sitekey="6Le40X8UAAAAAC5C8XCDzD81hmvo6u0B37Pj16Ef"></div>
+                    <p style="padding-top: 10px; color: #fff"><strong>{{ session('captcha')}}</strong></p>
+                    <input type="submit" name="login" class="btn col-md-12" value="LOGIN"/>
               </div>
           </div>
         </form>
 
       </div>
 
+@endsection
+@section('scripts')
 @endsection

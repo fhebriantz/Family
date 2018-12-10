@@ -6,7 +6,7 @@ return [
     'contact' => 'CONTACT',
     'thispage' => 'in this page',
     'callme' => 'Contact Us',
-    'seeall' => 'Scroll to bottom',
+    'seeall' => 'See All Products',
     'about' => 'ABOUT',
     'readmore' => '...Read More',
     'ourstory' => 'Our Story',

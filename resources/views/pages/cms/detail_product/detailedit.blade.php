@@ -2,6 +2,7 @@
 
 @section('header')
 <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 @endsection
 
 
@@ -36,7 +37,7 @@
 								<tr>
 									<td>Category Product</td>
 									<td> <!-- select class form control untuk membuat combo box -->
-									    <select name="id_category"  class="form-control" style="width: 100%">
+									    <select name="id_category" id="id_category"  class="form-control" style="width: 100%">
 									    	<option>-- Pilih Kategori --</option>
 									        @foreach($category_product as $product)
 									        <option value="{{$product->id}}"
@@ -47,7 +48,7 @@
 										        	
 										        <?php endif ?> 
 
-										    	>{{$nos++}}.  {{$product->category_product_name}}</option>
+										    	>{{$product->category_product_name}}</option>
 									        @endforeach
 									    </select>
 									</td>
@@ -56,7 +57,7 @@
 								<tr>
 									<td>Category Sub Product</td>
 									<td> <!-- select class form control untuk membuat combo box -->
-									    <select name="id_category_sub" class="form-control"  style="width: 100%">
+									    <select name="id_category_sub" id="id_category_sub" class="form-control"  style="width: 100%">
 									    	<option>-- Pilih Kategori --</option>
 									        @foreach($category_subproduct as $subproduct)
 									        <option value="{{$subproduct->id}}"
@@ -67,7 +68,7 @@
 										        	
 										        <?php endif ?> 
 
-										        >{{$no++}}.  {{$subproduct->category_product_name}} - {{$subproduct->category_subproduct_name}}</option>
+										        >{{$subproduct->category_product_name}} - {{$subproduct->category_subproduct_name}}</option>
 									        @endforeach
 									    </select>
 									</td>
@@ -135,10 +136,10 @@
 									</td>
 								</tr>
 
-								<tr>
+								<tr style="display: none;">
 									<td>Tag HandGrip</td>
 									<td> <!-- select class form control untuk membuat combo box -->
-									    <select class="form-control"  name="id_sandaran" style="width: 100%">
+									    <select class="form-control" id="id_mainan"  name="id_sandaran" style="width: 100%">
 									    	<option value="">-- Pilih Kategori --</option>
 									        @foreach($sandaran as $sandar)
 									        <option value="{{$sandar->id}}"
@@ -158,7 +159,7 @@
 								<tr>
 									<td>Tag Ban</td>
 									<td> <!-- select class form control untuk membuat combo box -->
-									    <select class="form-control"  name="id_ban" style="width: 100%">
+									    <select class="form-control" id="id_ban"  name="id_ban" style="width: 100%">
 									    	<option value="">-- Pilih Kategori --</option>
 									        @foreach($ban as $ba)
 									        <option value="{{$ba->id}}"
@@ -262,4 +263,61 @@
   $('#summernote').summernote();
 });
 </script>
+
+<script>
+    $('#id_category').on('change',function(e){
+      console.log(e);
+
+      var cat_id = e.target.value;
+
+      // ajax
+      $.get('../ajax-catpro?cat_id=' + cat_id, function(data){
+        // success data
+        $('#id_category_sub').empty();
+        $.each(data, function(index, subproObj){
+
+          $('#id_category_sub').append('<option value="'+subproObj.id+'">'+subproObj.category_subproduct_name+'</option>');
+
+        });
+
+      });
+
+    });$('#id_category').on('change',function(e){
+      console.log(e);
+
+      var cat_id = e.target.value;
+
+      // ajax
+      $.get('ajax-mainan?cat_id=' + cat_id, function(data){
+        // success data
+        $('#id_mainan').empty();
+        $.each(data, function(index, mainanObj){
+
+          $('#id_mainan').append('<option value="'+mainanObj.id+'">'+mainanObj.nama_mainan+'</option>');
+
+        });
+
+      });
+
+    });
+
+    $('#id_category').on('change',function(e){
+      console.log(e);
+
+      var cat_id = e.target.value;
+
+      // ajax
+      $.get('ajax-ban?cat_id=' + cat_id, function(data){
+        // success data
+        $('#id_ban').empty();
+        $.each(data, function(index, banObj){
+
+          $('#id_ban').append('<option value="'+banObj.id+'">'+banObj.nama_ban+'</option>');
+
+        });
+
+      });
+
+    });
+  </script>
 @endsection

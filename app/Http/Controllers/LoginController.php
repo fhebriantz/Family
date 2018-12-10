@@ -9,6 +9,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use Illuminate\Routing\Middleware\LoginCheck;
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Controller;
 use App\Http\Model\User_management;
 use DateTime;
@@ -115,32 +116,42 @@ class LoginController extends Controller
     } 
 
     public function login(Request $request){
+
         $username = $request->username;
         $password = $request->password;
 
-        $checkLogin = User_management::where(['username'=>$username,'password'=>$password])
-        ->select('user_management.*')
-        ->get();
-        if (sizeof($checkLogin) > 0){
-            foreach ($checkLogin as $key => $val) {
+        $token = $request->input('g-recaptcha-response');
 
-                $id_akun = $val->id;
-                $name = $val->name;
-                $username = $val->username;
-                $id_usergroup = $val->id_usergroup;
+        if ($token) {
+            $checkLogin = User_management::where(['username'=>$username,'password'=>$password])
+            ->select('user_management.*')
+            ->get();
+            if (sizeof($checkLogin) > 0){
+                foreach ($checkLogin as $key => $val) {
 
-                $request->session()->put('session_login', true);
-                $request->session()->put('session_id', $id_akun);
-                $request->session()->put('session_name', $name);
-                $request->session()->put('session_username', $username);
-                $request->session()->put('session_id_group', $id_usergroup);
-                return  redirect('/cms/about');
+                    $id_akun = $val->id;
+                    $name = $val->name;
+                    $username = $val->username;
+                    $id_usergroup = $val->id_usergroup;
+
+                    $request->session()->put('session_login', true);
+                    $request->session()->put('session_id', $id_akun);
+                    $request->session()->put('session_name', $name);
+                    $request->session()->put('session_username', $username);
+                    $request->session()->put('session_id_group', $id_usergroup);
+                    return  redirect('/cms/about');
+                }
             }
+            else{
+                $request->session()->put('message', "Login failed username/password not match");
+                return view('pages/user/login');
+            }
+        }else{
+            $request->session()->flash('captcha', 'Input the reCAPTCHA');
+            return  Redirect::back();
         }
-        else{
-            $request->session()->put('message', "Login failed username/password not match");
-            return view('pages/user/login');
-        }
+
+        
     }
 
     public function logout (Request $request){

@@ -1,36 +1,7 @@
         <script type="text/javascript" src="{{ asset('assets/js/jquery-1.9.1.min.js')}}"></script>
         <script type="text/javascript" src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
         <script type="text/javascript" src="{{ asset('assets/js/jssor.slider.min.js')}}"></script>
-        <script type="text/javascript">
-            $('li.productbs').click(function() {
-               $('li.productbs').not(this).find('ul').hide();
-               $(this).find('ul').toggle();
-            });
-        </script>
-        <script type="text/javascript">
-            $('li.productbw').click(function() {
-               $('li.productbw').not(this).find('ul').hide();
-               $(this).find('ul').toggle();
-            });
-        </script>
-        <script type="text/javascript">
-            $('li.productbc').click(function() {
-               $('li.productbc').not(this).find('ul').hide();
-               $(this).find('ul').toggle();
-            });
-        </script>
-        <script type="text/javascript">
-            $('li.productroc').click(function() {
-               $('li.productroc').not(this).find('ul').hide();
-               $(this).find('ul').toggle();
-            });
-        </script>
-        <script type="text/javascript">
-            $('li.producttrc').click(function() {
-               $('li.producttrc').not(this).find('ul').hide();
-               $(this).find('ul').toggle();
-            });
-        </script>
+        
 
         <script type="text/javascript">
             jQuery(document).ready(function ($) {

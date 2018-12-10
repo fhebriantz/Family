@@ -41,15 +41,29 @@ navbarx @endsection
                                 <p><strong>{{trans('content.product')}}</strong></p>
                                 <ul class="sidebarsub">
 
+    <!-- class hiden : ul-{{$subcat->id_category}} -->
+
 
                                 @foreach($catpro as $cats)     
                                     <li class="producttrc">{{$cats->category_product_name}}
-                                        <ul class="producttrc-ex ul-{{$cats->id}}"id="">
+                                        <ul class="producttrc-ex"
+    
+    @if($subcat->id_category == $cats->id)
+    style="display: block;"
+    @else
+    @endif>
 
         <?php $subpro = App\Http\Model\Category_subproduct::all()->where('id_category','=',$cats->id); ?>
 
                                             @foreach($subpro as $listsub)
-                                                <li><a href="{{url('/product/category/'.$listsub->id)}}">{{$listsub->category_subproduct_name}}</a></li>
+                                                <li><a href="{{url('/product/category/'.$listsub->id)}}" 
+
+    @if($subcat->id == $listsub->id)
+    style="color: #eac000"
+    @else
+    @endif
+
+                                                    >{{$listsub->category_subproduct_name}}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
@@ -186,12 +200,23 @@ navbarx @endsection
                                                                 <a class="collapsed" href="#expand-{{$cats->id}}" id="more" data-toggle="collapse"> <strong>{{$cats->category_product_name}}</strong>
                                                                     
                                                                 </a>
-                                                                <ul id="expand-{{$cats->id}}" class="collapse">
+                                                                <ul id="expand-{{$cats->id}} " class="collapse"
+    @if($subcat->id_category == $cats->id)
+    style="display: block;"
+    @else
+    @endif
+                                                                    >
 
                                 <?php $subpro = App\Http\Model\Category_subproduct::all()->where('id_category','=',$cats->id); ?>
 
                                                                     @foreach($subpro as $listsub)
-                                                                        <li class="li-isi"><a href="{{url('/product/category/'.$listsub->id)}}">{{$listsub->category_subproduct_name}}</a></li>
+                                                                        <li class="li-isi"><a href="{{url('/product/category/'.$listsub->id)}}"
+    @if($subcat->id == $listsub->id)
+    style="color: #00ffde !important;
+    font-weight: bold;"
+    @else
+    @endif
+                                                                    >{{$listsub->category_subproduct_name}}</a></li>
                                                                     @endforeach
                                                                 </ul>
                                                             </li>
@@ -260,6 +285,7 @@ navbarx @endsection
                $(this).find('ul').toggle();
             });
 </script>
+
 <script type="text/javascript">
             $('.li-pop').click(function() {
                $('.li-pop').not(this).find('ul').hide();

@@ -23,8 +23,8 @@
   </div> 
   
 </div><!-- /.container-fluid -->
-<div   style="float: right;">
+<!-- <div   style="float: right;">
               <a style="color: #ffd826; text-decoration: none;"><strong class="font16 fonttitle">{{trans('header.language')}}</strong></a>
               <a href="{{url('/../family_en')}}"><img src="{{ asset('assets/img/eng.png')}}" style="height: 15px; width: 20px;" alt=""></a>
               <a href="{{url('/../family')}}"><img src="{{ asset('assets/img/ina.png')}}" style="height: 15px; width: 20px;" alt=""></a>
-             </div>
+             </div> -->
